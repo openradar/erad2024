@@ -1,83 +1,63 @@
-<img src="thumbnail.png" alt="thumbnail" width="300"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Norman_Doppler_Radar_-_NOAA.jpg/640px-Norman_Doppler_Radar_-_NOAA.jpg" alt="thumbnail" width="300"/>
 
-# (Replace_with_your_title) Cookbook
+# ERAD 2024 Open Radar Science Shortcourse
 
-[![nightly-build](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
-[![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/cookbook-template/main?labpath=notebooks)
-[![DOI](https://zenodo.org/badge/475509405.svg)](https://zenodo.org/badge/latestdoi/475509405)
+[![nightly-build](https://github.com/openradar/erad2024/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
+[![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/openradar/erad2024/main?labpath=notebooks)
 
-This Project Pythia Cookbook covers ... (replace `...` with the main subject of your cookbook ... e.g., _working with radar data in Python_)
+This tutorial covers how to get started with the Open Radar Science stack!
 
 ## Motivation
 
-(Add a few sentences stating why this cookbook will be useful. What skills will you, "the chef", gain once you have reached the end of the cookbook?)
+The course will take place on 8 September 2024, the day before the [2024 ERAD Radar Conference](https://www.erad2024.it/). The course will discuss the principles of open science and provide an overview of the most mature and exciting software packages available for radar data processing (ex. LROSE, Py-ART, pyrad, BALTRAD, wradlib) and how they connect with the scientific software stack.
 
-## Authors
+The course will be built with Jupyter Notebooks as hands-on approach for interactive user experience. The main course programming language is Python, but also Command Line Tools are used. 
 
-[First Author](@first-author), [Second Author](@second-author), etc. _Acknowledge primary content authors here_
+The course will also highlight the “xradar” package, implementing the newly adopted FM301/CfRadial2 WMO standard, as well as the gpm-api software, which facilitates the
+download and analysis of TRMM PR and GPM DPR spaceborne radars data. These two tools will be used to showcase how to harness the power of xarray and dask for efficient, distributed radar data processing.
+
+The course will cover operational use (e.g. in HPC environments or Cloud Infrastructure) as well as algorithm development, enabling the participants to implement their own algorithms.
+
+The course will also show how to create workflows for different aspects of weather radar
+data processing, using open datasets relevant to the attendees and ERAD 2024.
+
+
+## List of Instructors
+
+- Alfonso Ladino, University of Illinois at Urbana-Champaign (UIUC)
+- Anna del Moral Méndez, National Center for Atmospheric Research (NCAR)
+- Brenda Javornik, National Center for Atmospheric Research (NCAR)
+- Daniel Michelson, Environment and Climate Change Canada (ECCC)
+- Daniel Wolfensberger, MeteoSwiss
+- Gionata Ghiggi, Ecole polytechnique fédérale de Lausanne (EPFL)
+- Jen DeHart, Colorado State University (CSU)
+- Jordi Figueras i Ventura, independent radar scientist
+- Julian Giles, University of Bonn
+- Kai Mühlbauer, University of Bonn
+- Maxwell Grover, Argonne National Laboratory
+- Mike Dixon, National Center for Atmospheric Research (NCAR)
+- Robert Jackson, Argonne National Laboratory
+- Scott Collis, Argonne National Laboratory
+- Tung-Yu Cha, National Center for Atmospheric Research (NCAR)
+
 
 ### Contributors
 
-<a href="https://github.com/ProjectPythia/cookbook-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ProjectPythia/cookbook-template" />
+<a href="https://github.com/openradar/erad2024/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=openradar/erad2024" />
 </a>
+
+## Course program
+
+ToDo: add course schedule
 
 ## Structure
 
-(State one or more sections that will comprise the notebook. E.g., _This cookbook is broken up into two main sections - "Foundations" and "Example Workflows."_ Then, describe each section below.)
+### Tool Foundations
+Content relevant to each of the Open Radar packages (ex. Py-ART, wradlib, LROSE, BALTRAD).
 
-### Section 1 ( Replace with the title of this section, e.g. "Foundations" )
+### Example Workflows
+Workflows utilizing the various packages and open radar data.
 
-(Add content for this section, e.g., "The foundational content includes ... ")
-
-### Section 2 ( Replace with the title of this section, e.g. "Example workflows" )
-
-(Add content for this section, e.g., "Example workflows include ... ")
-
-## Running the Notebooks
-
-You can either run the notebook using [Binder](https://binder.projectpythia.org/) or on your local machine.
-
-### Running on Binder
-
-The simplest way to interact with a Jupyter Notebook is through
-[Binder](https://binder.projectpythia.org/), which enables the execution of a
-[Jupyter Book](https://jupyterbook.org) in the cloud. The details of how this works are not
-important for now. All you need to know is how to launch a Pythia
-Cookbooks chapter via Binder. Simply navigate your mouse to
-the top right corner of the book chapter you are viewing and click
-on the rocket ship icon, (see figure below), and be sure to select
-“launch Binder”. After a moment you should be presented with a
-notebook that you can interact with. I.e. you’ll be able to execute
-and even change the example programs. You’ll see that the code cells
-have no output at first, until you execute them by pressing
-{kbd}`Shift`\+{kbd}`Enter`. Complete details on how to interact with
-a live Jupyter notebook are described in [Getting Started with
-Jupyter](https://foundations.projectpythia.org/foundations/getting-started-jupyter.html).
-
-### Running on Your Own Machine
-
-If you are interested in running this material locally on your computer, you will need to follow this workflow:
-
-(Replace "cookbook-example" with the title of your cookbooks)
-
-1. Clone the `https://github.com/ProjectPythia/cookbook-example` repository:
-
-   ```bash
-    git clone https://github.com/ProjectPythia/cookbook-example.git
-   ```
-
-1. Move into the `cookbook-example` directory
-   ```bash
-   cd cookbook-example
-   ```
-1. Create and activate your conda environment from the `environment.yml` file
-   ```bash
-   conda env create -f environment.yml
-   conda activate cookbook-example
-   ```
-1. Move into the `notebooks` directory and start up Jupyterlab
-   ```bash
-   cd notebooks/
-   jupyter lab
-   ```
+## Things You Need to Prepare
+Participants need to bring their own 64-bit notebook (Linux, Windows, Mac).  The exercices will take place on a cloud server. On Windows, the use of a ssh-client such as [Putty](https://www.putty.org/) or [MobaXterm](https://mobaxterm.mobatek.net/) will be necessary.
