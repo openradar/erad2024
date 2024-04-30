@@ -2,7 +2,7 @@
 
 # ERAD 2024 Open Radar Science Shortcourse
 
-[![nightly-build](https://github.com/openradar/erad2024/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
+[![nightly-build](https://github.com/openradar/erad2024/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/openradar/erad2024/actions/workflows/nightly-build.yaml)
 [![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/openradar/erad2024/main?labpath=notebooks)
 
 This tutorial covers how to get started with the Open Radar Science stack!
