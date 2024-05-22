@@ -38,7 +38,7 @@ data processing, using open datasets relevant to the attendees and ERAD 2024.
 - Mike Dixon, National Center for Atmospheric Research (NCAR)
 - Robert Jackson, Argonne National Laboratory
 - Scott Collis, Argonne National Laboratory
-- Tung-Yu Cha, National Center for Atmospheric Research (NCAR)
+- Ting-Yu Cha, National Center for Atmospheric Research (NCAR)
 
 
 ### Contributors
