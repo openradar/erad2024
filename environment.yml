@@ -7,6 +7,10 @@ dependencies:
   - jupyter_server
   - sphinx-pythia-theme
   - arm_pyart
-  - xradar
-  - wradlib
+  - cartopy
   - matplotlib
+  - numpy
+  - pyrad_arm
+  - wradlib
+  - xarray
+  - xradar
