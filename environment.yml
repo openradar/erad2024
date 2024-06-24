@@ -6,3 +6,12 @@ dependencies:
   - jupyterlab
   - jupyter_server
   - sphinx-pythia-theme
+  - arm_pyart
+  - cartopy
+  - datatree
+  - matplotlib
+  - numpy
+  - pyrad_arm
+  - wradlib
+  - xarray
+  - xradar
