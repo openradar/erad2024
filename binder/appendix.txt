@@ -7,8 +7,8 @@ RUN apt update && \
     rm -rf /tmp/lrose.deb
 
 USER ${NB_USER}
-RUN ls /srv/conda/envs && \
-    RADARENV=erad-2024-dev && \
+RUN CONDA_DIR=/srv/conda && \
+    RADARENV=notebook && \
     CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV && \
     export PROJ_NETWORK=ON && \
     export BALTRAD_INSTALL_ROOT=${PWD} && \
@@ -16,6 +16,7 @@ RUN ls /srv/conda/envs && \
     echo "export RADARENV=$RADARENV" >> ~/.profile && \
     echo "export CONDA_PREFIX=$CONDA_PREFIX" >> ~/.profile && \
     echo "export PROJ_NETWORK=$PROJ_NETWORK" >> ~/.profile && \
+    ls ${CONDA_PREFIX}/bin/ && \
     ${CONDA_PREFIX}/bin/bash -l $BALTRAD_INSTALL_ROOT/install/baltrad/install_baltrad.sh && \
     ${CONDA_PREFIX}/bin/bash -l $BALTRAD_INSTALL_ROOT/install/nbstripout_notebooks.sh && \
     cp binder/kernel.json $CONDA_PREFIX/share/jupyter/kernels/python3/.
