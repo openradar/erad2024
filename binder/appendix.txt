@@ -8,7 +8,7 @@ RUN apt update && \
 
 USER ${NB_USER}
 RUN CONDA_DIR=/srv/conda && \
-    RADARENV=notebook && \
+    RADARENV=erad-2024-dev && \
     CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV && \
     export PROJ_NETWORK=ON && \
     export BALTRAD_INSTALL_ROOT=${PWD} && \
