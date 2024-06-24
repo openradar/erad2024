@@ -7,8 +7,7 @@ RUN apt update && \
     rm -rf /tmp/lrose.deb
 
 USER ${NB_USER}
-RUN CONDA_DIR=/srv/conda && \
-    RADARENV=erad-2024-dev && \
+RUN RADARENV=erad-2024-dev && \
     CONDA_PREFIX=$CONDA_DIR/envs/$RADARENV && \
     export PROJ_NETWORK=ON && \
     export BALTRAD_INSTALL_ROOT=${PWD} && \
