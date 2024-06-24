@@ -10,7 +10,7 @@ jobs:
     if: ${{ github.repository_owner == 'openradar' }}
     uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
     with:
-      environment_name: cookbook-dev
+      environment_name: erad-2024-dev
 
   link-check:
     if: ${{ github.repository_owner == 'openradar' }}

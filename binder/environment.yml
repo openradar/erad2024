@@ -1,4 +1,4 @@
-name: cookbook-dev
+name: erad2024-dev
 channels:
   - conda-forge
 dependencies:
