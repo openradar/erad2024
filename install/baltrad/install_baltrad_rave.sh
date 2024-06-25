@@ -25,9 +25,9 @@ sed -i -e 's/from keyczar import keyczar/#from keyczar import keyczar/g' Lib/Bal
             --with-hlhdf=$CONDA_PREFIX/hlhdf \
             --with-proj=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
             --with-expat=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
-            --with-numpy=$CONDA_PREFIX/lib/python3.9/site-packages/numpy/core/include/numpy/ \
+            --with-numpy=$CONDA_PREFIX/lib/python3.11/site-packages/numpy/core/include/numpy/ \
             --with-netcdf=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
-            --with-python-makefile=$CONDA_PREFIX/lib/python3.9/config-3.9-x86_64-linux-gnu/Makefile
+            --with-python-makefile=$CONDA_PREFIX/lib/python3.11/config-3.11-x86_64-linux-gnu/Makefile
 make
 make test
 make install
