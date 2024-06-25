@@ -1,4 +1,4 @@
-name: build-book
+name: build-book-pullrequest
 
 on:
   workflow_call:
@@ -25,8 +25,11 @@ on:
         type: string  # had a lot of trouble with boolean types, see https://github.com/actions/runner/issues/1483
 
 jobs:
-  build-container:
+  build-book:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
     steps:
       - name: checkout files in repo
         uses: actions/checkout@v3
@@ -36,6 +39,7 @@ jobs:
       - name: update jupyter dependencies with repo2docker
         uses: jupyterhub/repo2docker-action@master
         with:
+          NO_PUSH: true
           DOCKER_USERNAME: "openradar"
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_REGISTRY: "ghcr.io"
@@ -44,25 +48,24 @@ jobs:
           REPO2DOCKER_EXTRA_ARGS: --Repo2Docker.base_image=docker.io/library/buildpack-deps:jammy
           FORCE_REPO2DOCKER_VERSION: jupyter-repo2docker==2024.03.0
 
-  build-book:
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/openradar/erad2024:latest
-      options: --user root
-    needs: [build-container]
-    defaults:
-      run:
-        shell: bash -l {0}
-    steps:
-      - uses: actions/checkout@v3
-      - name: Build the book
+      - name: list docker images
         run: |
-          # copy baltrad notebooks to book dir
-          # re add when baltrad issues are sorted out
-          # cp -rp /home/jovyan/notebooks/baltrad* notebooks/.
-          # cp -rp /home/jovyan/notebooks/pyart2baltrad* notebooks/.
-          # install/nbstripout_notebooks.sh
-          jupyter-book build ${{ inputs.path_to_notebooks }}
+          docker image ls -a
+      - name: Build the book
+        uses: addnab/docker-run-action@v3
+        with:
+          image: ghcr.io/openradar/erad2024:latest
+          options: --user root -v ${{ github.workspace }}:/work
+          shell: bash -l {0}
+          run: |
+            # copy baltrad notebooks to book dir
+            # re add when baltrad issues are sorted out
+            # cp -rp /home/jovyan/notebooks/baltrad* /work/notebooks/.
+            # cp -rp /home/jovyan/notebooks/pyart2baltrad* /work/notebooks/.
+            # /work/install/nbstripout_notebooks.sh
+            source /srv/conda/etc/profile.d/conda.sh
+            conda activate notebook
+            jupyter-book build /work/${{ inputs.path_to_notebooks }}
       - name: Zip the book
         run: |
           set -x
