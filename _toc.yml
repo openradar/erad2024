@@ -9,4 +9,4 @@ parts:
       - file: notebooks/notebook-template
   - caption: Notebook Environment
     chapters:
-      - file: notebooks/environment.ipynb
+      - file: notebooks/environment
