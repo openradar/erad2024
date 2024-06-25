@@ -28,3 +28,5 @@ dependencies:
   - tar
   - libblas=*=*netlib
   - liblapacke=*=*netlib
+  # this is needed for notebooks
+  - zip
