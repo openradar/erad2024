@@ -58,9 +58,10 @@ jobs:
       - name: Build the book
         run: |
           # copy baltrad notebooks to book dir
-          cp -rp /home/jovyan/notebooks/baltrad* notebooks/.
-          cp -rp /home/jovyan/notebooks/pyart2baltrad* notebooks/.
-          install/nbstripout_notebooks.sh
+          # re add when baltrad issues are sorted out
+          # cp -rp /home/jovyan/notebooks/baltrad* notebooks/.
+          # cp -rp /home/jovyan/notebooks/pyart2baltrad* notebooks/.
+          # install/nbstripout_notebooks.sh
           jupyter-book build ${{ inputs.path_to_notebooks }}
       - name: Zip the book
         run: |
