@@ -16,7 +16,5 @@ RUN CONDA_DIR=/srv/conda && \
     echo "export RADARENV=$RADARENV" >> ~/.profile && \
     echo "export CONDA_PREFIX=$CONDA_PREFIX" >> ~/.profile && \
     echo "export PROJ_NETWORK=$PROJ_NETWORK" >> ~/.profile && \
-    # skip baltrad install for now until nuild issues are sorted out
-    # ${CONDA_PREFIX}/bin/bash -l $BALTRAD_INSTALL_ROOT/install/baltrad/install_baltrad.sh && \
     ${CONDA_PREFIX}/bin/bash -l $BALTRAD_INSTALL_ROOT/install/nbstripout_notebooks.sh && \
     cp binder/kernel.json $CONDA_PREFIX/share/jupyter/kernels/python3/.
