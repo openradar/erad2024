@@ -16,3 +16,15 @@ dependencies:
   - xradar
   - numpy<2.0
   - python<=3.11
+  # this is needed for baltrad compilation
+  - compilers
+  - make
+  - gnuconfig
+  - bash
+  - libaec
+  - coreutils
+  - autoconf
+  - automake
+  - tar
+  - libblas=*=*netlib
+  - liblapacke=*=*netlib

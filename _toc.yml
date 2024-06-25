@@ -7,3 +7,6 @@ parts:
   - caption: Introduction
     chapters:
       - file: notebooks/notebook-template
+  - caption: Notebook Environment
+    chapters:
+      - file: notebooks/environment
