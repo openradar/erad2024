@@ -15,6 +15,7 @@ mkdir $CONDA_PREFIX/rave/tmp
 cd $BALTRAD_INSTALL_ROOT/tmp
 git clone --depth 1 https://github.com/baltrad/baltrad-wrwp.git
 cd baltrad-wrwp/
+git apply $BALTRAD_INSTALL_ROOT/install/baltrad/fix_macro_wrwp.patch
 
 # build, test and install
 ./configure --prefix=$CONDA_PREFIX/baltrad-wrwp --with-rave=$CONDA_PREFIX/rave --with-blas=$CONDA_PREFIX/lib --with-cblas=$CONDA_PREFIX/lib --with-lapack=$CONDA_PREFIX/lib --with-lapacke=$CONDA_PREFIX/include,$CONDA_PREFIX/lib
