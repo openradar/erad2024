@@ -12,13 +12,14 @@ export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$CONDA_PREFIX/hlhdf/lib:$CONDA_PREFIX/r
 cd $BALTRAD_INSTALL_ROOT/tmp
 git clone --depth=1 https://github.com/baltrad/beamb.git
 cd beamb/
+git apply $BALTRAD_INSTALL_ROOT/install/baltrad/fix_macro_beamb.patch
 
 # build, test and install
 ./configure --prefix=$CONDA_PREFIX/beamb --with-rave=$CONDA_PREFIX/rave
 make
 make test
 make install
-echo $CONDA_PREFIX/beamb/share/beamb/pybeamb > $CONDA_PREFIX/lib/python3.9/site-packages/beamb.pth
+echo $CONDA_PREFIX/beamb/share/beamb/pybeamb > $CONDA_PREFIX/lib/python3.11/site-packages/beamb.pth
 
 # activation script
 grep -l beamb ${CONDA_PREFIX}/etc/conda/activate.d/baltrad.sh
