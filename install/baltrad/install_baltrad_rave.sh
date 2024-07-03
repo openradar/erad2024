@@ -12,11 +12,12 @@ export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$CONDA_PREFIX/hlhdf/lib
 cd $BALTRAD_INSTALL_ROOT/tmp
 git clone --depth=1 https://github.com/baltrad/rave.git
 cd rave
-sed -i -e 's/import jprops/#import jprops/g' Lib/rave_bdb.py
-sed -i -e 's/import jprops/#import jprops/g' Lib/rave_dom_db.py
-sed -i -e 's/import jprops/#import jprops/g' Lib/rave_bdb.py
-sed -i -e 's/from baltrad.bdbclient/#from baltrad.bdbclient/g' Lib/rave_bdb.py
-sed -i -e 's/from keyczar import keyczar/#from keyczar import keyczar/g' Lib/BaltradFrame.py
+git apply $BALTRAD_INSTALL_ROOT/install/baltrad/fix_macro_rave.patch
+#sed -i -e 's/import jprops/#import jprops/g' Lib/rave_bdb.py
+#sed -i -e 's/import jprops/#import jprops/g' Lib/rave_dom_db.py
+#sed -i -e 's/import jprops/#import jprops/g' Lib/rave_bdb.py
+#sed -i -e 's/from baltrad.bdbclient/#from baltrad.bdbclient/g' Lib/rave_bdb.py
+#sed -i -e 's/from keyczar import keyczar/#from keyczar import keyczar/g' Lib/BaltradFrame.py
 # kmuehlbauer: This file is missing currently, so disabling
 # cp -p ~/binder/baltrad/fix_shebang.sh bin/.  # Copies in path to Python for conda
 

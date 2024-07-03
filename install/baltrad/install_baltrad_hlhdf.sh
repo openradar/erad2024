@@ -7,8 +7,9 @@ set +e
 
 # download
 cd $BALTRAD_INSTALL_ROOT/tmp
-git clone --depth=1 https://github.com/openradar/hlhdf.git
+git clone --depth=1 https://github.com/baltrad/hlhdf.git
 cd hlhdf/
+git apply $BALTRAD_INSTALL_ROOT/install/baltrad/fix_macro_type_hlhdf.patch
 
 # build, test and install
 ./configure --prefix=$CONDA_PREFIX/hlhdf \
