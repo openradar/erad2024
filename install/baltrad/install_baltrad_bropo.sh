@@ -12,6 +12,7 @@ export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$CONDA_PREFIX/hlhdf/lib:$CONDA_PREFIX/r
 cd $BALTRAD_INSTALL_ROOT/tmp
 git clone --depth 1 https://github.com/baltrad/bropo.git
 cd bropo/
+git apply $BALTRAD_INSTALL_ROOT/install/baltrad/fix_macro_bropo.patch
 
 # build, test and install
 ./configure --prefix=$CONDA_PREFIX/bropo \
