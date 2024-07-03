@@ -7,7 +7,7 @@ set +e
 
 # download
 cd $BALTRAD_INSTALL_ROOT/tmp
-git clone --depth=1 https://github.com/openradar/hlhdf.git
+git clone --depth=1 https://github.com/baltrad/hlhdf.git
 cd hlhdf/
 
 # build, test and install
