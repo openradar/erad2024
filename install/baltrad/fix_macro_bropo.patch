@@ -1,0 +1,13 @@
+diff --git a/pyropo/pyropo_compat.h b/pyropo/pyropo_compat.h
+index 9fdd586..5be12c0 100644
+--- a/pyropo/pyropo_compat.h
++++ b/pyropo/pyropo_compat.h
+@@ -73,7 +73,7 @@ along with RAVE.  If not, see <http://www.gnu.org/licenses/>.
+ #define MOD_INIT_CREATE_CAPI(ptr, name) PyCapsule_New(ptr, name, NULL)
+ #define MOD_INIT_IS_CAPI(ptr) PyCapsule_CheckExact(ptr)
+ #define MOD_INIT_GET_CAPI(ptr, name) PyCapsule_GetPointer(ptr, name)
+-#define MOD_INIT_SETUP_TYPE(itype, otype) Py_TYPE(&itype) = otype
++#define MOD_INIT_SETUP_TYPE(itype, otype) Py_SET_TYPE(&itype, otype)
+ #define MOD_INIT_VERIFY_TYPE_READY(type) if (PyType_Ready(type) < 0) return MOD_INIT_ERROR
+ 
+ #else

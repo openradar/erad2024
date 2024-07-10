@@ -1,0 +1,37 @@
+diff --git a/pyhlhdf/pyhlcompat.h b/pyhlhdf/pyhlcompat.h
+index aadbdac..73ad6b9 100644
+--- a/pyhlhdf/pyhlcompat.h
++++ b/pyhlhdf/pyhlcompat.h
+@@ -82,7 +82,7 @@ PyObject* PyHlhdf_StringOrUnicode_FromASCII(const char *buffer, Py_ssize_t size)
+     PyModuleDef_HEAD_INIT, name, doc, -1, methods, NULL, NULL, NULL, NULL }; \
+     ob = PyModule_Create(&moduledef);
+ 
+-#define MOD_INIT_SETUP_TYPE(itype, otype) Py_TYPE(&itype) = otype
++#define MOD_INIT_SETUP_TYPE(itype, otype) Py_SET_TYPE(&itype, otype)
+ #define MOD_INIT_VERIFY_TYPE_READY(type) if (PyType_Ready(type) < 0) return MOD_INIT_ERROR
+ 
+ #else
+diff --git a/test/python/rave_info_type.c b/test/python/rave_info_type.c
+index 5451301..9ac225b 100644
+--- a/test/python/rave_info_type.c
++++ b/test/python/rave_info_type.c
+@@ -334,7 +334,8 @@ static PyTypeObject RaveInfoType_Type = {
+     (getattrofunc)_getattr_typeo, /*tp_getattro*/
+     (setattrofunc)0,              /*tp_setattro*/
+     0,                            /*tp_as_buffer*/
+-    Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HAVE_GC, /*tp_flags*/
++    Py_TPFLAGS_DEFAULT, /*tp_flags*/
++    //Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HAVE_GC, /*tp_flags*/
+     0,                            /*tp_doc*/
+     (traverseproc)0,              /*tp_traverse*/
+     (inquiry)0,                   /*tp_clear*/
+@@ -378,7 +379,8 @@ static PyTypeObject RaveInfoObject_Type = {
+     (getattrofunc)_getattro_object,/*tp_getattro*/
+     (setattrofunc)_setattro_object,/*tp_setattro*/
+     0,                            /*tp_as_buffer*/
+-    Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HAVE_GC, /*tp_flags*/
++    //Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HAVE_GC, /*tp_flags*/
++    Py_TPFLAGS_DEFAULT, /*tp_flags*/
+     0,                            /*tp_doc*/
+     (traverseproc)0,              /*tp_traverse*/
+     (inquiry)0,                   /*tp_clear*/

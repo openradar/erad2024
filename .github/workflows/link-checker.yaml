@@ -1,0 +1,58 @@
+name: link-checker
+
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        description: 'Name of conda environment to activate'
+        required: false
+        default: 'cookbook-dev'
+        type: string
+      environment_file:
+        description: 'Name of conda environment file'
+        required: false
+        default: 'environment.yml'
+        type: string
+      path_to_notebooks:
+        description: 'Location of the JupyterBook source relative to repo root'
+        required: false
+        default: './'
+        type: string
+      use_cached_environment:
+        description: 'Flag for whether we should attempt to retrieve a previously cached environment.'
+        required: false
+        default: 'true'
+        type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  link-checker:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v1
+        with:
+          environment-name: ${{ inputs.environment_name }}
+          environment-file: ${{ inputs.environment_file }}
+          cache-environment: ${{ inputs.use_cached_environment }}
+          cache-environment-key: "linux-64-conda-${{ hashFiles('${{ inputs.environment_file }}') }}-${{ env.TODAY }}"
+
+      - name: Disable notebook execution
+        shell: python
+        run: |
+          import yaml
+          with open('${{ inputs.path_to_notebooks }}/_config.yml') as f:
+            data = yaml.safe_load(f)
+          data['execute']['execute_notebooks'] = 'off'
+          with open('${{ inputs.path_to_notebooks }}/_config.yml', 'w') as f:
+            yaml.dump(data, f)
+      - name: Check external links
+        run: |
+          jupyter-book build --builder linkcheck ${{ inputs.path_to_notebooks }}

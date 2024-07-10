@@ -1,18 +1,21 @@
-name: publish-book
+name: nightly-build
 
 on:
-  # Trigger the workflow on push to main branch
-  push:
-    branches:
-      - main
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # Daily “At 00:00”
 
 jobs:
   build:
-    uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
+    uses: ./.github/workflows/build-book.yaml
     with:
-      environment_name: cookbook-dev
+      environment_name: erad-2024-dev
+      environment_file: environment.yml
+      path_to_notebooks: ./
 
-  deploy:
-    needs: build
-    uses: ProjectPythia/cookbook-actions/.github/workflows/deploy-book.yaml@main
+  link-check:
+    uses: ./.github/workflows/link-checker.yaml
+    with:
+      environment_name: erad-2024-dev
+      environment_file: environment.yml
+      path_to_notebooks: ./
