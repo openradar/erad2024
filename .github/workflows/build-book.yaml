@@ -27,6 +27,10 @@ on:
         required: false
         default: 'true'
         type: string  # had a lot of trouble with boolean types, see https://github.com/actions/runner/issues/1483
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build-container:
