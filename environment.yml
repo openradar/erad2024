@@ -10,7 +10,7 @@ dependencies:
   - cartopy
   - matplotlib
   - numpy
-  # - pyrad_arm
+  - pyrad_arm
   - wradlib
   - xarray
   - xradar
