@@ -1,0 +1,13 @@
+diff --git a/librave/pyapi/pyravecompat.h b/librave/pyapi/pyravecompat.h
+index 846e7a7..8167bfa 100644
+--- a/librave/pyapi/pyravecompat.h
++++ b/librave/pyapi/pyravecompat.h
+@@ -86,7 +86,7 @@ PyObject* PyRaveAPI_StringOrUnicode_FromASCII(const char *buffer);
+ #define MOD_INIT_CREATE_CAPI(ptr, name) PyCapsule_New(ptr, name, NULL)
+ #define MOD_INIT_IS_CAPI(ptr) PyCapsule_CheckExact(ptr)
+ #define MOD_INIT_GET_CAPI(ptr, name) PyCapsule_GetPointer(ptr, name)
+-#define MOD_INIT_SETUP_TYPE(itype, otype) Py_TYPE(&itype) = otype
++#define MOD_INIT_SETUP_TYPE(itype, otype) Py_SET_TYPE(&itype, otype)
+ #define MOD_INIT_VERIFY_TYPE_READY(type) if (PyType_Ready(type) < 0) return MOD_INIT_ERROR
+ 
+ #else

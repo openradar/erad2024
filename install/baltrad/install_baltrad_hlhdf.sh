@@ -9,17 +9,18 @@ set +e
 cd $BALTRAD_INSTALL_ROOT/tmp
 git clone --depth=1 https://github.com/baltrad/hlhdf.git
 cd hlhdf/
+git apply $BALTRAD_INSTALL_ROOT/install/baltrad/fix_macro_type_hlhdf.patch
 
 # build, test and install
 ./configure --prefix=$CONDA_PREFIX/hlhdf \
             --with-hdf5=$CONDA_PREFIX/include,$CONDA_PREFIX/lib \
             --enable-py3support \
             --with-py3bin=$CONDA_PREFIX/bin/python3 \
-            --with-numpy=$CONDA_PREFIX/lib/python3.9/site-packages/numpy/core/include/numpy/
+            --with-numpy=$CONDA_PREFIX/lib/python3.11/site-packages/numpy/core/include/numpy/
 make
 make test
 make install
-mv $CONDA_PREFIX/hlhdf/hlhdf.pth $CONDA_PREFIX/lib/python3.9/site-packages/.
+mv $CONDA_PREFIX/hlhdf/hlhdf.pth $CONDA_PREFIX/lib/python3.11/site-packages/.
 
 # activation script
 grep -l hlhdf ${CONDA_PREFIX}/etc/conda/activate.d/baltrad.sh
