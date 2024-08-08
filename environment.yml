@@ -17,3 +17,5 @@ dependencies:
   - numpy<2.0
   - python<=3.11
   - mystmd
+  - jupyter_server
+  - ipykernel
