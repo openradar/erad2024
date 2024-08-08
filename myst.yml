@@ -53,6 +53,8 @@ project:
     - title: Preamble
       children:
         - file: notebooks/how-to-cite.md
+    - title: Data Access
+        - file: notebooks/data-access/intro-data-access.ipynb
     - title: Radar Software Foundations
       children:
         - file: notebooks/xradar-pyart/pyart-basics.ipynb
