@@ -6,7 +6,7 @@ dependencies:
   - jupyterlab
   - jupyter_server
   - sphinx-pythia-theme
-  - arm_pyart
+  - arm_pyart>=1.18.7
   - cartopy
   - matplotlib
   - numpy
@@ -30,3 +30,6 @@ dependencies:
   - liblapacke=*=*netlib
   # this is needed for notebooks
   - zip
+  # debugging
+  - sphinx>=7.4.7
+  - sqlite>=3.46.0
