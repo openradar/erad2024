@@ -65,6 +65,7 @@ jobs:
             # /work/install/nbstripout_notebooks.sh
             source /srv/conda/etc/profile.d/conda.sh
             conda activate notebook
+            mamba list
             jupyter-book build /work/${{ inputs.path_to_notebooks }}
       - name: Zip the book
         run: |
