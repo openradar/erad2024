@@ -54,6 +54,7 @@ project:
       children:
         - file: notebooks/how-to-cite.md
     - title: Data Access
+      children:
         - file: notebooks/data-access/intro-data-access.ipynb
     - title: Radar Software Foundations
       children:
