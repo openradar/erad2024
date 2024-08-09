@@ -78,6 +78,8 @@ jobs:
           if [ -f book.zip ]; then
               rm -rf book.zip
           fi
+          ls -lart
+          ls -lart ${{ inputs.path_to_notebooks }}
           zip -r book.zip ${{ inputs.path_to_notebooks }}/_build/html
       - name: Upload zipped book artifact
         uses: actions/upload-artifact@v4
