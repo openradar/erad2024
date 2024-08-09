@@ -74,7 +74,13 @@ jobs:
             conda activate notebook
             mamba list
             # jupyter-book build /work/${{ inputs.path_to_notebooks }}
+            ls -lart
+            ls -lart /work/
+            ls -lart /work/${{ inputs.path_to_notebooks }}
             myst build --html
+            ls -lart
+            ls -lart /work/
+            ls -lart /work/${{ inputs.path_to_notebooks }}
       - name: Zip the book
         run: |
           set -x

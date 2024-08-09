@@ -35,3 +35,4 @@ dependencies:
   - sqlite>=3.46.0
   # mystmd
   - mystmd
+  - ipykernel
