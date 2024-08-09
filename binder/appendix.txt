@@ -2,7 +2,7 @@ USER root
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
     apt-get -y install nodejs && \
-    apt-get clean && \
+    apt-get clean
 
 USER ${NB_USER}
 RUN CONDA_DIR=/srv/conda && \
