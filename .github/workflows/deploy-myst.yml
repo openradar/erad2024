@@ -21,11 +21,34 @@ concurrency:
   group: 'pages'
   cancel-in-progress: false
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-container:
     runs-on: ubuntu-latest
+    steps:
+      - name: checkout files in repo
+        uses: actions/checkout@v4
+      - name: remove Dockerfile
+        run: |
+          rm binder/Dockerfile
+      - name: update jupyter dependencies with repo2docker
+        uses: jupyterhub/repo2docker-action@master
+        with:
+          DOCKER_USERNAME: "openradar"
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_REGISTRY: "ghcr.io"
+          PUBLIC_REGISTRY_CHECK: true
+          APPENDIX_FILE: "binder/appendix.txt"
+          REPO2DOCKER_EXTRA_ARGS: --Repo2Docker.base_image=docker.io/library/buildpack-deps:jammy
+          FORCE_REPO2DOCKER_VERSION: jupyter-repo2docker==2024.03.0
+
+  build-deploy:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/openradar/erad2024:latest
+      options: --user root
+    needs: [build-container]
+    defaults:
+      run:
+        shell: bash -l {0}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Pages
@@ -36,7 +59,7 @@ jobs:
       - name: Install MyST Markdown
         run: npm install -g mystmd
       - name: Build HTML Assets
-        run: myst build --html
+        run: myst build --html --execute
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
