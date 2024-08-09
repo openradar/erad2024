@@ -24,12 +24,19 @@ on:
         default: 'true'
         type: string  # had a lot of trouble with boolean types, see https://github.com/actions/runner/issues/1483
 
+permissions:
+  contents: read
+
 jobs:
   build-book:
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -l {0}
+    env:
+      # `BASE_URL` determines the website is served from, including CSS & JS assets
+      # You may need to change this to `BASE_URL: ''`
+      BASE_URL: /${{ github.event.repository.name }}
     steps:
       - name: checkout files in repo
         uses: actions/checkout@v4
@@ -66,7 +73,15 @@ jobs:
             source /srv/conda/etc/profile.d/conda.sh
             conda activate notebook
             mamba list
-            jupyter-book build /work/${{ inputs.path_to_notebooks }}
+            # jupyter-book build /work/${{ inputs.path_to_notebooks }}
+            ls -lart
+            ls -lart /work/
+            ls -lart /work/${{ inputs.path_to_notebooks }}
+            myst build --html
+            cp -rp /home/jovyan/_build /work/.
+            ls -lart
+            ls -lart /work/
+            ls -lart /work/${{ inputs.path_to_notebooks }}
       - name: Zip the book
         run: |
           set -x
@@ -74,6 +89,8 @@ jobs:
           if [ -f book.zip ]; then
               rm -rf book.zip
           fi
+          ls -lart
+          ls -lart ${{ inputs.path_to_notebooks }}
           zip -r book.zip ${{ inputs.path_to_notebooks }}/_build/html
       - name: Upload zipped book artifact
         uses: actions/upload-artifact@v4
