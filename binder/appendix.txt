@@ -6,6 +6,8 @@ RUN apt update && \
     apt-get clean && \
     rm -rf /tmp/lrose.deb
 
+RUN apt-get -y install nodejs
+
 USER ${NB_USER}
 RUN CONDA_DIR=/srv/conda && \
     RADARENV=notebook && \

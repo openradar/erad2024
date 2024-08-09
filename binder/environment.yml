@@ -35,4 +35,3 @@ dependencies:
   - sqlite>=3.46.0
   # mystmd
   - mystmd
-  - nodejs>=20,<21
