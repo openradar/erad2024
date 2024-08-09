@@ -30,3 +30,6 @@ dependencies:
   - liblapacke=*=*netlib
   # this is needed for notebooks
   - zip
+  # debugging
+  - sphinx>=7.4.7
+  - sqlite>=3.46.0
