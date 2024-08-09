@@ -78,6 +78,7 @@ jobs:
             ls -lart /work/
             ls -lart /work/${{ inputs.path_to_notebooks }}
             myst build --html
+            cp -rp /home/jovyan/_build /work/.
             ls -lart
             ls -lart /work/
             ls -lart /work/${{ inputs.path_to_notebooks }}
