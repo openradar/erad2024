@@ -34,9 +34,21 @@ jobs:
     steps:
       - name: checkout files in repo
         uses: actions/checkout@v4
+      - name: Check Changes
+        with:
+          fetch-depth: 2
+        run: |
+          # check if binder-folder has changed
+          # if changed, then a docker rebuild is needed
+          echo "REBUILD=$(git diff --quiet ${{ github.event.pull_request.before }}..${{ github.event.after }} -- binder || echo changed)" >> $GITHUB_ENV
       - name: remove Dockerfile
         run: |
-          rm binder/Dockerfile
+          if [[ ${{ env.REBUILD }} == "changed" ]]; then
+            echo "binder-folder HAS changed - NEEDS rebuild"
+            rm binder/Dockerfile
+          else
+            echo "binder-folder NOT changed - NO rebuild"
+          fi
       - name: update jupyter dependencies with repo2docker
         uses: jupyterhub/repo2docker-action@master
         with:
@@ -53,6 +65,8 @@ jobs:
     container:
       image: ghcr.io/openradar/erad2024:latest
       options: --user root
+      env:
+        BASE_URL: /${{ github.event.repository.name }}
     needs: [build-container]
     defaults:
       run:
@@ -66,7 +80,10 @@ jobs:
           # cp -rp /home/jovyan/notebooks/baltrad* notebooks/.
           # cp -rp /home/jovyan/notebooks/pyart2baltrad* notebooks/.
           # install/nbstripout_notebooks.sh
-          jupyter-book build ${{ inputs.path_to_notebooks }}
+          # run notebooks
+          pytest -n auto --verbose --durations=15 --pyargs notebooks
+          # build the book and copy to outside /work-folder
+          myst build --ci --html
       - name: Zip the book
         run: |
           set -x

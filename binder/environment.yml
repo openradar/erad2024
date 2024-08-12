@@ -33,3 +33,8 @@ dependencies:
   # debugging
   - sphinx>=7.4.7
   - sqlite>=3.46.0
+  # mystmd
+  - mystmd
+  - ipykernel
+  - pytest
+  - pytest-xdist

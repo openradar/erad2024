@@ -24,6 +24,9 @@ on:
         default: 'true'
         type: string  # had a lot of trouble with boolean types, see https://github.com/actions/runner/issues/1483
 
+permissions:
+  contents: read
+
 jobs:
   build-book:
     runs-on: ubuntu-latest
@@ -33,9 +36,21 @@ jobs:
     steps:
       - name: checkout files in repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Check Changes
+        run: |
+          # check if binder-folder has changed
+          # if changed, then a docker rebuild is needed
+          echo "REBUILD=$(git diff --quiet ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- binder || echo changed)" >> $GITHUB_ENV
       - name: remove Dockerfile
         run: |
-          rm binder/Dockerfile
+          if [[ ${{ env.REBUILD }} == "changed" ]]; then
+            echo "binder-folder HAS changed - NEEDS rebuild"
+            rm binder/Dockerfile
+          else
+            echo "binder-folder NOT changed - NO rebuild"
+          fi
       - name: update jupyter dependencies with repo2docker
         uses: jupyterhub/repo2docker-action@master
         with:
@@ -55,18 +70,18 @@ jobs:
         uses: addnab/docker-run-action@v3
         with:
           image: ghcr.io/openradar/erad2024:latest
-          options: --user root -v ${{ github.workspace }}:/work
+          options: --user root -v ${{ github.workspace }}:/work -e BASE_URL=/${{ github.event.repository.name }}/_preview/${{ github.event.pull_request.number }}
           shell: bash -l {0}
           run: |
-            # copy baltrad notebooks to book dir
-            # re add when baltrad issues are sorted out
-            # cp -rp /home/jovyan/notebooks/baltrad* /work/notebooks/.
-            # cp -rp /home/jovyan/notebooks/pyart2baltrad* /work/notebooks/.
-            # /work/install/nbstripout_notebooks.sh
             source /srv/conda/etc/profile.d/conda.sh
             conda activate notebook
             mamba list
-            jupyter-book build /work/${{ inputs.path_to_notebooks }}
+            echo env
+            # run notebooks
+            pytest -n auto --verbose --durations=15 --pyargs notebooks
+            # build the book and copy to outside /work-folder
+            myst build --ci --html
+            cp -rp /home/jovyan/_build /work/.
       - name: Zip the book
         run: |
           set -x
