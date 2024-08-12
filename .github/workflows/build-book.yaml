@@ -34,9 +34,9 @@ jobs:
     steps:
       - name: checkout files in repo
         uses: actions/checkout@v4
-      - name: Check Changes
         with:
           fetch-depth: 2
+      - name: Check Changes
         run: |
           # check if binder-folder has changed
           # if changed, then a docker rebuild is needed
