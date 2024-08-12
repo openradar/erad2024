@@ -62,6 +62,9 @@ project:
     - title: Notebook Environment
       children:
         - file: notebooks/environment
+    - title: Retrieving winds with PyDDA
+      children:
+        - file: notebooks/Retrieving_winds_with_pydda.ipynb
   jupyter:
       binder:
         repo: openradar/erad2024
