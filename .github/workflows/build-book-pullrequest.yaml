@@ -42,15 +42,16 @@ jobs:
         run: |
           # check if binder-folder has changed
           # if changed, then a docker rebuild is needed
-          echo "REBUILD=$(git diff --quiet ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- binder || echo changed)" >> $GITHUB_ENV
+          echo "REBUILD=$(git diff --quiet ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} -- binder && echo unchanged || echo changed)" >> $GITHUB_ENV
       - name: remove Dockerfile
         run: |
-          if [[ ${{ env.REBUILD }} == "changed" ]]; then
-            echo "binder-folder HAS changed - NEEDS rebuild"
-            rm binder/Dockerfile
-          else
-            echo "binder-folder NOT changed - NO rebuild"
-          fi
+          # if [[ ${{ env.REBUILD }} == "changed" ]]; then
+          #   echo "binder-folder HAS changed - NEEDS rebuild"
+          #   rm binder/Dockerfile
+          # else
+          #   echo "binder-folder NOT changed - NO rebuild"
+          # fi
+          rm binder/Dockerfile
       - name: update jupyter dependencies with repo2docker
         uses: jupyterhub/repo2docker-action@master
         with:
