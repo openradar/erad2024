@@ -16,3 +16,4 @@ dependencies:
   - xradar
   - numpy<2.0
   - python<=3.11
+  - mystmd

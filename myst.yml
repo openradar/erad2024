@@ -1,0 +1,88 @@
+version: 1
+extends:
+  - https://raw.githubusercontent.com/projectpythia-mystmd/pythia-config/main/pythia.yml
+project:
+  title: ERAD 2024
+  github: https://github.com/openradar/erad2024
+  authors:
+    - name: Alfonso Ladino
+      orcid: 0000-0001-8081-7827
+      github: aladinor
+    - name: Anna del Moral Méndez
+      orcid: 0000-0002-5015-840X
+    - name: Brenda Javornik
+      github: leavesntwigs
+    - name: Daniel Michelson
+      orcid: 0000-0003-3222-9881
+      github: DanielMichelson
+    - name: Daniel Wolfensberger
+      github: wolfidan
+    - name: Gionata Ghiggi
+      orcid: 0000-0002-0818-0865
+      github: ghiggi
+    - name: Jen DeHart
+      orcid: 0000-0001-8536-4927
+      github: jcdehart
+    - name: Jordi Figueras i Ventura
+      orcid: 0000-0002-4949-422X
+      github: jfigui
+    - name: Julian Giles
+      orcid: 0000-0001-8134-008X
+      github: JulianGiles
+    - name: Kai Mühlbauer
+      orcid: 0000-0001-6599-1034
+      github: kmuehlbauer
+    - name: Maxwell Grover
+      orcid: 0000-0002-0370-8974
+      github: mgrover1
+    - name: Mike Dixon
+      orcid: 0000-0002-9597-9113
+      github: mike-dixon
+    - name: Robert Jackson
+      orcid: 0000-0003-2518-1234
+      github: rcjackson
+    - name: Scott Collis
+      orcid: 0000-0002-2303-687X
+      github: scollis
+    - name: Ting-Yu Cha
+      orcid: 0000-0002-6292-8483
+      github: tingyucha
+  copyright: '2024'
+  toc:
+    - file: README.md
+    - title: Preamble
+      children:
+        - file: notebooks/how-to-cite.md
+    - title: Data Access
+      children:
+        - file: notebooks/data-access/intro-data-access.ipynb
+    - title: Radar Software Foundations
+      children:
+        - file: notebooks/xradar-pyart/pyart-basics.ipynb
+    - title: Notebook Environment
+      children:
+        - file: notebooks/environment
+  jupyter:
+      binder:
+        repo: openradar/erad2024
+        url: https://binder.projectpythia.org/
+  abbreviations:
+    ARM: Atmospheric Radiation Measurement
+    NCAR: National Center for Atmospheric Research
+site:
+  options:
+    favicon: notebooks/images/icons/favicon.ico
+    logo: notebooks/images/logos/erad_white_background.png
+    logo_dark: notebooks/images/logos/erad_white_background.png
+  nav:
+    - title: Conference Home
+      url: https://www.erad2024.it
+    - title: Open Radar Community
+      url: https://openradarscience.org
+  actions:
+    - title: Launch Environment
+      url: https://binder.projectpythia.org/v2/gh/openradar/erad2024/main?labpath=notebooks
+
+venue:
+  title: ERAD 2024
+  url: https://www.erad2024.it/
