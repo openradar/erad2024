@@ -82,15 +82,9 @@ jobs:
             conda activate notebook
             mamba list
             echo env
-            # jupyter-book build /work/${{ inputs.path_to_notebooks }}
-            ls -lart
-            ls -lart /work/
-            ls -lart /work/${{ inputs.path_to_notebooks }}
-            myst build --html
+            # build the book and copy to outside /work-folder
+            myst build --execute --ci --html
             cp -rp /home/jovyan/_build /work/.
-            ls -lart
-            ls -lart /work/
-            ls -lart /work/${{ inputs.path_to_notebooks }}
       - name: Zip the book
         run: |
           set -x
@@ -98,8 +92,6 @@ jobs:
           if [ -f book.zip ]; then
               rm -rf book.zip
           fi
-          ls -lart
-          ls -lart ${{ inputs.path_to_notebooks }}
           zip -r book.zip ${{ inputs.path_to_notebooks }}/_build/html
       - name: Upload zipped book artifact
         uses: actions/upload-artifact@v4
