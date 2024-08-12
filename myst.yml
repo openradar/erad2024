@@ -59,6 +59,7 @@ project:
     - title: Radar Software Foundations
       children:
         - file: notebooks/xradar-pyart/pyart-basics.ipynb
+        - file: notebooks/xradar-pyart/xradar-basics.ipynb
     - title: Notebook Environment
       children:
         - file: notebooks/environment
