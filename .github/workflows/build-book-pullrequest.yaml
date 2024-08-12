@@ -82,8 +82,10 @@ jobs:
             conda activate notebook
             mamba list
             echo env
+            # run notebooks
+            pytest -n auto --verbose --durations=15 --pyargs notebooks
             # build the book and copy to outside /work-folder
-            myst build --execute --ci --html
+            myst build --ci --html
             cp -rp /home/jovyan/_build /work/.
       - name: Zip the book
         run: |

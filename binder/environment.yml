@@ -36,3 +36,5 @@ dependencies:
   # mystmd
   - mystmd
   - ipykernel
+  - pytest
+  - pytest-xdist
