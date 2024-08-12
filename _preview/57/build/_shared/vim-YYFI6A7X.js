@@ -1,1 +1,1 @@
-import{a}from"/build/_shared/chunk-3DRIZDPK.js";import"/build/_shared/chunk-2NH4LW52.js";export default a();
+import{a}from"/erad2024/build/_shared/chunk-3DRIZDPK.js";import"/erad2024/build/_shared/chunk-2NH4LW52.js";export default a();
