@@ -73,6 +73,8 @@ jobs:
       - name: Build the book
         run: |
           # run notebooks
+          ls -lart notebooks
+          ls -lart /work/notebooks
           pytest -n auto --verbose --durations=15 --pyargs notebooks
           # build the book and copy to outside /work-folder
           myst build --ci --html
