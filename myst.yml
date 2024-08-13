@@ -68,7 +68,7 @@ project:
           children:
             - pattern: notebooks/baltrad/baltrad_short_course/*.ipynb
             - pattern: notebooks/baltrad/pyart2baltrad/*.ipynb
-            - file: notebooks/baltrad/baltrad2wradlib/*.ipynb
+            - file: notebooks/baltrad/baltrad2wradlib/baltrad2wradlib.ipynb
         - title: LROSE
           children:
             - file: notebooks/lrose/lrose-introduction.ipynb
