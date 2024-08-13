@@ -12,6 +12,8 @@ dependencies:
   - numpy
   - pyrad_arm
   - wradlib
+  - pydda
+  - zarr
   - xarray
   - xradar
   - numpy<2.0
