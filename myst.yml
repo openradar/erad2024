@@ -58,8 +58,20 @@ project:
         - file: notebooks/data-access/intro-data-access.ipynb
     - title: Radar Software Foundations
       children:
-        - file: notebooks/xradar-pyart/pyart-basics.ipynb
-        - file: notebooks/xradar-pyart/xradar-basics.ipynb
+        - title: XRadar
+          children:
+            - file: notebooks/xradar-pyart/xradar-basics.ipynb
+        - title: Py-ART and wradlib
+          children:
+            - file: notebooks/xradar-pyart/pyart-basics.ipynb
+        - title: BALTRAD
+          children:
+            - pattern: notebooks/baltrad/baltrad_short_course/*.ipynb
+            - pattern: notebooks/baltrad/pyart2baltrad/*.ipynb
+            - file: notebooks/baltrad/baltrad2wradlib/*.ipynb
+        - title: LROSE
+          children:
+            - file: notebooks/lrose/lrose-introduction.ipynb
     - title: Notebook Environment
       children:
         - file: notebooks/environment
