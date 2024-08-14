@@ -6,6 +6,21 @@ from numpy.testing import assert_array_equal, assert_allclose
 import baltrad_pyart_bridge as bridge
 import _raveio
 
+import os
+import urllib.request
+from pathlib import Path
+# Set the URL for the cloud
+URL = "https://js2.jetstream-cloud.org:8001/"
+path = "pythia/radar/erad2024/baltrad/pyart2baltrad"
+!mkdir -p data
+files = ["Example_scan.h5", "Example_pvol.h5"]
+for file in files:
+    file0 = os.path.join(path, file)
+    name = os.path.join("data", Path(file).name)
+    if not os.path.exists(name):
+        print(f"downloading, {name}")
+        urllib.request.urlretrieve(f"{URL}{file0}", name)
+
 SCAN_FILENAME = 'data/Example_scan.h5'
 PVOL_FILENAME = 'data/Example_pvol.h5'
 
