@@ -27,6 +27,9 @@ on:
 permissions:
   contents: read
 
+env:
+  DOCKER_TAG: pr_68
+
 jobs:
   build-book:
     runs-on: ubuntu-latest
@@ -59,6 +62,7 @@ jobs:
           DOCKER_USERNAME: "openradar"
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_REGISTRY: "ghcr.io"
+          ADDITIONAL_TAG: ${{ env.DOCKER_TAG }}
           PUBLIC_REGISTRY_CHECK: true
           APPENDIX_FILE: "binder/appendix.txt"
           REPO2DOCKER_EXTRA_ARGS: --Repo2Docker.base_image=docker.io/library/buildpack-deps:jammy

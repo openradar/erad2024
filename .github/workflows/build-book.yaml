@@ -24,6 +24,9 @@ on:
         default: 'true'
         type: string  # had a lot of trouble with boolean types, see https://github.com/actions/runner/issues/1483
 
+env:
+  DOCKER_TAG: pr_68
+
 jobs:
   build-container:
     runs-on: ubuntu-latest
@@ -52,6 +55,7 @@ jobs:
           DOCKER_USERNAME: "openradar"
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_REGISTRY: "ghcr.io"
+          ADDITIONAL_TAG: ${{ env.DOCKER_TAG }}
           PUBLIC_REGISTRY_CHECK: true
           APPENDIX_FILE: "binder/appendix.txt"
           REPO2DOCKER_EXTRA_ARGS: --Repo2Docker.base_image=docker.io/library/buildpack-deps:jammy
