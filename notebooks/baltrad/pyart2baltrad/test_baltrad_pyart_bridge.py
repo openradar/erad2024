@@ -35,9 +35,9 @@ def test_raveio2radar_pvol():
     radar = bridge.raveio2radar(rio)
 
     # latitude, longitude, altitude
-    assert round(radar.latitude["data"], 2) == 58.11
-    assert round(radar.longitude["data"], 2) == 15.94
-    assert round(radar.altitude["data"], 2) == 222.0
+    assert np.round(radar.latitude["data"], 2) == 58.11
+    assert np.round(radar.longitude["data"], 2) == 15.94
+    assert np.round(radar.altitude["data"], 2) == 222.0
 
     # metadata
     assert radar.metadata["source"] == (
@@ -70,12 +70,12 @@ def test_raveio2radar_pvol():
     assert_allclose(radar.range["data"], np.arange(800) * 250)
 
     # azimuth
-    assert round(radar.azimuth["data"][10], 2) == 10.04
-    assert round(radar.azimuth["data"][361 + 10], 2) == 10.03
-    assert round(radar.azimuth["data"][722 + 10], 2) == 10.01
-    assert round(radar.azimuth["data"][1083 + 10], 2) == 10.03
-    assert round(radar.azimuth["data"][1444 + 10], 2) == 10.04
-    assert round(radar.azimuth["data"][1805 + 10], 2) == 10.02
+    assert np.round(radar.azimuth["data"].astype("float64"), 2)[10] == 10.04
+    assert np.round(radar.azimuth["data"].astype("float64")[361 + 10], 2) == 10.03
+    assert np.round(radar.azimuth["data"].astype("float64")[722 + 10], 2) == 10.01
+    assert np.round(radar.azimuth["data"].astype("float64")[1083 + 10], 2) == 10.03
+    assert np.round(radar.azimuth["data"].astype("float64")[1444 + 10], 2) == 10.04
+    assert np.round(radar.azimuth["data"].astype("float64")[1805 + 10], 2) == 10.02
 
     # time
     assert radar.time["units"] == "seconds since 2012-02-26T10:27:51Z"

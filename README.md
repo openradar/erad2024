@@ -11,7 +11,7 @@ This tutorial covers how to get started with the Open Radar Science stack!
 
 The course will take place on 8 September 2024, the day before the [2024 ERAD Radar Conference](https://www.erad2024.it/). The course will discuss the principles of open science and provide an overview of the most mature and exciting software packages available for radar data processing (ex. LROSE, Py-ART, pyrad, BALTRAD, wradlib) and how they connect with the scientific software stack.
 
-The course will be built with Jupyter Notebooks as hands-on approach for interactive user experience. The main course programming language is Python, but also Command Line Tools are used. 
+The course will be built with Jupyter Notebooks as hands-on approach for interactive user experience. The main course programming language is Python, but also Command Line Tools are used.
 
 The course will also highlight the “xradar” package, implementing the newly adopted FM301/CfRadial2 WMO standard, as well as the gpm-api software, which facilitates the
 download and analysis of TRMM PR and GPM DPR spaceborne radars data. These two tools will be used to showcase how to harness the power of xarray and dask for efficient, distributed radar data processing.
