@@ -40,3 +40,7 @@ dependencies:
   - ipykernel
   - pytest
   - pytest-xdist
+  # this is needed for PyDDA performance
+  - jaxopt
+  - tensorflow>=2.6
+  - tensorflow-probability>=0.24
