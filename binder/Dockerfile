@@ -1,1 +1,1 @@
-FROM ghcr.io/openradar/erad2024:pr_75
+FROM ghcr.io/openradar/erad2024:pr_77
