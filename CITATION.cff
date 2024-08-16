@@ -2,47 +2,93 @@ cff-version: 1.2.0
 message: "If you use this cookbook, please cite it as below."
 authors:
   # add additional entries for each author -- see https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md
-  - family-names: Rose
-    given-names: Brian E. J.
-    orcid: https://orcid.org/0000-0002-9961-3821 # optional
-    website: https://github.com/brian-rose # optional
-    affiliation: University at Albany (State University of New York) # optional
-  - family-names: Kent
-    given-names: Julia
-    orcid: https://orcid.org/0000-0002-5611-8986
-    website: https://github.com/jukent
-    affiliation: UCAR/NCAR
-  - family-names: Tyle
-    given-names: Kevin
-    orcid: https://orcid.org/0000-0001-5249-9665
-    website: https://github.com/ktyle
-    affiliation: University at Albany (State University of New York)
-  - family-names: Clyne
-    given-names: John
-    orcid: https://orcid.org/0000-0003-2788-9017
-    website: https://github.com/clyne
-    affiliation: UCAR/NCAR
-  - family-names: Camron
-    given-names: Drew
-    orcid: https://orcid.org/0000-0001-7246-6502
-    website: https://github.com/dcamron
-    affiliation: UCAR/Unidata
+  - family-names: Ladino
+    given-names: Alfonso
+    orcid: https://orcid.org/0000-0001-8081-7827 # optional
+    website: https://github.com/aladinor # optional
+    affiliation: University of Illinois at Urbana Champaign (UIUC) # optional
+  - family-names: del Moral Méndez
+    given-names: Anna
+    orcid: https://orcid.org/0000-0002-5015-840X
+    affiliation: National Center for Atmospheric Research (NCAR)
+  - family-names: Javornik
+    given-names: Brenda
+    website: https://github.com/leavesntwigs
+    affiliation: National Center for Atmospheric Research (NCAR)
+  - family-names: Michelson
+    given-names: Daniel
+    orcid: https://orcid.org/0000-0003-3222-9881
+    website: https://github.com/DanielMichelson
+    affiliation: Environment and Climate Change Canada (ECCC)
+  - family-names: Wolfensberger
+    given-names: Daniel
+    orcid: https://orcid.org/0009-0006-1419-0556
+    website: https://github.com/wolfidan
+    affiliation:Federal Office of Meteorology and Climatology MeteoSwiss
+  - family-names: Ghiggi
+    given-names: Gionata
+    orcid: https://orcid.org/0000-0002-0818-0865
+    website: https://github.com/ghiggi
+    affiliation: Ecole polytechnique fédérale de Lausanne (EPFL)
+  - family-names: DeHart
+    given-names: Jen
+    orcid: https://orcid.org/0000-0001-8536-4927
+    website: https://github.com/jcdehart
+    affiliation: Colorado State University (CSU)
+  - family-names: Figueras i Ventura
+    given-names: Jordi
+    orcid: https://orcid.org/0000-0002-4949-422X
+    website: https://github.com/jfigui
+    affiliation: independent radar scientis
+  - family-names: Giles
+    given-names: Julian
+    orcid: https://orcid.org/0000-0001-8134-008X
+    website: https://github.com/JulianGiles
+    affiliation:  University of Bonn
+  - family-names: Mühlbauer
+    given-names: Kai
+    orcid: https://orcid.org/0000-0001-6599-1034
+    website: https://github.com/kmuehlbauer
+    affiliation:  University of Bonn
   - family-names: Grover
     given-names: Maxwell
     orcid: https://orcid.org/0000-0002-0370-8974
     website: https://github.com/mgrover1
     affiliation: Argonne National Laboratory
-  - family-names: Ford
-    given-names: Robert R.
-    orcid: https://orcid.org/0000-0001-5483-4965
-    website: https://github.com/r-ford
-    affiliation: University at Albany (State University of New York)
-  - family-names: Paul
-    given-names: Kevin
-    orcid: https://orcid.org/0000-0001-8155-8038
-    website: https://github.com/kmpaul
-    affiliation: NVIDIA
-  - name: "Cookbook Template contributors" # use the 'name' field to acknowledge organizations
-    website: "https://github.com/ProjectPythia/cookbook-template/graphs/contributors"
-title: "Cookbook Template"
-abstract: "A sample cookbook description."
+  - family-names: Dixon
+    given-names: Mike
+    orcid: https://orcid.org/0000-0002-9597-9113
+    website: https://github.com/mike-dixon
+    affiliation: National Center for Atmospheric Research (NCAR
+  - family-names: Jackson
+    given-names: Robert
+    orcid: https://orcid.org/0000-0003-2518-1234
+    website: https://github.com/rcjackson
+    affiliation: Argonne National Laboratory
+  - family-names: Collis
+    given-names: Scott
+    orcid: https://orcid.org/0000-0002-2303-687X
+    website: https://github.com/scollis
+    affiliation: Argonne National Laboratory
+  - family-names: Cha
+    given-names: Ting-Yu
+    orcid: https://orcid.org/0000-0002-0370-8974
+    website: https://github.com/tingyucha
+    affiliation: National Center for Atmospheric Research (NCAR)
+  - name: "ERAD2024 Open Radar Science Shortcourse contributors" # use the 'name' field to acknowledge organizations
+    website: "https://github.com/openradar/erad2024/graphs/contributors"
+title: "ERAD 2024 Open Radar Science Shortcourse"
+abstract: "The course will discuss the principles of open science and provide an overview of the most mature
+and exciting software packages available for radar data processing (ex. LROSE, Py-ART, pyrad, BAL-
+TRAD, wradlib) and how they connect with the scientific software stack.
+The course will be built with Jupyter Notebooks as hands-on approach for interactive user experi-
+ence. The main course programming language is Python, but also Command Line Tools are used.
+The course will also highlight the “xradar” package, implementing the newly adopted
+FM301/CfRadial2 WMO standard, as well as the gpm-api software, which facilitates the
+download and analysis of TRMM PR and GPM DPR spaceborne radars data. These two tools will be
+used to showcase how to harness the power of xarray and dask for efficient, distributed radar data
+processing.
+The course will cover operational use (e.g. in HPC environments or Cloud Infrastructure) as well as
+algorithm development, enabling the participants to implement their own algorithms.
+The course will also show how to create workflows for different aspects of weather radar
+data processing, using open datasets relevant to the attendees and ERAD 2024"

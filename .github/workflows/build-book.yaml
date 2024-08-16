@@ -25,7 +25,7 @@ on:
         type: string  # had a lot of trouble with boolean types, see https://github.com/actions/runner/issues/1483
 
 env:
-  DOCKER_TAG: pr_75
+  DOCKER_TAG: pr_77
 
 jobs:
   build-container:
@@ -80,7 +80,7 @@ jobs:
           ls -lart notebooks
           ls -lart /work/notebooks
           pytest -n auto --verbose --durations=15 --pyargs notebooks
-          # build the book and copy to outside /work-folder
+          # build the book
           myst build --ci --html
       - name: Zip the book
         run: |

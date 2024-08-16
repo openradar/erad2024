@@ -75,7 +75,7 @@ project:
             - file: notebooks/lrose/lrose-introduction.ipynb
     - title: Notebook Environment
       children:
-        - file: notebooks/environment
+        - file: notebooks/environment.ipynb
     - title: Retrieving winds with PyDDA
       children:
         - file: notebooks/Retrieving_winds_with_pydda.ipynb
