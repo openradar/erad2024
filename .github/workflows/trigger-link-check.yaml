@@ -4,4 +4,4 @@ on:
 
 jobs:
   link-check:
-    uses: ./.github/workflows/link-checker.yaml@main
+    uses: ./.github/workflows/link-checker.yaml
