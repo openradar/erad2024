@@ -44,15 +44,6 @@ jobs:
           cache-environment: ${{ inputs.use_cached_environment }}
           cache-environment-key: "linux-64-conda-${{ hashFiles('${{ inputs.environment_file }}') }}-${{ env.TODAY }}"
 
-      - name: Disable notebook execution
-        shell: python
-        run: |
-          import yaml
-          with open('${{ inputs.path_to_notebooks }}/_config.yml') as f:
-            data = yaml.safe_load(f)
-          data['execute']['execute_notebooks'] = 'off'
-          with open('${{ inputs.path_to_notebooks }}/_config.yml', 'w') as f:
-            yaml.dump(data, f)
       - name: Check external links
         run: |
-          jupyter-book build --builder linkcheck ${{ inputs.path_to_notebooks }}
+          myst build --ci --check-links
