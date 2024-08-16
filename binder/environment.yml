@@ -47,3 +47,5 @@ dependencies:
   # interactive plotting
   - hvplot
   - datashader
+  # needed for wradlib
+  - bottleneck
