@@ -49,3 +49,4 @@ dependencies:
   - datashader
   # needed for wradlib
   - bottleneck
+  - rioxarray
