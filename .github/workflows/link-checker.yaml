@@ -31,28 +31,16 @@ concurrency:
 jobs:
   link-checker:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash -l {0}
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Micromamba
-        uses: mamba-org/setup-micromamba@v1
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          environment-name: ${{ inputs.environment_name }}
-          environment-file: ${{ inputs.environment_file }}
-          cache-environment: ${{ inputs.use_cached_environment }}
-          cache-environment-key: "linux-64-conda-${{ hashFiles('${{ inputs.environment_file }}') }}-${{ env.TODAY }}"
-
-      - name: Disable notebook execution
-        shell: python
+          python-version: "3.12"
+      - name: Install dependencies
         run: |
-          import yaml
-          with open('${{ inputs.path_to_notebooks }}/_config.yml') as f:
-            data = yaml.safe_load(f)
-          data['execute']['execute_notebooks'] = 'off'
-          with open('${{ inputs.path_to_notebooks }}/_config.yml', 'w') as f:
-            yaml.dump(data, f)
+          python -m pip install --upgrade pip
+          pip install mystmd
       - name: Check external links
         run: |
-          jupyter-book build --builder linkcheck ${{ inputs.path_to_notebooks }}
+          myst build --ci --check-links --strict
