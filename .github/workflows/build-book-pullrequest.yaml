@@ -68,7 +68,6 @@ jobs:
           dotnet: true
           haskell: true
           large-packages: true
-          docker-images: true
           swap-storage: true
       - name: update jupyter dependencies with repo2docker
         uses: jupyterhub/repo2docker-action@master
