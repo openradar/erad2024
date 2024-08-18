@@ -8,6 +8,7 @@ dependencies:
   - sphinx-pythia-theme
   - arm_pyart>=1.18.7
   - cartopy
+  - gpm-api>=0.2.15
   - matplotlib
   - numpy
   - pyrad_arm
@@ -44,3 +45,9 @@ dependencies:
   - jaxopt
   - tensorflow>=2.6
   - tensorflow-probability>=0.24
+  # interactive plotting
+  - hvplot
+  - datashader
+  # needed for wradlib
+  - bottleneck
+  - rioxarray
