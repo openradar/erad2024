@@ -13,6 +13,7 @@ authors:
     affiliation: National Center for Atmospheric Research (NCAR)
   - family-names: Javornik
     given-names: Brenda
+    orcid: https://orcid.org/0009-0004-9266-9293
     website: https://github.com/leavesntwigs
     affiliation: National Center for Atmospheric Research (NCAR)
   - family-names: Michelson
@@ -24,7 +25,7 @@ authors:
     given-names: Daniel
     orcid: https://orcid.org/0009-0006-1419-0556
     website: https://github.com/wolfidan
-    affiliation:Federal Office of Meteorology and Climatology MeteoSwiss
+    affiliation: Federal Office of Meteorology and Climatology MeteoSwiss
   - family-names: Ghiggi
     given-names: Gionata
     orcid: https://orcid.org/0000-0002-0818-0865
@@ -44,12 +45,12 @@ authors:
     given-names: Julian
     orcid: https://orcid.org/0000-0001-8134-008X
     website: https://github.com/JulianGiles
-    affiliation:  University of Bonn
+    affiliation: University of Bonn
   - family-names: Mühlbauer
     given-names: Kai
     orcid: https://orcid.org/0000-0001-6599-1034
     website: https://github.com/kmuehlbauer
-    affiliation:  University of Bonn
+    affiliation: University of Bonn
   - family-names: Grover
     given-names: Maxwell
     orcid: https://orcid.org/0000-0002-0370-8974
