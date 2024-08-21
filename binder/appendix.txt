@@ -1,8 +1,9 @@
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt update && \
     wget -q -O /tmp/lrose.deb https://github.com/NCAR/lrose-core/releases/download/lrose-core-20240525/lrose-core-20240525.ubuntu_22.04.amd64.deb && \
-    apt-get -y install /tmp/lrose.deb && \
+    apt-get -y install /tmp/lrose.deb nodejs && \
     apt-get clean && \
     rm -rf /tmp/lrose.deb
 
@@ -17,4 +18,6 @@ RUN CONDA_DIR=/srv/conda && \
     echo "export CONDA_PREFIX=$CONDA_PREFIX" >> ~/.profile && \
     echo "export PROJ_NETWORK=$PROJ_NETWORK" >> ~/.profile && \
     ${CONDA_PREFIX}/bin/bash -l $BALTRAD_INSTALL_ROOT/install/baltrad/install_baltrad.sh && \
+    rm -rf $BALTRAD_INSTALL_ROOT/install && \
+    ${MAMBA_EXE} clean --all -f -y && \
     cp binder/kernel.json $CONDA_PREFIX/share/jupyter/kernels/python3/.

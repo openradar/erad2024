@@ -24,21 +24,53 @@ on:
         default: 'true'
         type: string  # had a lot of trouble with boolean types, see https://github.com/actions/runner/issues/1483
 
+env:
+  DOCKER_TAG: pr_80
+
 jobs:
   build-container:
     runs-on: ubuntu-latest
     steps:
       - name: checkout files in repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Check Changes
+        run: |
+          # check if binder-folder has changed
+          # if changed, then a docker rebuild is needed
+          echo "REBUILD=$(git diff --quiet ${{ github.event.pull_request.before }}..${{ github.event.after }} -- binder && echo unchanged || echo changed)" >> $GITHUB_ENV
       - name: remove Dockerfile
         run: |
+          # if [[ ${{ env.REBUILD }} == "changed" ]]; then
+          #   echo "binder-folder HAS changed - NEEDS rebuild"
+          #   rm binder/Dockerfile
+          # else
+          #   echo "binder-folder NOT changed - NO rebuild"
+          # fi
           rm binder/Dockerfile
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          docker-images: false
+          swap-storage: false
       - name: update jupyter dependencies with repo2docker
         uses: jupyterhub/repo2docker-action@master
         with:
           DOCKER_USERNAME: "openradar"
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_REGISTRY: "ghcr.io"
+          ADDITIONAL_TAG: ${{ env.DOCKER_TAG }}
           PUBLIC_REGISTRY_CHECK: true
           APPENDIX_FILE: "binder/appendix.txt"
           REPO2DOCKER_EXTRA_ARGS: --Repo2Docker.base_image=docker.io/library/buildpack-deps:jammy
@@ -49,6 +81,8 @@ jobs:
     container:
       image: ghcr.io/openradar/erad2024:latest
       options: --user root
+      env:
+        BASE_URL: /${{ github.event.repository.name }}
     needs: [build-container]
     defaults:
       run:
@@ -57,12 +91,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build the book
         run: |
-          # copy baltrad notebooks to book dir
-          # re add when baltrad issues are sorted out
-          # cp -rp /home/jovyan/notebooks/baltrad* notebooks/.
-          # cp -rp /home/jovyan/notebooks/pyart2baltrad* notebooks/.
-          # install/nbstripout_notebooks.sh
-          jupyter-book build ${{ inputs.path_to_notebooks }}
+          # run notebooks
+          ls -lart notebooks
+          ls -lart /work/notebooks
+          pytest -n auto --verbose --durations=15 --pyargs notebooks
+          # build the book
+          myst build --ci --html
       - name: Zip the book
         run: |
           set -x

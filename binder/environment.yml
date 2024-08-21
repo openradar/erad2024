@@ -6,14 +6,17 @@ dependencies:
   - jupyterlab
   - jupyter_server
   - sphinx-pythia-theme
-  - arm_pyart
+  - arm_pyart>=1.18.7
   - cartopy
+  - gpm-api>=0.2.15
   - matplotlib
   - numpy
   - pyrad_arm
   - wradlib
+  - pydda
+  - zarr
   - xarray
-  - xradar
+  - xradar>=0.6.3
   - numpy<2.0
   - python<=3.11
   # this is needed for baltrad compilation
@@ -30,3 +33,21 @@ dependencies:
   - liblapacke=*=*netlib
   # this is needed for notebooks
   - zip
+  # debugging
+  - sphinx>=7.4.7
+  - sqlite>=3.46.0
+  # mystmd
+  - mystmd
+  - ipykernel
+  - pytest
+  - pytest-xdist
+  # this is needed for PyDDA performance
+  - jaxopt
+  - tensorflow>=2.6
+  - tensorflow-probability>=0.24
+  # interactive plotting
+  - hvplot
+  - datashader
+  # needed for wradlib
+  - bottleneck
+  - rioxarray

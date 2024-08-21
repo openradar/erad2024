@@ -10,9 +10,11 @@ dependencies:
   - cartopy
   - matplotlib
   - numpy
+  - pydda
   - pyrad_arm
   - wradlib
   - xarray
-  - xradar
+  - xradar>=0.6.3
   - numpy<2.0
   - python<=3.11
+  - mystmd
