@@ -49,7 +49,7 @@ data processing, using open datasets relevant to the attendees and ERAD 2024.
 
 ## Course program
 
-ToDo: add course schedule
+Please see the [schedule](schedule.md)
 
 ## Structure
 
