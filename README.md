@@ -22,7 +22,7 @@ The course will discuss the principles of open science and provide an overview o
 The course will be built with Jupyter Notebooks as hands-on approach for interactive user experience. The main course programming language is Python, but also Command Line Tools are used.
 
 The course will also highlight the
-[xradar](https://docs.openradarscience.org/projects/xradar/en/stable/) 
+[xradar](https://docs.openradarscience.org/projects/xradar/en/stable/)
 package, implementing the newly adopted FM301/CfRadial2 WMO standard, as well as the
 [gpm-api](https://gpm-api.readthedocs.io/en/latest/) software, which facilitates the
 download and analysis of TRMM PR and GPM DPR spaceborne radars data. These two tools will be used to showcase how to harness the power of

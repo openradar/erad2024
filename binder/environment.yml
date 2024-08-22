@@ -24,11 +24,11 @@ dependencies:
   - pycolorbar>=0.0.13 # to update to 0.0.14 once released
   - shapely>=2.0.0
   - geopandas
-  - xoak 
-  - scikit-learn 
+  - xoak
+  - scikit-learn
   # this is needed for gpm-api interactive 3D viz
   # - pyvista
-  # - trame 
+  # - trame
   # - trame-vuetify
   # - trame-vtk
   # this is needed for baltrad compilation
