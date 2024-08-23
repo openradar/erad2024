@@ -55,6 +55,9 @@ project:
     - title: Preamble
       children:
         - file: notebooks/how-to-cite.md
+    - title: Schedule
+      children:
+        - file: schedule.md
     - title: Data Access
       children:
         - file: notebooks/data-access/intro-data-access.ipynb
@@ -67,6 +70,9 @@ project:
           children:
             - file: notebooks/xradar-pyart/pyart-basics.ipynb
             - file: notebooks/wradlib/wradlib_clutter_beamblockage.ipynb
+        - title: GPM-API
+          children:
+            - file: notebooks/gpm-api/gpm-api-intro.ipynb
         - title: BALTRAD
           children:
             - pattern: notebooks/baltrad/baltrad_short_course/*.ipynb
