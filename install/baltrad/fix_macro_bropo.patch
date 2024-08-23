@@ -9,5 +9,5 @@ index 9fdd586..5be12c0 100644
 -#define MOD_INIT_SETUP_TYPE(itype, otype) Py_TYPE(&itype) = otype
 +#define MOD_INIT_SETUP_TYPE(itype, otype) Py_SET_TYPE(&itype, otype)
  #define MOD_INIT_VERIFY_TYPE_READY(type) if (PyType_Ready(type) < 0) return MOD_INIT_ERROR
- 
+
  #else

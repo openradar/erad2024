@@ -32,6 +32,6 @@ fi
 # plugin
 grep -l beamb $CONDA_PREFIX/rave/etc/rave_pgf_quality_registry.xml
 if [ $? == 1 ] ;
-then 
+then
 sed -i 's/<\/rave-pgf-quality-registry>/  <quality-plugin name="beamb" module="beamb_quality_plugin" class="beamb_quality_plugin"\/>\n<\/rave-pgf-quality-registry>/g' $CONDA_PREFIX/rave/etc/rave_pgf_quality_registry.xml;
 fi
