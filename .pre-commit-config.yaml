@@ -30,3 +30,5 @@ repos:
     hooks:
       - id: black
       - id: black-jupyter
+
+exclude: 'install/.*|notebooks/images/.*'
