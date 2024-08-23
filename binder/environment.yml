@@ -8,7 +8,6 @@ dependencies:
   - sphinx-pythia-theme
   - arm_pyart>=1.18.7
   - cartopy
-  - gpm-api>=0.2.15
   - matplotlib
   - numpy
   - pyrad_arm
@@ -19,6 +18,19 @@ dependencies:
   - xradar>=0.6.3
   - numpy<2.0
   - python<=3.11
+  # this is needed for gpm-api
+  - gpm-api>=0.2.15    # to update to 0.2.16 once released
+  - ximage>=0.0.5
+  - pycolorbar>=0.0.13 # to update to 0.0.14 once released
+  - shapely>=2.0.0
+  - geopandas
+  - xoak
+  - scikit-learn
+  # this is needed for gpm-api interactive 3D viz
+  # - pyvista
+  # - trame
+  # - trame-vuetify
+  # - trame-vtk
   # this is needed for baltrad compilation
   - compilers
   - make

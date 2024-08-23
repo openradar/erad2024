@@ -70,6 +70,9 @@ project:
           children:
             - file: notebooks/xradar-pyart/pyart-basics.ipynb
             - file: notebooks/wradlib/wradlib_clutter_beamblockage.ipynb
+        - title: GPM-API
+          children:
+            - file: notebooks/gpm-api/gpm-api-intro.ipynb
         - title: BALTRAD
           children:
             - pattern: notebooks/baltrad/baltrad_short_course/*.ipynb
