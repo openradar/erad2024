@@ -30,3 +30,9 @@ repos:
     hooks:
       - id: black
       - id: black-jupyter
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.3.0
+    hooks:
+      - id: codespell
+        types_or: [python, markdown, rst]
+        additional_dependencies: [tomli]
