@@ -66,7 +66,7 @@ def radar2raveio(radar):
     # Set top-level attributes
     if (radar.metadata is not None) and ("source" in radar.metadata):
         obj.source = str(radar.metadata["source"])
-    # "nominal" time (the time the radar started acqusition)
+    # "nominal" time (the time the radar started acquisition)
     # Py-ART Radar object do not store this, use the start time.
     dt_start = datetime.datetime.strptime(
         radar.time["units"][14:], "%Y-%m-%dT%H:%M:%SZ"
@@ -127,7 +127,7 @@ def _fillscan(scan, radar, index=0):
     scan.addAttribute("how/startazA", radar.azimuth["data"][startray : stopray + 1])
 
     # Quantity/parameter-specific 'what'
-    # Py-ART delagates any scaling and offset of data to the
+    # Py-ART delegates any scaling and offset of data to the
     # field 'data' dictionary object, only the 'final' values are available
     # for general purpose use.  In additional all bad/missing/undetected
     # data is indicated by possible masking.
@@ -179,7 +179,7 @@ def raveio2radar(rio, raw=False):
     Returns
     -------
     radar : Radar
-        Py-ART radar object containting data.
+        Py-ART radar object containing data.
 
     """
 
@@ -200,7 +200,7 @@ def raveio2radar(rio, raw=False):
     rays_per_sweep = _collect_attrs(rio, "nrays")
     total_rays = np.sum(rays_per_sweep)
     bins_per_sweep = np.array(_collect_attrs(rio, "nbins"))
-    max_bins = np.max(bins_per_sweep)  # maximim number of bins in any sweep.
+    max_bins = np.max(bins_per_sweep)  # maximum number of bins in any sweep.
     # if np.any(bins_per_sweep != max_bins):
     # TODO fix to support non-uniform number of bins with masking
     #    raise NotImplementedError('Non-uniform bins not supported yet')
