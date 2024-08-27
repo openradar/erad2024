@@ -58,6 +58,9 @@ project:
     - title: Schedule
       children:
         - file: schedule.md
+    - title: Getting started
+      children:
+        - file: getting_started.md
     - title: Data Access
       children:
         - file: notebooks/data-access/intro-data-access.ipynb
