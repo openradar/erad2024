@@ -61,9 +61,8 @@ project:
     - title: Getting started
       children:
         - file: getting_started.md
-    - title: Data Access
-      children:
         - file: notebooks/data-access/intro-data-access.ipynb
+        - file: notebooks/environment.ipynb
     - title: Radar Software Foundations
       children:
         - title: XRadar
@@ -84,9 +83,6 @@ project:
         - title: LROSE
           children:
             - file: notebooks/lrose/lrose-introduction.ipynb
-    - title: Notebook Environment
-      children:
-        - file: notebooks/environment.ipynb
     - title: Retrieving winds with PyDDA
       children:
         - file: notebooks/Retrieving_winds_with_pydda.ipynb

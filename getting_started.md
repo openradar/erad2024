@@ -1,4 +1,4 @@
-# Getting started
+# Notebook Execution
 
 There are two options to work with this course, via Project Pythia Hub and locally on your machine.
 
