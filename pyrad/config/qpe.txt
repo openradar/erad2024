@@ -39,7 +39,7 @@ imgformat STRARR 1
 configpath STRING ./
 
 # Configuration of the radar location and approach direction
-locationConfigFile STRING ./arpa_plot_vol_loc.txt
+locationConfigFile STRING ./qpe_loc.txt
 
 # Configuration of the product generation
-productConfigFile STRING ./arpa_plot_vol_prod.txt
+productConfigFile STRING ./qpe_prod.txt
