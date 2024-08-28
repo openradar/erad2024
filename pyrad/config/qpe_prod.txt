@@ -1,0 +1,477 @@
+# List of datasets to generate.
+# The detailed specification of each dataset is given below.
+dataSetList STRARR 17
+   l0:echoID
+   l1:echoFilter
+   l2:reflectivity
+   l2:KDP
+   l2:ZDR
+   l2:outlierFilter
+   l2:Att_ZPhi
+   l3:hydroclass 
+   l4:rainrate
+   l5:rgCOL_RR 
+   l5:rgSBO_RR 
+   l5:rgGEN_RR 
+   l5:rgIYVAV_RR 
+   l5:rgIYCOV_RR
+   l5:rgIYMAR_RR 
+   l5:rgIYVAP_RR
+   l5:rgIYVEM_RR
+
+
+# ==========================================================================================
+#                 echo identification
+# ==========================================================================================
+echoID STRUCT 3
+    type STRING SAN
+    datatype STRARR 4
+        CFRADIAL:dBZ,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:ZDR,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:PhiDP,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:RhoHV,D{}-F{%Y%m%d_%H%M}
+    MAKE_GLOBAL INT 1
+
+# ==========================================================================================
+#                 clutter and noise suppression
+# ==========================================================================================
+# echo type 3 : precip, 2 : clutter, 1 : noise
+echoFilter STRUCT 4
+    type STRING ECHO_FILTER
+    datatype STRARR 8
+        PROC:echoID
+        CFRADIAL:dBZ,D{}-F{%Y%m%d_%H%M}        
+        CFRADIAL:ZDR,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:RhoHV,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:PhiDP,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:KDP,D{}-F{%Y%m%d_%H%M}
+	    CFRADIAL:V,D{}-F{%Y%m%d_%H%M}
+	    CFRADIAL:W,D{}-F{%Y%m%d_%H%M}
+    echo_type INT 3
+    MAKE_GLOBAL INT 1
+
+echoFilter_Ah STRUCT 4
+    type STRING ECHO_FILTER
+    datatype STRARR 2
+        PROC:echoID
+        PROC:Ah
+    echo_type INT 3
+    MAKE_GLOBAL INT 1
+	
+# ==========================================================================================
+#                 Plot clutter filtered moments
+# ==========================================================================================    
+
+reflectivity STRUCT 3
+    type     STRING RAW
+    datatype STRARR 1
+        PROC:dBZc
+    products STRUCT 1  
+        EL1.3 STRUCT 5
+            type  STRING PPI_MAP
+            anglenr INT 1
+            vmin FLOAT -20
+            vmax FLOAT 60
+            voltype STRING dBZc
+
+KDP STRUCT 3
+   type     STRING RAW
+   datatype STRARR 1
+        PROC:KDPc
+   products STRUCT 1
+        EL1.3 STRUCT 5
+            type  STRING PPI_MAP
+            anglenr INT 1
+            vmin FLOAT 0
+            vmax FLOAT 5
+            voltype STRING KDPc
+
+ZDR STRUCT 3
+   type     STRING RAW
+   datatype STRARR 1
+        PROC:ZDRc
+   products STRUCT 1
+        EL1.3 STRUCT 5
+            type  STRING PPI_MAP
+            anglenr INT 1
+            vmin FLOAT -1
+            vmax FLOAT 5
+            voltype STRING ZDRc
+
+# ==========================================================================================
+#                 outlier filter
+# ==========================================================================================    
+outlierFilter STRUCT 8
+    type STRING OUTLIER_FILTER
+    datatype STRARR 1
+        PROC:Vc
+    threshold FLOAT 10.
+    nb INT 2
+    nb_min INT 3
+    percentile_min FLOAT 5.
+    percentile_max float 95.
+    MAKE_GLOBAL INT 1
+
+
+# ==========================================================================================
+#                 Attenuation
+# ==========================================================================================
+Att_ZPhi STRUCT 5
+    type STRING ATTENUATION
+    datatype STRARR 3
+        PROC:dBZc
+        PROC:ZDRc
+        PROC:PhiDPc
+    fzl FLOAT 2800
+    ATT_METHOD STRING ZPhi
+    MAKE_GLOBAL INT 1
+	
+
+# ==========================================================================================
+#                 hydrometeor classification products
+# ==========================================================================================
+hydroclass STRUCT 6
+    type STRING HYDROCLASS
+    datatype STRARR 4
+        PROC:dBZc
+        PROC:ZDRc
+        PROC:RhoHVc
+        PROC:KDPc
+    HYDRO_METHOD STRING SEMISUPERVISED
+    MAKE_GLOBAL INT 1
+    fzl FLOAT 2800
+    products STRUCT 1
+        EL1.3 STRUCT 5
+            type  STRING PPI_MAP
+            anglenr INT 1
+            vmin FLOAT -20
+            vmax FLOAT 60
+            voltype STRING hydro
+
+# ==========================================================================================
+#               rainfall rate
+# ==========================================================================================            
+rainrate STRUCT 5
+    type STRING RAINRATE
+    datatype STRARR 3
+        PROC:dBZc
+        PROC:Ah
+        PROC:hydro
+    RR_METHOD STRING hydro
+    MAKE_GLOBAL INT 1
+    products STRUCT 1
+      ALT1000 STRUCT 4
+         type   STRING CAPPI_IMAGE
+         voltype STRING RR
+         altitude FLOAT 1000
+         vmax FLOAT 60
+
+# ---------------------- rain gauge COL -------------------------------------------
+# 45.8500,8.0000 COL (Coldrerio)
+rgCOL_RR STRUCT 11
+    type STRING POINT_MEASUREMENT
+    datatype STRARR 1
+        PROC:RR
+    latlon INT 1
+    truealt INT 1
+    lat FLOAT 45.854
+    lon FLOAT 8.997
+    alt FLOAT 346.6
+    AziTol FLOAT 1.
+    EleTol FLOAT 2.
+    RngTol FLOAT 100.
+    products STRUCT 4
+        RR STRUCT 1
+            type STRING PLOT_AND_WRITE_POINT
+        RRcomp STRUCT 4
+            type STRING COMPARE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING COL
+        RRcumcomp STRUCT 4
+            type STRING COMPARE_CUMULATIVE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING COL
+        RRcum3600s STRUCT 6
+            type STRING COMPARE_TIME_AVG
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING COL
+            cum_time INT 3600
+            base_time INT 0
+
+# ---------------------- rain gauge SBO -------------------------------------------
+# 45.843, 8.932 SBO (Stabio)
+rgSBO_RR STRUCT 11
+    type STRING POINT_MEASUREMENT
+    datatype STRARR 1
+        PROC:RR
+    latlon INT 1
+    truealt INT 1
+    lat FLOAT 45.843
+    lon FLOAT 8.932
+    alt FLOAT 351.4
+    AziTol FLOAT 1.
+    EleTol FLOAT 2.
+    RngTol FLOAT 100.
+    products STRUCT 4
+        RR STRUCT 1
+            type STRING PLOT_AND_WRITE_POINT
+        RRcomp STRUCT 4
+            type STRING COMPARE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING SBO
+        RRcumcomp STRUCT 4
+            type STRING COMPARE_CUMULATIVE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING SBO
+        RRcum3600s STRUCT 6
+            type STRING COMPARE_TIME_AVG
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING SBO
+            cum_time INT 3600
+            base_time INT 0
+
+# ---------------------- rain gauge GEN -------------------------------------------
+# 45.843, 8.932 GEN (Monte Generoso)
+rgGEN_RR STRUCT 11
+    type STRING POINT_MEASUREMENT
+    datatype STRARR 1
+        PROC:RR
+    latlon INT 1
+    truealt INT 1
+    lat FLOAT 45.9333
+    lon FLOAT 9.0167
+    alt FLOAT 1600
+    AziTol FLOAT 1.
+    EleTol FLOAT 2.
+    RngTol FLOAT 100.
+    products STRUCT 4
+        RR STRUCT 1
+            type STRING PLOT_AND_WRITE_POINT
+        RRcomp STRUCT 4
+            type STRING COMPARE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING GEN
+        RRcumcomp STRUCT 4
+            type STRING COMPARE_CUMULATIVE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING GEN
+        RRcum3600s STRUCT 6
+            type STRING COMPARE_TIME_AVG
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING GEN
+            cum_time INT 3600
+            base_time INT 0
+
+# ---------------------- rain gauge IYVAV -------------------------------------------
+# 45.8333, 8.8167 IYVAV (Masnago)
+rgIYVAV_RR STRUCT 11
+    type STRING POINT_MEASUREMENT
+    datatype STRARR 1
+        PROC:RR
+    latlon INT 1
+    truealt INT 1
+    lat FLOAT 45.8333
+    lon FLOAT 8.8167
+    alt FLOAT 448
+    AziTol FLOAT 1.
+    EleTol FLOAT 2.
+    RngTol FLOAT 100.
+    products STRUCT 4
+        RR STRUCT 1
+            type STRING PLOT_AND_WRITE_POINT
+        RRcomp STRUCT 4
+            type STRING COMPARE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYVAV
+        RRcumcomp STRUCT 4
+            type STRING COMPARE_CUMULATIVE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYVAV
+        RRcum3600s STRUCT 6
+            type STRING COMPARE_TIME_AVG
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYVAV
+            cum_time INT 3600
+            base_time INT 0
+
+# ---------------------- rain gauge IYCOV -------------------------------------------
+# 45.8167,9.0667 IYCOV (Como)
+rgIYCOV_RR STRUCT 11
+    type STRING POINT_MEASUREMENT
+    datatype STRARR 1
+        PROC:RR
+    latlon INT 1
+    truealt INT 1
+    lat FLOAT 45.8167
+    lon FLOAT 9.0667
+    alt FLOAT 197.7
+    AziTol FLOAT 1.
+    EleTol FLOAT 2.
+    RngTol FLOAT 100.
+    products STRUCT 4
+        RR STRUCT 1
+            type STRING PLOT_AND_WRITE_POINT
+        RRcomp STRUCT 4
+            type STRING COMPARE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYCOV
+        RRcumcomp STRUCT 4
+            type STRING COMPARE_CUMULATIVE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYCOV
+        RRcum3600s STRUCT 6
+            type STRING COMPARE_TIME_AVG
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYCOV
+            cum_time INT 3600
+            base_time INT 0
+
+# ---------------------- rain gauge IYCOV -------------------------------------------
+# 45.6833,9.1833 IYMAR (Mariano Comense)
+rgIYMAR_RR STRUCT 11
+    type STRING POINT_MEASUREMENT
+    datatype STRARR 1
+        PROC:RR
+    latlon INT 1
+    truealt INT 1
+    lat FLOAT 45.6833
+    lon FLOAT 9.1833
+    alt FLOAT 245.9
+    AziTol FLOAT 1.
+    EleTol FLOAT 2.
+    RngTol FLOAT 100.
+    products STRUCT 4
+        RR STRUCT 1
+            type STRING PLOT_AND_WRITE_POINT
+        RRcomp STRUCT 4
+            type STRING COMPARE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYMAR
+        RRcumcomp STRUCT 4
+            type STRING COMPARE_CUMULATIVE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYMAR
+        RRcum3600s STRUCT 6
+            type STRING COMPARE_TIME_AVG
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYMAR
+            cum_time INT 3600
+            base_time INT 0
+
+# ---------------------- rain gauge IYCOV -------------------------------------------
+# 45.6833,9.1833 IYVAP (Varallo)
+rgIYVAP_RR STRUCT 11
+    type STRING POINT_MEASUREMENT
+    datatype STRARR 1
+        PROC:RR
+    latlon INT 1
+    truealt INT 1
+    lat FLOAT 45.667
+    lon FLOAT 8.6333
+    alt FLOAT 289.2
+    AziTol FLOAT 1.
+    EleTol FLOAT 2.
+    RngTol FLOAT 100.
+    products STRUCT 4
+        RR STRUCT 1
+            type STRING PLOT_AND_WRITE_POINT
+        RRcomp STRUCT 4
+            type STRING COMPARE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYMAR
+        RRcumcomp STRUCT 4
+            type STRING COMPARE_CUMULATIVE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYMAR
+        RRcum3600s STRUCT 6
+            type STRING COMPARE_TIME_AVG
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYMAR
+            cum_time INT 3600
+            base_time INT 0
+
+# ---------------------- rain gauge IYVEM -------------------------------------------
+# 45.6833,9.1833 IYVEM (Vertemate)
+rgIYVEM_RR STRUCT 11
+    type STRING POINT_MEASUREMENT
+    datatype STRARR 1
+        PROC:RR
+    latlon INT 1
+    truealt INT 1
+    lat FLOAT 45.7167
+    lon FLOAT 9.0833
+    alt FLOAT 309.6
+    AziTol FLOAT 1.
+    EleTol FLOAT 2.
+    RngTol FLOAT 100.
+    products STRUCT 4
+        RR STRUCT 1
+            type STRING PLOT_AND_WRITE_POINT
+        RRcomp STRUCT 4
+            type STRING COMPARE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYMAR
+        RRcumcomp STRUCT 4
+            type STRING COMPARE_CUMULATIVE_POINT
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYMAR
+        RRcum3600s STRUCT 6
+            type STRING COMPARE_TIME_AVG
+            prdid STRING RR
+            sensor STRING rgage
+            sensorid STRING IYMAR
+            cum_time INT 3600
+            base_time INT 0
+
+
+RR_hydro_grid STRUCT 5
+   type     STRING GRID
+   datatype STRING PROC:RR
+   wfunc STRING BARNES2
+   gridConfig STRUCT 9
+      xmin FLOAT -80.
+      xmax FLOAT 80.
+      ymin FLOAT -80.
+      ymax FLOAT 80.
+      zmin FLOAT 0.
+      zmax FLOAT 2000.
+      hres FLOAT 1000.
+      vres FLOAT 500.
+      altorig FLOAT 0.
+    products STRUCT 3
+       RR_500 STRUCT 3
+         type  STRING SURFACE_IMAGE
+         voltype STRING RR
+         level INT 0
+       RR_1000 STRUCT 3
+         type  STRING SURFACE_IMAGE
+         voltype STRING RR
+         level INT 1
+       RR_1500 STRUCT 3
+         type  STRING SURFACE_IMAGE
+         voltype STRING RR
+         level INT 2
+

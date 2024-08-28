@@ -11,11 +11,13 @@ project:
     - name: Anna del Moral Méndez
       orcid: 0000-0002-5015-840X
     - name: Brenda Javornik
+      orcid: 0009-0004-9266-9293
       github: leavesntwigs
     - name: Daniel Michelson
       orcid: 0000-0003-3222-9881
       github: DanielMichelson
     - name: Daniel Wolfensberger
+      orcid: 0009-0006-1419-0556
       github: wolfidan
     - name: Gionata Ghiggi
       orcid: 0000-0002-0818-0865
@@ -53,12 +55,38 @@ project:
     - title: Preamble
       children:
         - file: notebooks/how-to-cite.md
+    - title: Schedule
+      children:
+        - file: schedule.md
+    - title: Data Access
+      children:
+        - file: notebooks/data-access/intro-data-access.ipynb
     - title: Radar Software Foundations
       children:
-        - file: notebooks/xradar-pyart/pyart-basics.ipynb
+        - title: XRadar
+          children:
+            - file: notebooks/xradar-pyart/xradar-basics.ipynb
+        - title: Py-ART and wradlib
+          children:
+            - file: notebooks/xradar-pyart/pyart-basics.ipynb
+            - file: notebooks/wradlib/wradlib_clutter_beamblockage.ipynb
+        - title: GPM-API
+          children:
+            - file: notebooks/gpm-api/gpm-api-intro.ipynb
+        - title: BALTRAD
+          children:
+            - pattern: notebooks/baltrad/baltrad_short_course/*.ipynb
+            - pattern: notebooks/baltrad/pyart2baltrad/*.ipynb
+            - file: notebooks/baltrad/baltrad2wradlib/baltrad2wradlib.ipynb
+        - title: LROSE
+          children:
+            - file: notebooks/lrose/lrose-introduction.ipynb
     - title: Notebook Environment
       children:
-        - file: notebooks/environment
+        - file: notebooks/environment.ipynb
+    - title: Retrieving winds with PyDDA
+      children:
+        - file: notebooks/Retrieving_winds_with_pydda.ipynb
   jupyter:
       binder:
         repo: openradar/erad2024
