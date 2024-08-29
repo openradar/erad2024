@@ -86,6 +86,10 @@ project:
     - title: Retrieving winds with PyDDA
       children:
         - file: notebooks/Retrieving_winds_with_pydda.ipynb
+    - title: ARCO Radar Datasets
+      children:
+        -pattern: notebooks/Analysis-Ready/ARCO-Datasets.ipynb
+        -pattern: otebooks/Analysis-Ready/QPE-QVPs.ipynb
   jupyter:
       binder:
         repo: openradar/erad2024
