@@ -15,9 +15,22 @@ dependencies:
   - pydda
   - zarr
   - xarray
-  - xradar
+  - xradar>=0.6.3
   - numpy<2.0
   - python<=3.11
+  # this is needed for gpm-api
+  - gpm-api>=0.2.15    # to update to 0.2.16 once released
+  - ximage>=0.0.5
+  - pycolorbar>=0.0.13 # to update to 0.0.14 once released
+  - shapely>=2.0.0
+  - geopandas
+  - xoak
+  - scikit-learn
+  # this is needed for gpm-api interactive 3D viz
+  # - pyvista
+  # - trame
+  # - trame-vuetify
+  # - trame-vtk
   # this is needed for baltrad compilation
   - compilers
   - make
@@ -40,3 +53,13 @@ dependencies:
   - ipykernel
   - pytest
   - pytest-xdist
+  # this is needed for PyDDA performance
+  - jaxopt
+  - tensorflow>=2.6
+  - tensorflow-probability>=0.24
+  # interactive plotting
+  - hvplot
+  - datashader
+  # needed for wradlib
+  - bottleneck
+  - rioxarray

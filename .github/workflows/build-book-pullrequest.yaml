@@ -27,6 +27,9 @@ on:
 permissions:
   contents: read
 
+env:
+  DOCKER_TAG: pr_96
+
 jobs:
   build-book:
     runs-on: ubuntu-latest
@@ -52,6 +55,21 @@ jobs:
           #   echo "binder-folder NOT changed - NO rebuild"
           # fi
           rm binder/Dockerfile
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          # this might remove tools that are actually needed,
+          # if set to "true" but frees about 6 GB
+          tool-cache: false
+
+          # all of these default to true, but feel free to set to
+          # "false" if necessary for your workflow
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          docker-images: false
+          swap-storage: false
       - name: update jupyter dependencies with repo2docker
         uses: jupyterhub/repo2docker-action@master
         with:
@@ -59,6 +77,7 @@ jobs:
           DOCKER_USERNAME: "openradar"
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_REGISTRY: "ghcr.io"
+          ADDITIONAL_TAG: ${{ env.DOCKER_TAG }}
           PUBLIC_REGISTRY_CHECK: true
           APPENDIX_FILE: "binder/appendix.txt"
           REPO2DOCKER_EXTRA_ARGS: --Repo2Docker.base_image=docker.io/library/buildpack-deps:jammy

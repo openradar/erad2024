@@ -18,4 +18,6 @@ RUN CONDA_DIR=/srv/conda && \
     echo "export CONDA_PREFIX=$CONDA_PREFIX" >> ~/.profile && \
     echo "export PROJ_NETWORK=$PROJ_NETWORK" >> ~/.profile && \
     ${CONDA_PREFIX}/bin/bash -l $BALTRAD_INSTALL_ROOT/install/baltrad/install_baltrad.sh && \
+    rm -rf $BALTRAD_INSTALL_ROOT/install && \
+    ${MAMBA_EXE} clean --all -f -y && \
     cp binder/kernel.json $CONDA_PREFIX/share/jupyter/kernels/python3/.
