@@ -82,7 +82,13 @@ project:
             - file: notebooks/baltrad/baltrad2wradlib/baltrad2wradlib.ipynb
         - title: LROSE
           children:
-            - file: notebooks/lrose/lrose-introduction.ipynb
+            - file: notebooks/lrose/LROSE_Basics.ipynb
+            - file: notebooks/lrose/LROSE_ERAD_fractl_samurai.ipynb
+            - file: notebooks/lrose/DD_Tornado_ERAD2024.ipynb
+            - file: notebooks/lrose/testing/stress_testing.ipynb
+    - title: Notebook Environment
+      children:
+        - file: notebooks/environment.ipynb
     - title: Retrieving winds with PyDDA
       children:
         - file: notebooks/Retrieving_winds_with_pydda.ipynb
