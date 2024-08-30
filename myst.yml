@@ -58,9 +58,11 @@ project:
     - title: Schedule
       children:
         - file: schedule.md
-    - title: Data Access
+    - title: Getting started
       children:
+        - file: getting_started.md
         - file: notebooks/data-access/intro-data-access.ipynb
+        - file: notebooks/environment.ipynb
     - title: Radar Software Foundations
       children:
         - title: XRadar
@@ -84,7 +86,6 @@ project:
             - file: notebooks/lrose/LROSE_ERAD_fractl_samurai.ipynb
             - file: notebooks/lrose/DD_Tornado_ERAD2024.ipynb
             - file: notebooks/lrose/testing/stress_testing.ipynb
-
     - title: Notebook Environment
       children:
         - file: notebooks/environment.ipynb
