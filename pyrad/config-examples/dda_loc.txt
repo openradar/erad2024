@@ -59,10 +59,10 @@ xsecImageConfig STRUCT 6
 gridMapImageConfig STRUCT 9
     xsize      FLOAT  11.      # image size [inches] (default dots per inch (dpi):72)
     ysize      FLOAT   9.      # image size [inches] (default dots per inch (dpi):72)
-    latmin     FLOAT  45.25   # Min distance on horizontal axis [km]
+    latmin     FLOAT  45.5   # Min distance on horizontal axis [km]
     latmax     FLOAT  46.25   # Max distance on horizontal axis [km]
     lonmin     FLOAT  8.4   # Min distance on vertical axis [km]
-    lonmax     FLOAT  9.7   # Max distance on vertical axis [km]
+    lonmax     FLOAT  9.5   # Max distance on vertical axis [km]
     mapres     STRING 10m
     exact_limits INT 1
     maps STRARR 6

@@ -9,7 +9,7 @@
 
 # Name of this configuration:
 # Will be used in product generation save path
-name STRING QVP_ARPA2
+name STRING QVP_ARPA_XBAND
 
 # ---------------------------------------------------------
 #  Raw data pathes

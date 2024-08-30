@@ -13,8 +13,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 fs = fsspec.filesystem("s3", anon=True, client_kwargs=dict(endpoint_url=URL))
 Xband_files = fs.glob(f"{path}/20240522_MeteoSwiss_ARPA_Lombardia/Data/Xband/*")
-Cband_files = fs.glob(f"{path}/20240522_MeteoSwiss_ARPA_Lombardia/Data/Cband/*")
-
+Cband_files = fs.glob(f"{path}/pyrad/Cband/*")
 Xband_path = Path(dir_path, 'data', 'Xband')
 if not os.path.exists(Xband_path):
     os.makedirs(Xband_path)

@@ -1,0 +1,20 @@
+# Precipitation accumulation data file
+# Comment lines are preceded by "#"
+# Description: 
+# Time series of a precipitation accumulation of weather radar data and another sensor over a fixed location.
+# Location [lon, lat, alt]: [9.0667, 45.8167, 197.7]
+# Nominal antenna coordinates used [az, el, r]: [np.float64(143.98123251692778), np.float64(-2.657650279201732), np.float64(30803.494111656768)]
+# sensor type: rgage
+# sensor ID: IYCOV
+# Data: Precipitation accumulation over 3600 s
+# Fill Value: -9999.0
+# Start: 2024-05-22 13:00:00 UTC
+#
+date,np_radar,radar_value,np_sensor,sensor_value
+2024-05-22 13:00:00,1,0.0,6,0.0
+2024-05-22 14:00:00,12,17.604352353483332,6,8.2
+2024-05-22 15:00:00,12,6.073447730833333,6,8.599999999999998
+2024-05-22 16:00:00,12,1.4286819216666666,6,1.2000000000000002
+2024-05-22 17:00:00,12,1.3243741433333334,6,0.2
+2024-05-22 18:00:00,12,0.013207600833333333,6,0.0
+2024-05-22 19:00:00,12,0.0,6,0.0

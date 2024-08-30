@@ -1,0 +1,20 @@
+# Precipitation accumulation data file
+# Comment lines are preceded by "#"
+# Description: 
+# Time series of a precipitation accumulation of weather radar data and another sensor over a fixed location.
+# Location [lon, lat, alt]: [8.932, 45.843, 351.4]
+# Nominal antenna coordinates used [az, el, r]: [np.float64(160.80957822481136), np.float64(-3.134035441072743), np.float64(23313.594235034263)]
+# sensor type: rgage
+# sensor ID: SBO
+# Data: Precipitation accumulation over 3600 s
+# Fill Value: -9999.0
+# Start: 2024-05-22 13:00:00 UTC
+#
+date,np_radar,radar_value,np_sensor,sensor_value
+2024-05-22 13:00:00,1,4.6615467,6,1.9
+2024-05-22 14:00:00,12,0.5504272666666666,6,0.29999999999999993
+2024-05-22 15:00:00,12,6.385651358333334,6,6.0
+2024-05-22 16:00:00,12,1.2865908841666667,6,1.1
+2024-05-22 17:00:00,12,0.31470205749999997,6,0.0
+2024-05-22 18:00:00,12,0.0,6,0.0
+2024-05-22 19:00:00,12,0.0,6,0.0

@@ -76,10 +76,10 @@ dda STRUCT 13
    wind_tol FLOAT 0.5
    sounding STRING 06610
    gridConfig STRUCT 11
-       xmin FLOAT -100.
-       xmax FLOAT 100.
-       ymin FLOAT -100.
-       ymax FLOAT 100.
+       xmin FLOAT -60.
+       xmax FLOAT 60.
+       ymin FLOAT -60.
+       ymax FLOAT 60.
        zmin FLOAT 0.
        zmax FLOAT 15000.
        hres FLOAT 1000.
@@ -124,26 +124,22 @@ dda STRUCT 13
                 lon FLOAT 8.758
             vmin FLOAT -5
             vmax FLOAT 5
-        wind_map_3000 STRUCT 11
+        wind_map_3000 STRUCT 9
             type STRING DDA_MAP
             voltype STRING dBZc
             display_type STRING barbs
             bg_ref_rad INT 0
-            quiver_len FLOAT 10.
-            quiver_width FLOAT 0.005
             vector_spacing_km FLOAT 6.
             vmin FLOAT 0
             vmax FLOAT 60
             alpha FLOAT 0.6
             level INT 4
-        wind_map_4000 STRUCT 11
+        wind_map_4000 STRUCT 9
             type STRING DDA_MAP
             voltype STRING dBZc
             display_type STRING barbs
             bg_ref_rad INT 0
-            quiver_len FLOAT 10.
             vector_spacing_km FLOAT 6.
-            quiver_width FLOAT 0.005
             vmin FLOAT 0
             vmax FLOAT 60
             alpha FLOAT 0.6
