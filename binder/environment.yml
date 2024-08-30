@@ -63,3 +63,5 @@ dependencies:
   # needed for wradlib
   - bottleneck
   - rioxarray
+  # needed for LROSE
+  - metpy
