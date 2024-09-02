@@ -27,7 +27,7 @@ for i, file in enumerate(Xband_files):
     urllib.request.urlretrieve(f"{URL}{file}", Path(Xband_path, Path(file).name))
     
 print(f"Download {len(Cband_files)} files to {Cband_path}")
-for file in Cband_files:
+for i, file in enumerate(Cband_files):
     print(f"{i+1}/{len(Cband_files)}")
     urllib.request.urlretrieve(f"{URL}{file}", Path(Cband_path, Path(file).name))
     
