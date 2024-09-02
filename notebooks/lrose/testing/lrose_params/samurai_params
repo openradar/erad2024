@@ -1,0 +1,1331 @@
+/**********************************************************************
+ * TDRP params for samurai
+ **********************************************************************/
+
+//======================================================================
+//
+// Spline Analysis at Mesoscale Utilizing Radar and Aircraft 
+//   Instrumentation.
+//
+//======================================================================
+ 
+//======================================================================
+//
+// DEBUGGING SECTION.
+//
+//======================================================================
+ 
+///////////// debug_bgu ///////////////////////////////
+//
+// Dump the content of the bgU array.
+//
+// If true, the bgU array will be dumped into a netcdf file.
+//
+// Type: boolean
+
+debug_bgu = FALSE;
+
+///////////// debug_bgu_nc ////////////////////////////
+//
+// Dump the content of the bgU array in this file.
+//
+// If debug_bgu is set to true, the bgU array will be dumped into this 
+//   file.
+//
+// Type: string
+
+debug_bgu_nc = "/tmp/bgu.nc";
+
+///////////// debug_bgin //////////////////////////////
+//
+// Dump the content of the bgIn array.
+//
+// If true, the bgIn array will be dumped on stdout.
+//
+// Type: boolean
+
+debug_bgin = FALSE;
+
+///////////// debug_bgu_overwrite /////////////////////
+//
+// Overwrite bgU with the content of this file.
+//
+// If set to a valid file, the bgU array will be overwritten.
+//
+// Type: string
+
+debug_bgu_overwrite = "";
+
+///////////// debug_kd ////////////////////////////////
+//
+// Debug the KD tree.
+//
+// If set to a non-zero value val, dump val/step KD tree lookup.
+//
+// Type: int
+
+debug_kd = 0;
+
+///////////// debug_kd_step ///////////////////////////
+//
+// Step for decrementing debug_kd.
+//
+// debug_kd is decremented by this value.
+//
+// Type: int
+
+debug_kd_step = 0;
+
+//======================================================================
+//
+// BACKGROUND SECTION.
+//
+//======================================================================
+ 
+///////////// load_background /////////////////////////
+//
+// Tell Samurai to load background observations.
+//
+// TODO.
+//
+// Type: boolean
+
+load_background = FALSE;
+
+///////////// load_bg_coefficients ////////////////////
+//
+// Tell Samurai to load background coefficients.
+//
+// TODO.
+//
+// Type: boolean
+
+load_bg_coefficients = FALSE;
+
+///////////// adjust_background ///////////////////////
+//
+// Tell Samurai to adjust the background observations.
+//
+// Adjust the interpolated background to satisfy mass continuity and 
+//   match the supplied points exactly.
+//
+// Type: boolean
+
+adjust_background = FALSE;
+
+///////////// bkgd_obs_interpolation //////////////////
+//
+// Interpolation method to fit background observations to the grid.
+//
+// TODO explain the various methods here.
+//
+// Type: enum
+// Options:
+//     INTERP_NONE
+//     INTERP_SPLINE
+//     INTERP_KD_TREE
+//     INTERP_FRACTL
+
+bkgd_obs_interpolation = INTERP_SPLINE;
+
+//======================================================================
+//
+// OPERATION SECTION.
+//
+//======================================================================
+ 
+///////////// mode ////////////////////////////////////
+//
+// Coordinate system.
+//
+// XYZ for Cartesian, RTZ for spherical.
+//
+// Type: enum
+// Options:
+//     MODE_XYZ
+//     MODE_RTZ
+
+mode = MODE_XYZ;
+
+///////////// projection //////////////////////////////
+//
+// Projection.
+//
+// TODO.
+//
+// Type: enum
+// Options:
+//     PROJ_LAMBERT_CONFORMAL_CONIC
+//     PROJ_TRANSVERSE_MERCATOR_EXACT
+
+projection = PROJ_TRANSVERSE_MERCATOR_EXACT;
+
+///////////// data_directory //////////////////////////
+//
+// Path to the data directory.
+//
+// Samurai will load data files from this directory.
+//
+// Type: string
+
+data_directory = "./samurai_input";
+
+///////////// output_directory ////////////////////////
+//
+// Path to the output directory.
+//
+// Samurai will write result files in this directory.
+//
+// Type: string
+
+output_directory = "./output_sam";
+
+///////////// preprocess_obs //////////////////////////
+//
+// TODO.
+//
+// Type: boolean
+
+preprocess_obs = TRUE;
+
+///////////// num_iterations //////////////////////////
+//
+// Max number of iterations to the multipass reduction factor.
+//
+// Multiple iterations will reduce the cutoff wavelengths and background 
+//   error variance.
+//
+// Type: int
+
+num_iterations = 1;
+
+///////////// output_mish /////////////////////////////
+//
+// Type: boolean
+
+output_mish = FALSE;
+
+///////////// output_txt //////////////////////////////
+//
+// Type: boolean
+
+output_txt = FALSE;
+
+///////////// output_qc ///////////////////////////////
+//
+// Type: boolean
+
+output_qc = TRUE;
+
+///////////// output_netcdf ///////////////////////////
+//
+// Type: boolean
+
+output_netcdf = TRUE;
+
+///////////// output_asi //////////////////////////////
+//
+// Type: boolean
+
+output_asi = FALSE;
+
+///////////// output_COAMPS ///////////////////////////
+//
+// Type: boolean
+
+output_COAMPS = FALSE;
+
+///////////// save_mish ///////////////////////////////
+//
+// Type: boolean
+
+save_mish = FALSE;
+
+//======================================================================
+//
+// GRID DEFINITION SECTION.
+//
+//======================================================================
+ 
+///////////// i_min ///////////////////////////////////
+//
+// Type: float
+
+i_min = 10;
+
+///////////// i_max ///////////////////////////////////
+//
+// Type: float
+
+i_max = 35;
+
+///////////// i_incr //////////////////////////////////
+//
+// Type: float
+
+i_incr = 0.5;
+
+///////////// j_min ///////////////////////////////////
+//
+// Type: float
+
+j_min = 10;
+
+///////////// j_max ///////////////////////////////////
+//
+// Type: float
+
+j_max = 40;
+
+///////////// j_incr //////////////////////////////////
+//
+// Type: float
+
+j_incr = 0.5;
+
+///////////// k_min ///////////////////////////////////
+//
+// Type: float
+
+k_min = 0;
+
+///////////// k_max ///////////////////////////////////
+//
+// Type: float
+
+k_max = 10;
+
+///////////// k_incr //////////////////////////////////
+//
+// Type: float
+
+k_incr = 0.5;
+
+//======================================================================
+//
+// BACKGROUND SECTION.
+//
+//======================================================================
+ 
+///////////// ref_state ///////////////////////////////
+//
+// Type: string
+
+ref_state = "./ref_sounding/BCN00_sounding.snd";
+
+///////////// ref_time ////////////////////////////////
+//
+// Reference time.
+//
+// hh:mm:ss.
+//
+// Type: string
+
+ref_time = "00:42:01";
+
+///////////// i_background_roi ////////////////////////
+//
+// Radius of influence in the I direction.
+//
+// Type: float
+
+i_background_roi = 20;
+
+///////////// j_background_roi ////////////////////////
+//
+// Radius of influence in the J direction.
+//
+// Type: float
+
+j_background_roi = 20;
+
+//======================================================================
+//
+// RADAR SECTION.
+//
+//======================================================================
+ 
+///////////// radar_skip //////////////////////////////
+//
+// Type: int
+
+radar_skip = 1;
+
+///////////// radar_stride ////////////////////////////
+//
+// Type: int
+
+radar_stride = 1;
+
+///////////// dynamic_stride //////////////////////////
+//
+// Type: int
+
+dynamic_stride = 0;
+
+///////////// qr_variable /////////////////////////////
+//
+// ???.
+//
+// Type: string
+
+qr_variable = "dbz";
+
+///////////// radar_dbz ///////////////////////////////
+//
+// Radar reflectivity variable name in the input files.
+//
+// Example: DBZ for Eldora, DZ for CSU-CHILL.
+//
+// Type: string
+
+radar_dbz = "DBZ";
+
+///////////// radar_vel ///////////////////////////////
+//
+// Radar velocity of scatterers away from instrument.
+//
+// Example: VG for Eldora, VE for CSU-CHILL, VR, ...
+//
+// Type: string
+
+radar_vel = "VEL";
+
+///////////// radar_sw ////////////////////////////////
+//
+// Type: string
+
+radar_sw = "DBZ";
+
+///////////// i_reflectivity_roi //////////////////////
+//
+// Type: float
+
+i_reflectivity_roi = 0.5;
+
+///////////// j_reflectivity_roi //////////////////////
+//
+// Type: float
+
+j_reflectivity_roi = 0.5;
+
+///////////// k_reflectivity_roi //////////////////////
+//
+// Type: float
+
+k_reflectivity_roi = 0.5;
+
+///////////// dbz_pseudow_weight //////////////////////
+//
+// Type: float
+
+dbz_pseudow_weight = 0;
+
+///////////// mask_reflectivity ///////////////////////
+//
+// Type: float
+
+mask_reflectivity = -10;
+
+///////////// melting_zone_width //////////////////////
+//
+// Type: float
+
+melting_zone_width = 1;
+
+///////////// mixed_phase_dbz /////////////////////////
+//
+// Type: float
+
+mixed_phase_dbz = 20;
+
+///////////// rain_dbz ////////////////////////////////
+//
+// Type: float
+
+rain_dbz = 30;
+
+//======================================================================
+//
+// PARAMETERS SECTION.
+//
+//======================================================================
+ 
+//======================================================================
+//
+// BOUNDARY CONDITIONS SECTION.
+//
+//======================================================================
+ 
+///////////// i_rhou_bcL //////////////////////////////
+//
+// Type: string
+
+i_rhou_bcL = "R0";
+
+///////////// i_rhou_bcR //////////////////////////////
+//
+// Type: string
+
+i_rhou_bcR = "R0";
+
+///////////// i_rhov_bcL //////////////////////////////
+//
+// Type: string
+
+i_rhov_bcL = "R0";
+
+///////////// i_rhov_bcR //////////////////////////////
+//
+// Type: string
+
+i_rhov_bcR = "R0";
+
+///////////// i_rhow_bcL //////////////////////////////
+//
+// Type: string
+
+i_rhow_bcL = "R0";
+
+///////////// i_rhow_bcR //////////////////////////////
+//
+// Type: string
+
+i_rhow_bcR = "R0";
+
+///////////// i_tempk_bcL /////////////////////////////
+//
+// Type: string
+
+i_tempk_bcL = "R0";
+
+///////////// i_tempk_bcR /////////////////////////////
+//
+// Type: string
+
+i_tempk_bcR = "R0";
+
+///////////// i_qv_bcL ////////////////////////////////
+//
+// Type: string
+
+i_qv_bcL = "R0";
+
+///////////// i_qv_bcR ////////////////////////////////
+//
+// Type: string
+
+i_qv_bcR = "R0";
+
+///////////// i_rhoa_bcL //////////////////////////////
+//
+// Type: string
+
+i_rhoa_bcL = "R0";
+
+///////////// i_rhoa_bcR //////////////////////////////
+//
+// Type: string
+
+i_rhoa_bcR = "R0";
+
+///////////// i_qr_bcL ////////////////////////////////
+//
+// Type: string
+
+i_qr_bcL = "R0";
+
+///////////// i_qr_bcR ////////////////////////////////
+//
+// Type: string
+
+i_qr_bcR = "R0";
+
+///////////// j_rhou_bcL //////////////////////////////
+//
+// Type: string
+
+j_rhou_bcL = "R0";
+
+///////////// j_rhou_bcR //////////////////////////////
+//
+// Type: string
+
+j_rhou_bcR = "R0";
+
+///////////// j_rhov_bcL //////////////////////////////
+//
+// Type: string
+
+j_rhov_bcL = "R0";
+
+///////////// j_rhov_bcR //////////////////////////////
+//
+// Type: string
+
+j_rhov_bcR = "R0";
+
+///////////// j_rhow_bcL //////////////////////////////
+//
+// Type: string
+
+j_rhow_bcL = "R0";
+
+///////////// j_rhow_bcR //////////////////////////////
+//
+// Type: string
+
+j_rhow_bcR = "R0";
+
+///////////// j_tempk_bcL /////////////////////////////
+//
+// Type: string
+
+j_tempk_bcL = "R0";
+
+///////////// j_tempk_bcR /////////////////////////////
+//
+// Type: string
+
+j_tempk_bcR = "R0";
+
+///////////// j_qv_bcL ////////////////////////////////
+//
+// Type: string
+
+j_qv_bcL = "R0";
+
+///////////// j_qv_bcR ////////////////////////////////
+//
+// Type: string
+
+j_qv_bcR = "R0";
+
+///////////// j_rhoa_bcL //////////////////////////////
+//
+// Type: string
+
+j_rhoa_bcL = "R0";
+
+///////////// j_rhoa_bcR //////////////////////////////
+//
+// Type: string
+
+j_rhoa_bcR = "R0";
+
+///////////// j_qr_bcL ////////////////////////////////
+//
+// Type: string
+
+j_qr_bcL = "R0";
+
+///////////// j_qr_bcR ////////////////////////////////
+//
+// Type: string
+
+j_qr_bcR = "R0";
+
+///////////// k_rhou_bcL //////////////////////////////
+//
+// Type: string
+
+k_rhou_bcL = "R0";
+
+///////////// k_rhou_bcR //////////////////////////////
+//
+// Type: string
+
+k_rhou_bcR = "R0";
+
+///////////// k_rhov_bcL //////////////////////////////
+//
+// Type: string
+
+k_rhov_bcL = "R0";
+
+///////////// k_rhov_bcR //////////////////////////////
+//
+// Type: string
+
+k_rhov_bcR = "R0";
+
+///////////// k_rhow_bcL //////////////////////////////
+//
+// Type: string
+
+k_rhow_bcL = "R0";
+
+///////////// k_rhow_bcR //////////////////////////////
+//
+// Type: string
+
+k_rhow_bcR = "R0";
+
+///////////// k_tempk_bcL /////////////////////////////
+//
+// Type: string
+
+k_tempk_bcL = "R0";
+
+///////////// k_tempk_bcR /////////////////////////////
+//
+// Type: string
+
+k_tempk_bcR = "R0";
+
+///////////// k_qv_bcL ////////////////////////////////
+//
+// Type: string
+
+k_qv_bcL = "R0";
+
+///////////// k_qv_bcR ////////////////////////////////
+//
+// Type: string
+
+k_qv_bcR = "R0";
+
+///////////// k_rhoa_bcL //////////////////////////////
+//
+// Type: string
+
+k_rhoa_bcL = "R0";
+
+///////////// k_rhoa_bcR //////////////////////////////
+//
+// Type: string
+
+k_rhoa_bcR = "R0";
+
+///////////// k_qr_bcL ////////////////////////////////
+//
+// Type: string
+
+k_qr_bcL = "R0";
+
+///////////// k_qr_bcR ////////////////////////////////
+//
+// Type: string
+
+k_qr_bcR = "R0";
+
+//======================================================================
+//
+// OBSERVATION ERRORS SECTION.
+//
+//======================================================================
+ 
+///////////// dropsonde_rhoa_error ////////////////////
+//
+// Type: float
+
+dropsonde_rhoa_error = 1;
+
+///////////// dropsonde_rhou_error ////////////////////
+//
+// Type: float
+
+dropsonde_rhou_error = 1;
+
+///////////// dropsonde_rhov_error ////////////////////
+//
+// Type: float
+
+dropsonde_rhov_error = 1;
+
+///////////// dropsonde_rhow_error ////////////////////
+//
+// Type: float
+
+dropsonde_rhow_error = 2;
+
+///////////// dropsonde_tempk_error ///////////////////
+//
+// Type: float
+
+dropsonde_tempk_error = 1;
+
+///////////// dropsonde_qv_error //////////////////////
+//
+// Type: float
+
+dropsonde_qv_error = 0.5;
+
+///////////// dropsonde_rhoua_error ///////////////////
+//
+// Type: float
+
+dropsonde_rhoua_error = 1;
+
+///////////// flightlevel_rhoa_error //////////////////
+//
+// Type: float
+
+flightlevel_rhoa_error = 1;
+
+///////////// flightlevel_rhou_error //////////////////
+//
+// Type: float
+
+flightlevel_rhou_error = 1;
+
+///////////// flightlevel_rhov_error //////////////////
+//
+// Type: float
+
+flightlevel_rhov_error = 1;
+
+///////////// flightlevel_rhow_error //////////////////
+//
+// Type: float
+
+flightlevel_rhow_error = 1;
+
+///////////// flightlevel_tempk_error /////////////////
+//
+// Type: float
+
+flightlevel_tempk_error = 1;
+
+///////////// flightlevel_qv_error ////////////////////
+//
+// Type: float
+
+flightlevel_qv_error = 0.5;
+
+///////////// flightlevel_rhoua_error /////////////////
+//
+// Type: float
+
+flightlevel_rhoua_error = 1;
+
+///////////// mtp_rhoa_error //////////////////////////
+//
+// Type: float
+
+mtp_rhoa_error = 0;
+
+///////////// mtp_tempk_error /////////////////////////
+//
+// Type: float
+
+mtp_tempk_error = 0;
+
+///////////// insitu_rhoa_error ///////////////////////
+//
+// Type: float
+
+insitu_rhoa_error = 1;
+
+///////////// insitu_rhou_error ///////////////////////
+//
+// Type: float
+
+insitu_rhou_error = 1;
+
+///////////// insitu_rhov_error ///////////////////////
+//
+// Type: float
+
+insitu_rhov_error = 1;
+
+///////////// insitu_rhow_error ///////////////////////
+//
+// Type: float
+
+insitu_rhow_error = 2;
+
+///////////// insitu_tempk_error //////////////////////
+//
+// Type: float
+
+insitu_tempk_error = 1;
+
+///////////// insitu_qv_error /////////////////////////
+//
+// Type: float
+
+insitu_qv_error = 0.5;
+
+///////////// insitu_rhoua_error //////////////////////
+//
+// Type: float
+
+insitu_rhoua_error = 1;
+
+///////////// sfmr_windspeed_error ////////////////////
+//
+// Type: float
+
+sfmr_windspeed_error = 10;
+
+///////////// qscat_rhou_error ////////////////////////
+//
+// Type: float
+
+qscat_rhou_error = 2.5;
+
+///////////// qscat_rhov_error ////////////////////////
+//
+// Type: float
+
+qscat_rhov_error = 2.5;
+
+///////////// ascat_rhou_error ////////////////////////
+//
+// Type: float
+
+ascat_rhou_error = 2.5;
+
+///////////// ascat_rhov_error ////////////////////////
+//
+// Type: float
+
+ascat_rhov_error = 2.5;
+
+///////////// amv_rhou_error //////////////////////////
+//
+// Type: float
+
+amv_rhou_error = 10;
+
+///////////// amv_rhov_error //////////////////////////
+//
+// Type: float
+
+amv_rhov_error = 10;
+
+///////////// lidar_sw_error //////////////////////////
+//
+// Type: float
+
+lidar_sw_error = 1;
+
+///////////// lidar_power_error ///////////////////////
+//
+// Type: float
+
+lidar_power_error = 50;
+
+///////////// lidar_min_error /////////////////////////
+//
+// Type: float
+
+lidar_min_error = 1;
+
+///////////// radar_sw_error //////////////////////////
+//
+// Type: float
+
+radar_sw_error = 1;
+
+///////////// radar_fallspeed_error ///////////////////
+//
+// Type: float
+
+radar_fallspeed_error = 2;
+
+///////////// radar_min_error /////////////////////////
+//
+// Type: float
+
+radar_min_error = 1;
+
+///////////// aeri_qv_error ///////////////////////////
+//
+// Type: float
+
+aeri_qv_error = 1;
+
+///////////// aeri_rhoa_error /////////////////////////
+//
+// Type: float
+
+aeri_rhoa_error = 1;
+
+///////////// aeri_rhou_error /////////////////////////
+//
+// Type: float
+
+aeri_rhou_error = 1;
+
+///////////// aeri_rhov_error /////////////////////////
+//
+// Type: float
+
+aeri_rhov_error = 1;
+
+///////////// aeri_rhow_error /////////////////////////
+//
+// Type: float
+
+aeri_rhow_error = 1;
+
+///////////// aeri_tempk_error ////////////////////////
+//
+// Type: float
+
+aeri_tempk_error = 1;
+
+///////////// bg_obs_error ////////////////////////////
+//
+// Type: float
+
+bg_obs_error = 1;
+
+///////////// bg_interpolation_error //////////////////
+//
+// Type: float
+
+bg_interpolation_error = 1;
+
+///////////// mesonet_qv_error ////////////////////////
+//
+// Type: float
+
+mesonet_qv_error = 1;
+
+///////////// mesonet_rhoa_error //////////////////////
+//
+// Type: float
+
+mesonet_rhoa_error = 1;
+
+///////////// mesonet_rhou_error //////////////////////
+//
+// Type: float
+
+mesonet_rhou_error = 1;
+
+///////////// mesonet_rhov_error //////////////////////
+//
+// Type: float
+
+mesonet_rhov_error = 1;
+
+///////////// mesonet_rhow_error //////////////////////
+//
+// Type: float
+
+mesonet_rhow_error = 1;
+
+///////////// mesonet_tempk_error /////////////////////
+//
+// Type: float
+
+mesonet_tempk_error = 1;
+
+//======================================================================
+//
+// XYP SPECIFIC SECTION.
+//
+//======================================================================
+ 
+///////////// output_latlon_increment /////////////////
+//
+// Type: float
+
+output_latlon_increment = -1;
+
+///////////// output_pressure_increment ///////////////
+//
+// Type: float
+
+output_pressure_increment = -1;
+
+//======================================================================
+//
+// OPTION SECTION.
+//
+//======================================================================
+ 
+///////////// max_radar_elevation /////////////////////
+//
+// Type: float
+
+max_radar_elevation = 45;
+
+///////////// horizontal_radar_appx ///////////////////
+//
+// Type: boolean
+
+horizontal_radar_appx = TRUE;
+
+///////////// allow_background_missing_values /////////
+//
+// Type: boolean
+
+allow_background_missing_values = TRUE;
+
+///////////// allow_negative_angles ///////////////////
+//
+// Type: boolean
+
+allow_negative_angles = TRUE;
+
+///////////// array_order /////////////////////////////
+//
+// Order of compressed arrays passed through samurai.h interface.
+//
+// One of row_order or column_order.
+//
+// Type: string
+
+array_order = "row_order";
+
+///////////// bg_interpolation ////////////////////////
+//
+// Type: string
+
+bg_interpolation = "none";
+
+//======================================================================
+//
+// KD TREE NEAREST NEIGHBOR SECTION.
+//
+//======================================================================
+ 
+///////////// bkgd_kd_max_distance ////////////////////
+//
+// Any point outside of that distance will be ignored.
+//
+// Type: float
+
+bkgd_kd_max_distance = 20;
+
+///////////// bkgd_kd_num_neighbors ///////////////////
+//
+// Values will be averaged over these many nearest neighbors.
+//
+// Type: int
+
+bkgd_kd_num_neighbors = 1;
+
+//======================================================================
+//
+// FRACTL INTERFACE SECTION.
+//
+//======================================================================
+ 
+///////////// fractl_nc_file //////////////////////////
+//
+// Need bkgd_obs_interpolation set to INTERP_FRACTL to be used.
+//
+// Type: string
+
+fractl_nc_file = "";
+
+///////////// use_fractl_errors ///////////////////////
+//
+// Need bkgd_obs_interpolation set to 'fractl' to be used.
+//
+// Type: boolean
+
+use_fractl_errors = FALSE;
+
+//======================================================================
+//
+// ITERATION DEPENDENT SECTION.
+//
+//======================================================================
+ 
+///////////// mc_weight ///////////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+mc_weight = {
+ 1,
+ 1
+};
+
+///////////// neumann_u_weight ////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+neumann_u_weight = {
+ 0.1,
+ 0.1
+};
+
+///////////// neumann_v_weight ////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+neumann_v_weight = {
+ 0.1,
+ 0.1
+};
+
+///////////// dirichlet_w_weight //////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+dirichlet_w_weight = {
+ 0.1,
+ 0.1
+};
+
+///////////// bg_qr_error /////////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+bg_qr_error = {
+ 3,
+ 1
+};
+
+///////////// bg_qv_error /////////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+bg_qv_error = {
+ 3,
+ 1
+};
+
+///////////// bg_rhoa_error ///////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+bg_rhoa_error = {
+ 3,
+ 1
+};
+
+///////////// bg_rhou_error ///////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+bg_rhou_error = {
+ 100,
+ 5
+};
+
+///////////// bg_rhov_error ///////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+bg_rhov_error = {
+ 100,
+ 5
+};
+
+///////////// bg_rhow_error ///////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+bg_rhow_error = {
+ 100,
+ 5
+};
+
+///////////// bg_tempk_error //////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+bg_tempk_error = {
+ 3,
+ 1
+};
+
+///////////// i_filter_length /////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+i_filter_length = {
+ 4,
+ 2
+};
+
+///////////// j_filter_length /////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+j_filter_length = {
+ 4,
+ 2
+};
+
+///////////// k_filter_length /////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+k_filter_length = {
+ 4,
+ 2
+};
+
+///////////// i_spline_cutoff /////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+i_spline_cutoff = {
+ 2,
+ 2
+};
+
+///////////// j_spline_cutoff /////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+j_spline_cutoff = {
+ 2,
+ 2
+};
+
+///////////// k_spline_cutoff /////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+k_spline_cutoff = {
+ 2,
+ 2
+};
+
+///////////// i_max_wavenumber ////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+i_max_wavenumber = {
+ -1,
+ -1
+};
+
+///////////// j_max_wavenumber ////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+j_max_wavenumber = {
+ -1,
+ -1
+};
+
+///////////// k_max_wavenumber ////////////////////////
+//
+// Type: float
+// 1D array - variable length.
+
+k_max_wavenumber = {
+ -1,
+ -1
+};
+
