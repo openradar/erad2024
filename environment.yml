@@ -13,8 +13,10 @@ dependencies:
   - pydda
   - pyrad_arm
   - wradlib
-  - xarray
   - xradar>=0.6.3
   - numpy<2.0
   - python<=3.11
   - mystmd
+  - pip
+  - pip:
+    - git+https://github.com/pydata/xarray@d33e4ad9407591cc7287973b0f8da47cae396004

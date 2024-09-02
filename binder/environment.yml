@@ -14,7 +14,6 @@ dependencies:
   - wradlib
   - pydda
   - zarr
-  - xarray
   - xradar>=0.6.3
   - numpy<2.0
   - python<=3.11
@@ -65,3 +64,8 @@ dependencies:
   # needed for wradlib
   - bottleneck
   - rioxarray
+  # needed for LROSE
+  - metpy
+  - pip
+  - pip:
+    - git+https://github.com/pydata/xarray@d33e4ad9407591cc7287973b0f8da47cae396004
