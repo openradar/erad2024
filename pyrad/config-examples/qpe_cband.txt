@@ -5,7 +5,7 @@
 # IMPORTANT: Adapt the paths to the actual location of your data and config files
 
 # call example:
-# main_process_data.py qpe.txt --starttime 20230801200000 --endtime 20230801200000 --cfgpath ./
+# main_process_data.py qpe_cband.txt --starttime 20240522130000 --endtime 20240522190000 --cfgpath ./
 
 # Name of this configuration:
 # Will be used in product generation save path

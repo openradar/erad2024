@@ -5,7 +5,7 @@
 # IMPORTANT: Adapt the paths to the actual location of your data and config files
 
 # call example:
-# main_process_data.py qpe_xband.txt --starttime 20240522130000 --endtime 20240522190000 --cfgpath ./
+# main_process_data.py qpe.txt --starttime 20240522160000 --endtime 20240522160000 --cfgpath ./
 
 # Name of this configuration:
 # Will be used in product generation save path
@@ -41,7 +41,7 @@ imgformat STRARR 1
 configpath STRING ./
 
 # Configuration of the radar location and approach direction
-locationConfigFile STRING ./qpe_xband_loc.txt
+locationConfigFile STRING ./qpe_loc.txt
 
 # Configuration of the product generation
-productConfigFile STRING ./qpe_xband_prod.txt
+productConfigFile STRING ./qpe_prod.txt

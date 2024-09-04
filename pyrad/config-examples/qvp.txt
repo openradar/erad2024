@@ -5,7 +5,7 @@
 # IMPORTANT: Adapt the paths to the actual location of your data and config files
 
 # call example:
-# main_process_data.py mf_odim_coll_qvp.txt --starttime 20200516200000 --endtime 20200516220000 --cfgpath ${PYRAD_COURSE_PATH}/config/proc_examples/
+# main_process_data.py qvp.txt --starttime 20240522130000 --endtime 20240522190000 --cfgpath ./
 
 # Name of this configuration:
 # Will be used in product generation save path

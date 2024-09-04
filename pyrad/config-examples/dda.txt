@@ -2,6 +2,9 @@
 # Will be used in product generation save path
 name STRING DDA_MeteoSwiss_ARPA
 
+# call example:
+# main_process_data.py dda.txt --starttime 20240522151500 --endtime 20240522151500 --cfgpath ./
+
 # ---------------------------------------------------------
 #  Raw data pathes
 # ---------------------------------------------------------
