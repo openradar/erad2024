@@ -96,6 +96,10 @@ project:
       children:
         - file: notebooks/Analysis-Ready/ARCO-Datasets.ipynb
         - file: notebooks/Analysis-Ready/QPE-QVPs.ipynb
+    - title: Spaceborne - Ground Radar Matching and Calibration
+      children:
+        - file: notebooks/gpm-api/SR_GR_Calibration_Applied.ipynb
+        - file: notebooks/gpm-api/SR_GR_Matching_Procedure.ipynb
   jupyter:
       binder:
         repo: openradar/erad2024
