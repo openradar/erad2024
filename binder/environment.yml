@@ -17,7 +17,7 @@ dependencies:
   - xradar>=0.6.3
   - numpy<2.0
   - python<=3.11
-  - metpy # needed for pyrad example
+  # needed for pyrad example
   - pyrad_mch
   # this is needed for gpm-api
   - gpm-api>=0.3.1
@@ -62,7 +62,7 @@ dependencies:
   # needed for wradlib
   - bottleneck
   - rioxarray
-  # needed for LROSE
+  # needed for LROSE / pyrad
   - metpy
   - pip
   - pip:
