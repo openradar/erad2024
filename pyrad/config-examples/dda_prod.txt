@@ -1,0 +1,146 @@
+#
+# Configuration for DDA in Northern Italy
+#
+
+# List of datasets to generate.
+# The detailed specification of each dataset is given below.
+dataSetList STRARR 5
+   l0:echoID
+   l1:echoFilter
+   l1:dealV1
+   l1:dealV2
+   l2:dda
+
+# ==========================================================================================
+#                 echo identification
+# ==========================================================================================
+echoID STRUCT 3
+    type STRING SAN
+    datatype STRARR 4
+        RADAR001:CFRADIAL:dBZ,D{}-F{%Y%m%d%H%M}
+        RADAR001:CFRADIAL:ZDR,D{}-F{%Y%m%d%H%M}
+        RADAR001:CFRADIAL:uPhiDP,D{}-F{%Y%m%d%H%M}
+        RADAR001:CFRADIAL:uRhoHV,D{}-F{%Y%m%d%H%M}
+    MAKE_GLOBAL INT 1
+
+# ==========================================================================================
+#                 clutter and noise suppression
+# ==========================================================================================
+# echo type 3 : precip, 2 : clutter, 1 : noise
+echoFilter STRUCT 4
+    type STRING ECHO_FILTER
+    datatype STRARR 5
+        PROC:echoID
+        RADAR001:CFRADIAL:dBZ,D{}-F{%Y%m%d%H%M}
+        RADAR001:CFRADIAL:ZDR,D{}-F{%Y%m%d%H%M}
+        RADAR001:CFRADIAL:uPhiDP,D{}-F{%Y%m%d%H%M}
+        RADAR001:CFRADIAL:uRhoHV,D{}-F{%Y%m%d%H%M}
+    echo_type INT 3
+    MAKE_GLOBAL INT 1
+ 
+dealV1 STRUCT 3
+   type STRING RAW
+   datatype STRARR 1
+      RADAR001:CFRADIAL:dealV,D{}-F{%Y%m%d%H%M}
+   products STRUCT 1
+      DEALV STRUCT 3
+         type STRING PPI_IMAGE
+         voltype STRING dealV
+         anglenr INT 3
+
+dealV2 STRUCT 4
+   type STRING DEALIAS_REGION
+   datatype STRARR 1
+      RADAR002:CFRADIAL:V,D{}-F{%Y%m%d_%H%M}
+   MAKE_GLOBAL INT 1
+   products STRUCT 1
+      DEALV STRUCT 3
+         type STRING PPI_IMAGE
+         voltype STRING dealV
+         anglenr INT 3
+
+
+dda STRUCT 13
+   type     STRING DDA
+   datatype STRARR 4
+        RADAR001:PROC:dBZc
+        RADAR001:CFRADIAL:dealV,D{}-F{%Y%m%d%H%M}
+        RADAR002:CFRADIAL:dBZ,D{}-F{%Y%m%d_%H%M}
+        RADAR002:PROC:dealV
+   wfunc STRING BARNES2
+   C0 FLOAT 1.0
+   Cm FLOAT 1024.0
+   Cx FLOAT 0.01
+   Cy FLOAT 0.01
+   Cz FLOAT 0.01
+   wind_tol FLOAT 0.5
+   sounding STRING 06610
+   gridConfig STRUCT 11
+       xmin FLOAT -60.
+       xmax FLOAT 60.
+       ymin FLOAT -60.
+       ymax FLOAT 60.
+       zmin FLOAT 0.
+       zmax FLOAT 15000.
+       hres FLOAT 1000.
+       vres FLOAT 500.
+       altorig FLOAT 0.
+       latorig FLOAT 46.0407
+       lonorig FLOAT 8.8347
+    signs INTARR 2
+        1
+        1
+    products STRUCT 5
+        U_ALONG_LIMC STRUCT 6
+            type  STRING CROSS_SECTION
+            voltype STRING wind_vel_h_u
+            coord1 STRUCT 2
+                lat FLOAT 45.729
+                lon FLOAT 8.681
+            coord2 STRUCT 2
+                lat FLOAT 45.528
+                lon FLOAT 8.758
+            vmin FLOAT -20
+            vmax FLOAT 20
+        V_ALONG_LIMC STRUCT 6
+            type  STRING CROSS_SECTION
+            voltype STRING wind_vel_h_v
+            coord1 STRUCT 2
+                lat FLOAT 45.729
+                lon FLOAT 8.681
+            coord2 STRUCT 2
+                lat FLOAT 45.528
+                lon FLOAT 8.758
+            vmin FLOAT -20
+            vmax FLOAT 20
+        W_ALONG_LIMC STRUCT 6
+            type  STRING CROSS_SECTION
+            voltype STRING wind_vel_v
+            coord1 STRUCT 2
+                lat FLOAT 45.729
+                lon FLOAT 8.681
+            coord2 STRUCT 2
+                lat FLOAT 45.528
+                lon FLOAT 8.758
+            vmin FLOAT -5
+            vmax FLOAT 5
+        wind_map_3000 STRUCT 9
+            type STRING DDA_MAP
+            voltype STRING dBZc
+            display_type STRING barbs
+            bg_ref_rad INT 0
+            vector_spacing_km FLOAT 6.
+            vmin FLOAT 0
+            vmax FLOAT 60
+            alpha FLOAT 0.6
+            level INT 4
+        wind_map_4000 STRUCT 9
+            type STRING DDA_MAP
+            voltype STRING dBZc
+            display_type STRING barbs
+            bg_ref_rad INT 0
+            vector_spacing_km FLOAT 6.
+            vmin FLOAT 0
+            vmax FLOAT 60
+            alpha FLOAT 0.6
+            level INT 6
