@@ -29,7 +29,7 @@ permissions:
 
 env:
   DOCKER_TAG: pr_106
-  
+
 jobs:
   build-book:
     runs-on: ubuntu-latest
