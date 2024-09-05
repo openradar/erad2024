@@ -1,0 +1,197 @@
+#
+# Product generation configuration
+#
+
+# List of datasets to generate.
+# The detailed specification of each dataset is given below.
+dataSetList STRARR 1
+    QVP
+
+
+# ============================================================================
+#               QVP
+# ============================================================================
+# make sure to cut the radar volume so that you only process the elevation
+# angle you are interested in
+QVP STRUCT 6
+    type STRING QVP
+    datatype STRARR 4
+        CFRADIAL:dBZ,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:ZDR,D{}-F{%Y%m%d_%H%M}        
+        CFRADIAL:RhoHV,D{}-F{%Y%m%d_%H%M}
+		CFRADIAL:KDP,D{}-F{%Y%m%d_%H%M}
+    angle INT 5
+    interp_kind STRING nearest
+    hres FLOAT 2.
+    products STRUCT 4
+        TIME_HEIGHT_dBZ STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING dBZ
+        TIME_HEIGHT_ZDR STRUCT 6
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING ZDR
+            vmin FLOAT 0.
+            vmax FLOAT 2.
+        TIME_HEIGHT_RhoHV STRUCT 6
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING RhoHV
+            vmin FLOAT 0.7
+            vmax FLOAT 1.
+        TIME_HEIGHT_KDP STRUCT 6
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING KDP
+            vmin FLOAT 0.
+            vmax FLOAT 1.
+
+rQVP STRUCT 6
+    type STRING rQVP
+    datatype STRARR 4
+        CFRADIAL:dBZ,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:ZDR,D{}-F{%Y%m%d_%H%M}        
+        CFRADIAL:RhoHV,D{}-F{%Y%m%d_%H%M}
+		CFRADIAL:KDP,D{}-F{%Y%m%d_%H%M}
+    interp_kind STRING nearest
+    weight_power FLOAT -1
+    hres FLOAT 2.
+    products STRUCT 4
+        TIME_HEIGHT_dBZ STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING dBZ
+        TIME_HEIGHT_ZDR STRUCT 6
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING ZDR
+            vmin FLOAT 0.
+            vmax FLOAT 2.
+        TIME_HEIGHT_RhoHV STRUCT 6
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING RhoHV
+            vmin FLOAT 0.7
+            vmax FLOAT 1.
+        TIME_HEIGHT_KDP STRUCT 6
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING KDP
+            vmin FLOAT 0.
+            vmax FLOAT 1.
+
+# Stabio
+SVP STRUCT 10
+    type STRING SVP
+    datatype STRARR 4
+        CFRADIAL:dBZ,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:ZDR,D{}-F{%Y%m%d_%H%M}        
+        CFRADIAL:RhoHV,D{}-F{%Y%m%d_%H%M}
+		CFRADIAL:KDP,D{}-F{%Y%m%d_%H%M}
+    angle INT 0
+    lon FLOAT 8.932
+    lat FLOAT 45.843
+    latlon_tol FLOAT 0.005
+    interp_kind STRING nearest
+    hres FLOAT 2.
+    hmax FLOAT 1500.
+    products STRUCT 4
+        TIME_HEIGHT_dBZ STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING dBZ
+        TIME_HEIGHT_ZDR STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING ZDR
+        TIME_HEIGHT_RhoHV STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING RhoHV
+        TIME_HEIGHT_KDP STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING KDP
+
+# Stabio
+EVP STRUCT 8
+    type STRING EVP
+    datatype STRARR 4
+        CFRADIAL:dBZ,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:ZDR,D{}-F{%Y%m%d_%H%M}        
+        CFRADIAL:RhoHV,D{}-F{%Y%m%d_%H%M}
+		CFRADIAL:KDP,D{}-F{%Y%m%d_%H%M}
+    lon FLOAT 8.932
+    lat FLOAT 45.843
+    latlon_tol FLOAT 0.005
+    interp_kind STRING nearest
+    hres FLOAT 2.
+    products STRUCT 4
+        TIME_HEIGHT_dBZ STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING dBZ
+        TIME_HEIGHT_ZDR STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING ZDR
+        TIME_HEIGHT_RhoHV STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING RhoHV
+        TIME_HEIGHT_KDP STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING KDP
+
+# Stabio
+VP STRUCT 8
+    type STRING TIME_HEIGHT
+    datatype STRARR 4
+        CFRADIAL:dBZ,D{}-F{%Y%m%d_%H%M}
+        CFRADIAL:ZDR,D{}-F{%Y%m%d_%H%M}        
+        CFRADIAL:RhoHV,D{}-F{%Y%m%d_%H%M}
+		CFRADIAL:KDP,D{}-F{%Y%m%d_%H%M}
+    lon FLOAT 8.932
+    lat FLOAT 45.843
+    latlon_tol FLOAT 0.1
+    interp_kind STRING nearest
+    hres FLOAT 2.
+    products STRUCT 4
+        TIME_HEIGHT_dBZ STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING dBZ
+        TIME_HEIGHT_ZDR STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING ZDR
+        TIME_HEIGHT_RhoHV STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING RhoHV
+        TIME_HEIGHT_KDP STRUCT 4
+            qvp_type STRING final
+            type STRING TIME_RANGE
+            anglenr INT 0
+            voltype STRING KDP

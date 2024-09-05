@@ -1,0 +1,5 @@
+main_process_data.py --cfgpath ./ --starttime 20240522130000 --endtime 20240523190000 qpe_xband.txt
+main_process_data.py --cfgpath ./ --starttime 20240522130000 --endtime 20240523190000 qpe_cband.txt
+main_process_data.py --cfgpath ./ --starttime 20240522130000 --endtime 20240523190000 qvp.txt
+main_process_data.py --cfgpath ./ --starttime 20240522154000 --endtime 20240523154500 dda.txt
+
