@@ -2,6 +2,7 @@
 
 # ERAD2024 Open Radar Science Short Courses
 
+[![DOI](https://zenodo.org/badge/784778069.svg)](https://zenodo.org/doi/10.5281/zenodo.13694510)
 [![nightly-build](https://github.com/openradar/erad2024/actions/workflows/publish-book.yaml/badge.svg)](https://github.com/openradar/erad2024/actions/workflows/publish-book.yaml)
 [![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/openradar/erad2024/main?labpath=notebooks)
 

@@ -4,6 +4,4 @@ The material in this Project Pythia Cookbook is licensed for free and open consu
 
 The source code for the book is [released on GitHub](https://github.com/openradar/erad2024) and archived on Zenodo. This DOI will always resolve to the latest release of the book source:
 
-<!---
-[![DOI](https://zenodo.org/badge/475509405.svg)](https://zenodo.org/badge/latestdoi/475509405)
--->
+[![DOI](https://zenodo.org/badge/784778069.svg)](https://zenodo.org/doi/10.5281/zenodo.13694510)
