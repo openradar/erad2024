@@ -12,7 +12,7 @@ jobs:
     uses: ./.github/workflows/build-book.yaml
     with:
       environment_name: erad-2024-dev
-      environment_file: environment.yml
+      environment_file: binder/environment.yml
       path_to_notebooks: ./
 
   deploy:
