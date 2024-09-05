@@ -25,7 +25,7 @@ on:
         type: string  # had a lot of trouble with boolean types, see https://github.com/actions/runner/issues/1483
 
 env:
-  DOCKER_TAG: pr_106
+  DOCKER_TAG: pr_108
 
 jobs:
   build-container:
