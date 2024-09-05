@@ -52,12 +52,8 @@ project:
   copyright: '2024'
   toc:
     - file: README.md
-    - title: Preamble
-      children:
-        - file: notebooks/how-to-cite.md
-    - title: Schedule
-      children:
-        - file: schedule.md
+    - file: notebooks/how-to-cite.md
+    - file: schedule.md
     - title: Getting started
       children:
         - file: getting_started.md
@@ -65,16 +61,13 @@ project:
         - file: notebooks/environment.ipynb
     - title: Radar Software Foundations
       children:
-        - title: XRadar
-          children:
-            - file: notebooks/xradar-pyart/xradar-basics.ipynb
+        - file: presentations/intro-to-open-radar-science.ipynb
+        - file: notebooks/xradar-pyart/xradar-basics.ipynb
         - title: Py-ART and wradlib
           children:
             - file: notebooks/xradar-pyart/pyart-basics.ipynb
             - file: notebooks/wradlib/wradlib_clutter_beamblockage.ipynb
-        - title: GPM-API
-          children:
-            - file: notebooks/gpm-api/gpm-api-intro.ipynb
+        - file: notebooks/gpm-api/gpm-api-intro.ipynb
         - title: BALTRAD
           children:
             - pattern: notebooks/baltrad/baltrad_short_course/*.ipynb
@@ -83,23 +76,24 @@ project:
         - title: LROSE
           children:
             - file: notebooks/lrose/LROSE_Basics.ipynb
-            - file: notebooks/lrose/LROSE_ERAD_fractl_samurai.ipynb
-            - file: notebooks/lrose/DD_Tornado_ERAD2024.ipynb
+            - file: notebooks/lrose/DD_Tornado_ERAD24.ipynb
+
             - file: notebooks/lrose/testing/stress_testing.ipynb
-    - title: Notebook Environment
+    - title: Project Workflows
       children:
-        - file: notebooks/environment.ipynb
-    - title: Retrieving winds with PyDDA
-      children:
-        - file: notebooks/Retrieving_winds_with_pydda.ipynb
-    - title: ARCO Radar Datasets
-      children:
-        - file: notebooks/Analysis-Ready/ARCO-Datasets.ipynb
-        - file: notebooks/Analysis-Ready/QPE-QVPs.ipynb
-    - title: Spaceborne - Ground Radar Matching and Calibration
-      children:
-        - file: notebooks/gpm-api/SR_GR_Calibration_Applied.ipynb
-        - file: notebooks/gpm-api/SR_GR_Matching_Procedure.ipynb
+        - title: LROSE & PyDDA multi doppler analysis
+          children:
+            - file: notebooks/Retrieving_winds_with_pydda.ipynb
+            - file: notebooks/lrose/LROSE_ERAD_fractl_samurai.ipynb
+        - title: ARCO Radar Datasets
+          children:
+            - file: notebooks/Analysis-Ready/ARCO-Datasets.ipynb
+            - file: notebooks/Analysis-Ready/QPE-QVPs.ipynb
+        - title: Spaceborne - Ground Radar Matching and Calibration
+          children:
+            - file: notebooks/gpm-api/SR_GR_Calibration_Applied.ipynb
+            - file: notebooks/gpm-api/SR_GR_Matching_Procedure.ipynb
+        - file: notebooks/pyrad/description-pyrad-tutorial.ipynb
   jupyter:
       binder:
         repo: openradar/erad2024
@@ -107,6 +101,8 @@ project:
   abbreviations:
     ARM: Atmospheric Radiation Measurement
     NCAR: National Center for Atmospheric Research
+  settings:
+    output_matplotlib_strings: remove
 site:
   options:
     favicon: notebooks/images/icons/favicon.ico
@@ -115,8 +111,10 @@ site:
   nav:
     - title: Conference Home
       url: https://www.erad2024.it
-    - title: Open Radar Community
+    - title: Community
       url: https://openradarscience.org
+    - title: Discourse
+      url: https://openradar.discourse.group/
   actions:
     - title: Launch Environment
       url: https://binder.projectpythia.org/v2/gh/openradar/erad2024/main?labpath=notebooks
