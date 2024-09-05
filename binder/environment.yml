@@ -63,6 +63,7 @@ dependencies:
   - rioxarray
   # needed for LROSE / pyrad
   - metpy
+  - jupyterlab_rise
   - pip
   - pip:
     - git+https://github.com/pydata/xarray@d33e4ad9407591cc7287973b0f8da47cae396004
