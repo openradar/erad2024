@@ -1,0 +1,37 @@
+# Name of this configuration:
+# Will be used in product generation save path
+name STRING DDA_MeteoSwiss_ARPA
+
+# call example:
+# main_process_data.py dda.txt --starttime 20240522151500 --endtime 20240522151500 --cfgpath ./
+
+# ---------------------------------------------------------
+#  Raw data pathes
+# ---------------------------------------------------------
+
+# Base path of the raw data.
+# Note: Must have a trailing '/'
+# ('<datapath>/<scanname>/<YYYY-MM-DD>/<YYYYMMDDHHMMSS00datatype>.<ext>')
+datapath STRARR 2
+    ../data/Cband/
+    ../data/Xband/
+
+# --------------------------------------------
+# Output data
+# --------------------------------------------
+saveimgbasepath STRING ../pyrad_outputs/
+imgformat       STRING png
+
+# --------------------------------------------------------
+# configuration files pathes
+# --------------------------------------------------------
+
+# Base path of configuration files
+configpath STRING ./
+
+# Configuration of the radar location and approach direction
+locationConfigFile STRING ./dda_loc.txt
+
+# Configuration of the product generation
+productConfigFile STRING ./dda_prod.txt
+
