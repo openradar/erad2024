@@ -6,7 +6,6 @@ dependencies:
   - jupyterlab
   - jupyter_server
   - sphinx-pythia-theme
-  - arm_pyart>=1.18.7
   - cartopy
   - matplotlib
   - numpy
@@ -66,4 +65,5 @@ dependencies:
   - jupyterlab_rise
   - pip
   - pip:
+    - arm_pyart>=1.19.0
     - git+https://github.com/pydata/xarray@d33e4ad9407591cc7287973b0f8da47cae396004
