@@ -1,0 +1,836 @@
+<xarray.DataTree>
+Group: /
+├── Group: /cband
+│   ├── Group: /cband/sweep_0
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_1
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_10
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_11
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_12
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_13
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_14
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_15
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_16
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_17
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_18
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_19
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_2
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_3
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_4
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_5
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_6
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_7
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   ├── Group: /cband/sweep_8
+│   │       Dimensions:                              (volume_time: 73, azimuth: 360,
+│   │                                                 range: 492)
+│   │       Coordinates:
+│   │           altitude                             float32 4B ...
+│   │         * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│   │           crs_wkt                              int64 8B ...
+│   │           elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │           latitude                             float32 4B ...
+│   │           longitude                            float32 4B ...
+│   │         * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│   │           time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│   │         * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│   │           x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│   │           z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│   │       Data variables: (12/14)
+│   │           differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│   │           reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           ...                                   ...
+│   │           sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│   │           uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   │           velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│   └── Group: /cband/sweep_9
+│           Dimensions:                              (volume_time: 73, azimuth: 360,
+│                                                     range: 492)
+│           Coordinates:
+│               altitude                             float32 4B ...
+│             * azimuth                              (azimuth) float32 1kB 0.5 1.5 ... 359.5
+│               crs_wkt                              int64 8B ...
+│               elevation                            (volume_time, azimuth) float32 105kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│               latitude                             float32 4B ...
+│               longitude                            float32 4B ...
+│             * range                                (range) float32 2kB 250.0 ... 2.457e+05
+│               time                                 (volume_time, azimuth) datetime64[ns] 210kB dask.array<chunksize=(73, 360), meta=np.ndarray>
+│             * volume_time                          (volume_time) datetime64[ns] 584B 20...
+│               x                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│               y                                    (azimuth, range, volume_time) float32 52MB dask.array<chunksize=(90, 123, 19), meta=np.ndarray>
+│               z                                    (volume_time, azimuth, range) float32 52MB dask.array<chunksize=(19, 90, 123), meta=np.ndarray>
+│           Data variables: (12/14)
+│               differential_reflectivity            (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│               nyquist_velocity                     (volume_time, azimuth) float32 105kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│               pulse_width                          (volume_time, azimuth) timedelta64[ns] 210kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+│               reflectivity                         (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│               reflectivity_hh_clut                 (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│               reflectivity_vv                      (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│               ...                                   ...
+│               sweep_fixed_angle                    (volume_time) float32 292B dask.array<chunksize=(73,), meta=np.ndarray>
+│               sweep_mode                           (volume_time) <U20 6kB dask.array<chunksize=(73,), meta=np.ndarray>
+│               sweep_number                         (volume_time) int64 584B dask.array<chunksize=(73,), meta=np.ndarray>
+│               uncorrected_cross_correlation_ratio  (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│               uncorrected_differential_phase       (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+│               velocity                             (volume_time, azimuth, range) float64 103MB dask.array<chunksize=(1, 360, 492), meta=np.ndarray>
+└── Group: /xband
+    ├── Group: /xband/sweep_0
+    │       Dimensions:                    (volume_time: 72, azimuth: 360, range: 416)
+    │       Coordinates:
+    │           altitude                   float64 8B ...
+    │         * azimuth                    (azimuth) float32 1kB 0.5 1.5 2.5 ... 358.5 359.5
+    │           crs_wkt                    int64 8B ...
+    │           elevation                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(72, 360), meta=np.ndarray>
+    │           latitude                   float64 8B ...
+    │           longitude                  float64 8B ...
+    │         * range                      (range) float32 2kB 150.0 450.0 ... 1.246e+05
+    │           time                       (volume_time, azimuth, range) datetime64[ns] 86MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │         * volume_time                (volume_time) datetime64[ns] 576B 2024-05-22T1...
+    │           x                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           y                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           z                          (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │       Data variables: (12/30)
+    │           DBZ                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           DBZ_TOT                    (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           HCLASS                     (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           KDP                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           MCSSX                      (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           PHIDP                      (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           ...                         ...
+    │           ray_start_range            (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           scan_rate                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           sweep_fixed_angle          (volume_time) float32 288B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_mode                 (volume_time) <U20 6kB dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_number               (volume_time) float64 576B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           unambiguous_range          (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    ├── Group: /xband/sweep_1
+    │       Dimensions:                    (volume_time: 72, azimuth: 360, range: 416)
+    │       Coordinates:
+    │           altitude                   float64 8B ...
+    │         * azimuth                    (azimuth) float32 1kB 0.5 1.5 2.5 ... 358.5 359.5
+    │           crs_wkt                    int64 8B ...
+    │           elevation                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(72, 360), meta=np.ndarray>
+    │           latitude                   float64 8B ...
+    │           longitude                  float64 8B ...
+    │         * range                      (range) float32 2kB 150.0 450.0 ... 1.246e+05
+    │           time                       (volume_time, azimuth, range) datetime64[ns] 86MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │         * volume_time                (volume_time) datetime64[ns] 576B 2024-05-22T1...
+    │           x                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           y                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           z                          (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │       Data variables: (12/30)
+    │           DBZ                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           DBZ_TOT                    (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           HCLASS                     (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           KDP                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           MCSSX                      (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           PHIDP                      (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           ...                         ...
+    │           ray_start_range            (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           scan_rate                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           sweep_fixed_angle          (volume_time) float32 288B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_mode                 (volume_time) <U20 6kB dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_number               (volume_time) float64 576B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           unambiguous_range          (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    ├── Group: /xband/sweep_2
+    │       Dimensions:                    (volume_time: 72, azimuth: 360, range: 416)
+    │       Coordinates:
+    │           altitude                   float64 8B ...
+    │         * azimuth                    (azimuth) float32 1kB 0.5 1.5 2.5 ... 358.5 359.5
+    │           crs_wkt                    int64 8B ...
+    │           elevation                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(72, 360), meta=np.ndarray>
+    │           latitude                   float64 8B ...
+    │           longitude                  float64 8B ...
+    │         * range                      (range) float32 2kB 150.0 450.0 ... 1.246e+05
+    │           time                       (volume_time, azimuth, range) datetime64[ns] 86MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │         * volume_time                (volume_time) datetime64[ns] 576B 2024-05-22T1...
+    │           x                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           y                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           z                          (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │       Data variables: (12/30)
+    │           DBZ                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           DBZ_TOT                    (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           HCLASS                     (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           KDP                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           MCSSX                      (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           PHIDP                      (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           ...                         ...
+    │           ray_start_range            (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           scan_rate                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           sweep_fixed_angle          (volume_time) float32 288B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_mode                 (volume_time) <U20 6kB dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_number               (volume_time) float64 576B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           unambiguous_range          (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    ├── Group: /xband/sweep_3
+    │       Dimensions:                    (volume_time: 72, azimuth: 360, range: 416)
+    │       Coordinates:
+    │           altitude                   float64 8B ...
+    │         * azimuth                    (azimuth) float32 1kB 0.5 1.5 2.5 ... 358.5 359.5
+    │           crs_wkt                    int64 8B ...
+    │           elevation                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(72, 360), meta=np.ndarray>
+    │           latitude                   float64 8B ...
+    │           longitude                  float64 8B ...
+    │         * range                      (range) float32 2kB 150.0 450.0 ... 1.246e+05
+    │           time                       (volume_time, azimuth, range) datetime64[ns] 86MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │         * volume_time                (volume_time) datetime64[ns] 576B 2024-05-22T1...
+    │           x                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           y                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           z                          (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │       Data variables: (12/30)
+    │           DBZ                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           DBZ_TOT                    (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           HCLASS                     (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           KDP                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           MCSSX                      (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           PHIDP                      (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           ...                         ...
+    │           ray_start_range            (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           scan_rate                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           sweep_fixed_angle          (volume_time) float32 288B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_mode                 (volume_time) <U20 6kB dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_number               (volume_time) float64 576B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           unambiguous_range          (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    ├── Group: /xband/sweep_4
+    │       Dimensions:                    (volume_time: 72, azimuth: 360, range: 416)
+    │       Coordinates:
+    │           altitude                   float64 8B ...
+    │         * azimuth                    (azimuth) float32 1kB 0.5 1.5 2.5 ... 358.5 359.5
+    │           crs_wkt                    int64 8B ...
+    │           elevation                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(72, 360), meta=np.ndarray>
+    │           latitude                   float64 8B ...
+    │           longitude                  float64 8B ...
+    │         * range                      (range) float32 2kB 150.0 450.0 ... 1.246e+05
+    │           time                       (volume_time, azimuth, range) datetime64[ns] 86MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │         * volume_time                (volume_time) datetime64[ns] 576B 2024-05-22T1...
+    │           x                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           y                          (azimuth, range, volume_time) float32 43MB dask.array<chunksize=(90, 104, 18), meta=np.ndarray>
+    │           z                          (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(18, 90, 104), meta=np.ndarray>
+    │       Data variables: (12/30)
+    │           DBZ                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           DBZ_TOT                    (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           HCLASS                     (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           KDP                        (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           MCSSX                      (volume_time, azimuth, range) float32 43MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           PHIDP                      (volume_time, azimuth, range) float64 86MB dask.array<chunksize=(1, 360, 416), meta=np.ndarray>
+    │           ...                         ...
+    │           ray_start_range            (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           scan_rate                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           sweep_fixed_angle          (volume_time) float32 288B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_mode                 (volume_time) <U20 6kB dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_number               (volume_time) float64 576B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           unambiguous_range          (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    ├── Group: /xband/sweep_5
+    │       Dimensions:                    (volume_time: 72, azimuth: 360, range: 383)
+    │       Coordinates:
+    │           altitude                   float64 8B ...
+    │         * azimuth                    (azimuth) float32 1kB 0.5 1.5 2.5 ... 358.5 359.5
+    │           crs_wkt                    int64 8B ...
+    │           elevation                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(72, 360), meta=np.ndarray>
+    │           latitude                   float64 8B ...
+    │           longitude                  float64 8B ...
+    │         * range                      (range) float32 2kB 150.0 450.0 ... 1.148e+05
+    │           time                       (volume_time, azimuth, range) datetime64[ns] 79MB dask.array<chunksize=(18, 90, 96), meta=np.ndarray>
+    │         * volume_time                (volume_time) datetime64[ns] 576B 2024-05-22T1...
+    │           x                          (azimuth, range, volume_time) float32 40MB dask.array<chunksize=(90, 96, 18), meta=np.ndarray>
+    │           y                          (azimuth, range, volume_time) float32 40MB dask.array<chunksize=(90, 96, 18), meta=np.ndarray>
+    │           z                          (volume_time, azimuth, range) float32 40MB dask.array<chunksize=(18, 90, 96), meta=np.ndarray>
+    │       Data variables: (12/30)
+    │           DBZ                        (volume_time, azimuth, range) float64 79MB dask.array<chunksize=(1, 360, 383), meta=np.ndarray>
+    │           DBZ_TOT                    (volume_time, azimuth, range) float64 79MB dask.array<chunksize=(1, 360, 383), meta=np.ndarray>
+    │           HCLASS                     (volume_time, azimuth, range) float64 79MB dask.array<chunksize=(1, 360, 383), meta=np.ndarray>
+    │           KDP                        (volume_time, azimuth, range) float64 79MB dask.array<chunksize=(1, 360, 383), meta=np.ndarray>
+    │           MCSSX                      (volume_time, azimuth, range) float32 40MB dask.array<chunksize=(1, 360, 383), meta=np.ndarray>
+    │           PHIDP                      (volume_time, azimuth, range) float64 79MB dask.array<chunksize=(1, 360, 383), meta=np.ndarray>
+    │           ...                         ...
+    │           ray_start_range            (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           scan_rate                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           sweep_fixed_angle          (volume_time) float32 288B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_mode                 (volume_time) <U20 6kB dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_number               (volume_time) float64 576B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           unambiguous_range          (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    ├── Group: /xband/sweep_6
+    │       Dimensions:                    (volume_time: 72, azimuth: 360, range: 257)
+    │       Coordinates:
+    │           altitude                   float64 8B ...
+    │         * azimuth                    (azimuth) float32 1kB 0.5 1.5 2.5 ... 358.5 359.5
+    │           crs_wkt                    int64 8B ...
+    │           elevation                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(72, 360), meta=np.ndarray>
+    │           latitude                   float64 8B ...
+    │           longitude                  float64 8B ...
+    │         * range                      (range) float32 1kB 150.0 450.0 ... 7.695e+04
+    │           time                       (volume_time, azimuth, range) datetime64[ns] 53MB dask.array<chunksize=(18, 90, 65), meta=np.ndarray>
+    │         * volume_time                (volume_time) datetime64[ns] 576B 2024-05-22T1...
+    │           x                          (azimuth, range, volume_time) float32 27MB dask.array<chunksize=(90, 65, 36), meta=np.ndarray>
+    │           y                          (azimuth, range, volume_time) float32 27MB dask.array<chunksize=(90, 65, 36), meta=np.ndarray>
+    │           z                          (volume_time, azimuth, range) float32 27MB dask.array<chunksize=(18, 90, 129), meta=np.ndarray>
+    │       Data variables: (12/30)
+    │           DBZ                        (volume_time, azimuth, range) float64 53MB dask.array<chunksize=(1, 360, 257), meta=np.ndarray>
+    │           DBZ_TOT                    (volume_time, azimuth, range) float64 53MB dask.array<chunksize=(1, 360, 257), meta=np.ndarray>
+    │           HCLASS                     (volume_time, azimuth, range) float64 53MB dask.array<chunksize=(1, 360, 257), meta=np.ndarray>
+    │           KDP                        (volume_time, azimuth, range) float64 53MB dask.array<chunksize=(1, 360, 257), meta=np.ndarray>
+    │           MCSSX                      (volume_time, azimuth, range) float32 27MB dask.array<chunksize=(1, 360, 257), meta=np.ndarray>
+    │           PHIDP                      (volume_time, azimuth, range) float64 53MB dask.array<chunksize=(1, 360, 257), meta=np.ndarray>
+    │           ...                         ...
+    │           ray_start_range            (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           scan_rate                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    │           sweep_fixed_angle          (volume_time) float32 288B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_mode                 (volume_time) <U20 6kB dask.array<chunksize=(72,), meta=np.ndarray>
+    │           sweep_number               (volume_time) float64 576B dask.array<chunksize=(72,), meta=np.ndarray>
+    │           unambiguous_range          (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+    └── Group: /xband/sweep_7
+            Dimensions:                    (volume_time: 72, azimuth: 360, range: 157)
+            Coordinates:
+                altitude                   float64 8B ...
+              * azimuth                    (azimuth) float32 1kB 0.5 1.5 2.5 ... 358.5 359.5
+                crs_wkt                    int64 8B ...
+                elevation                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(72, 360), meta=np.ndarray>
+                latitude                   float64 8B ...
+                longitude                  float64 8B ...
+              * range                      (range) float32 628B 150.0 450.0 ... 4.695e+04
+                time                       (volume_time, azimuth, range) datetime64[ns] 33MB dask.array<chunksize=(18, 90, 79), meta=np.ndarray>
+              * volume_time                (volume_time) datetime64[ns] 576B 2024-05-22T1...
+                x                          (azimuth, range, volume_time) float32 16MB dask.array<chunksize=(90, 40, 36), meta=np.ndarray>
+                y                          (azimuth, range, volume_time) float32 16MB dask.array<chunksize=(90, 40, 36), meta=np.ndarray>
+                z                          (volume_time, azimuth, range) float32 16MB dask.array<chunksize=(18, 90, 79), meta=np.ndarray>
+            Data variables: (12/30)
+                DBZ                        (volume_time, azimuth, range) float64 33MB dask.array<chunksize=(1, 360, 157), meta=np.ndarray>
+                DBZ_TOT                    (volume_time, azimuth, range) float64 33MB dask.array<chunksize=(1, 360, 157), meta=np.ndarray>
+                HCLASS                     (volume_time, azimuth, range) float64 33MB dask.array<chunksize=(1, 360, 157), meta=np.ndarray>
+                KDP                        (volume_time, azimuth, range) float64 33MB dask.array<chunksize=(1, 360, 157), meta=np.ndarray>
+                MCSSX                      (volume_time, azimuth, range) float32 16MB dask.array<chunksize=(1, 360, 157), meta=np.ndarray>
+                PHIDP                      (volume_time, azimuth, range) float64 33MB dask.array<chunksize=(1, 360, 157), meta=np.ndarray>
+                ...                         ...
+                ray_start_range            (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+                scan_rate                  (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>
+                sweep_fixed_angle          (volume_time) float32 288B dask.array<chunksize=(72,), meta=np.ndarray>
+                sweep_mode                 (volume_time) <U20 6kB dask.array<chunksize=(72,), meta=np.ndarray>
+                sweep_number               (volume_time) float64 576B dask.array<chunksize=(72,), meta=np.ndarray>
+                unambiguous_range          (volume_time, azimuth) float32 104kB dask.array<chunksize=(1, 360), meta=np.ndarray>

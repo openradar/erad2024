@@ -1,0 +1,3428 @@
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+html[data-theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: inline-block;
+  opacity: 0;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DatasetView&gt; Size: 393MB
+Dimensions:                    (volume_time: 72, azimuth: 360, range: 157)
+Coordinates:
+    altitude                   float64 8B ...
+  * azimuth                    (azimuth) float32 1kB 0.5 1.5 2.5 ... 358.5 359.5
+    crs_wkt                    int64 8B ...
+    elevation                  (volume_time, azimuth) float32 104kB dask.array&lt;chunksize=(72, 360), meta=np.ndarray&gt;
+    latitude                   float64 8B ...
+    longitude                  float64 8B ...
+  * range                      (range) float32 628B 150.0 450.0 ... 4.695e+04
+    time                       (volume_time, azimuth, range) datetime64[ns] 33MB dask.array&lt;chunksize=(18, 90, 79), meta=np.ndarray&gt;
+  * volume_time                (volume_time) datetime64[ns] 576B 2024-05-22T1...
+    x                          (azimuth, range, volume_time) float32 16MB dask.array&lt;chunksize=(90, 40, 36), meta=np.ndarray&gt;
+    y                          (azimuth, range, volume_time) float32 16MB dask.array&lt;chunksize=(90, 40, 36), meta=np.ndarray&gt;
+    z                          (volume_time, azimuth, range) float32 16MB dask.array&lt;chunksize=(18, 90, 79), meta=np.ndarray&gt;
+Data variables: (12/30)
+    DBZ                        (volume_time, azimuth, range) float64 33MB dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;
+    DBZ_TOT                    (volume_time, azimuth, range) float64 33MB dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;
+    HCLASS                     (volume_time, azimuth, range) float64 33MB dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;
+    KDP                        (volume_time, azimuth, range) float64 33MB dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;
+    MCSSX                      (volume_time, azimuth, range) float32 16MB dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;
+    PHIDP                      (volume_time, azimuth, range) float64 33MB dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;
+    ...                         ...
+    ray_start_range            (volume_time, azimuth) float32 104kB dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;
+    scan_rate                  (volume_time, azimuth) float32 104kB dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;
+    sweep_fixed_angle          (volume_time) float32 288B dask.array&lt;chunksize=(72,), meta=np.ndarray&gt;
+    sweep_mode                 (volume_time) &lt;U20 6kB dask.array&lt;chunksize=(72,), meta=np.ndarray&gt;
+    sweep_number               (volume_time) float64 576B dask.array&lt;chunksize=(72,), meta=np.ndarray&gt;
+    unambiguous_range          (volume_time, azimuth) float32 104kB dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DatasetView</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-c76a7c55-f129-4ed1-a653-b3ca26455702' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c76a7c55-f129-4ed1-a653-b3ca26455702' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>volume_time</span>: 72</li><li><span class='xr-has-index'>azimuth</span>: 360</li><li><span class='xr-has-index'>range</span>: 157</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-7fb26519-4518-4541-83fb-3f81390f50dc' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7fb26519-4518-4541-83fb-3f81390f50dc' class='xr-section-summary' >Coordinates: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>altitude</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-cc565ccd-9f32-4cf5-ac24-7c98c8f58a66' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cc565ccd-9f32-4cf5-ac24-7c98c8f58a66' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5c3906f4-2e7d-4d27-9e50-a9764e6e08dc' class='xr-var-data-in' type='checkbox'><label for='data-5c3906f4-2e7d-4d27-9e50-a9764e6e08dc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>altitude</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>units :</span></dt><dd>meters</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>azimuth</span></div><div class='xr-var-dims'>(azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-49f2df00-a7ee-4f03-81a7-f165acadbc2c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-49f2df00-a7ee-4f03-81a7-f165acadbc2c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d4b96def-5b30-40e2-a4c9-f6059491fdb5' class='xr-var-data-in' type='checkbox'><label for='data-d4b96def-5b30-40e2-a4c9-f6059491fdb5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>ray_azimuth_angle</dd><dt><span>units :</span></dt><dd>degrees</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>crs_wkt</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ede5d9fd-1885-465a-ac16-e0b9fe8a18ba' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ede5d9fd-1885-465a-ac16-e0b9fe8a18ba' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a8ce6155-d8db-4acf-a510-acc0efd25201' class='xr-var-data-in' type='checkbox'><label for='data-a8ce6155-d8db-4acf-a510-acc0efd25201' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>crs_wkt :</span></dt><dd>PROJCRS[&quot;unknown&quot;,BASEGEOGCRS[&quot;unknown&quot;,DATUM[&quot;World Geodetic System 1984&quot;,ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,LENGTHUNIT[&quot;metre&quot;,1]],ID[&quot;EPSG&quot;,6326]],PRIMEM[&quot;Greenwich&quot;,0,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8901]]],CONVERSION[&quot;unknown&quot;,METHOD[&quot;Azimuthal Equidistant&quot;,ID[&quot;EPSG&quot;,1125]],PARAMETER[&quot;Latitude of natural origin&quot;,45.6272660940886,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8801]],PARAMETER[&quot;Longitude of natural origin&quot;,9.1963180527091,ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],ID[&quot;EPSG&quot;,8802]],PARAMETER[&quot;False easting&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8806]],PARAMETER[&quot;False northing&quot;,0,LENGTHUNIT[&quot;metre&quot;,1],ID[&quot;EPSG&quot;,8807]]],CS[Cartesian,2],AXIS[&quot;(E)&quot;,east,ORDER[1],LENGTHUNIT[&quot;metre&quot;,1,ID[&quot;EPSG&quot;,9001]]],AXIS[&quot;(N)&quot;,north,ORDER[2],LENGTHUNIT[&quot;metre&quot;,1,ID[&quot;EPSG&quot;,9001]]]]</dd><dt><span>false_easting :</span></dt><dd>0.0</dd><dt><span>false_northing :</span></dt><dd>0.0</dd><dt><span>geographic_crs_name :</span></dt><dd>unknown</dd><dt><span>grid_mapping_name :</span></dt><dd>azimuthal_equidistant</dd><dt><span>horizontal_datum_name :</span></dt><dd>World Geodetic System 1984</dd><dt><span>inverse_flattening :</span></dt><dd>298.257223563</dd><dt><span>latitude_of_projection_origin :</span></dt><dd>45.627266094088554</dd><dt><span>longitude_of_prime_meridian :</span></dt><dd>0.0</dd><dt><span>longitude_of_projection_origin :</span></dt><dd>9.196318052709103</dd><dt><span>prime_meridian_name :</span></dt><dd>Greenwich</dd><dt><span>projected_crs_name :</span></dt><dd>unknown</dd><dt><span>reference_ellipsoid_name :</span></dt><dd>WGS 84</dd><dt><span>semi_major_axis :</span></dt><dd>6378137.0</dd><dt><span>semi_minor_axis :</span></dt><dd>6356752.314245179</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=int64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>elevation</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(72, 360), meta=np.ndarray&gt;</div><input id='attrs-131d1ab6-ea4f-4140-b688-c88d839f17a3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-131d1ab6-ea4f-4140-b688-c88d839f17a3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bbfe5554-d165-4e9c-b444-01ca8e6176ad' class='xr-var-data-in' type='checkbox'><label for='data-bbfe5554-d165-4e9c-b444-01ca8e6176ad' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>ray_elevation_angle</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>units :</span></dt><dd>degrees</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 101.25 kiB </td>
+                        <td> 101.25 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (72, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>latitude</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-dc8fa455-2463-4576-adbc-8d625d613a9b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dc8fa455-2463-4576-adbc-8d625d613a9b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5c7366f1-f57b-4cb3-a413-9d7e328cd106' class='xr-var-data-in' type='checkbox'><label for='data-5c7366f1-f57b-4cb3-a413-9d7e328cd106' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>longitude</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-cb76eb8a-8df9-4cb0-9ed8-c80cf4dc8322' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cb76eb8a-8df9-4cb0-9ed8-c80cf4dc8322' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-abe82d98-2a34-4f6a-b9bb-b594106dfb6d' class='xr-var-data-in' type='checkbox'><label for='data-abe82d98-2a34-4f6a-b9bb-b594106dfb6d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>[1 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>range</span></div><div class='xr-var-dims'>(range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>150.0 450.0 ... 4.665e+04 4.695e+04</div><input id='attrs-28c9998b-1f53-4ddc-8059-9fc35fedaf55' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-28c9998b-1f53-4ddc-8059-9fc35fedaf55' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1f40522c-72db-4b45-aafc-e57267f9dddf' class='xr-var-data-in' type='checkbox'><label for='data-1f40522c-72db-4b45-aafc-e57267f9dddf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Range from instrument to center of gate</dd><dt><span>meters_between_gates :</span></dt><dd>300.00001192092896</dd><dt><span>meters_to_center_of_first_gate :</span></dt><dd>150.00000596046448</dd><dt><span>spacing_is_constant :</span></dt><dd>true</dd><dt><span>units :</span></dt><dd>meters</dd></dl></div><div class='xr-var-data'><pre>array([  150.,   450.,   750.,  1050.,  1350.,  1650.,  1950.,  2250.,  2550.,
+        2850.,  3150.,  3450.,  3750.,  4050.,  4350.,  4650.,  4950.,  5250.,
+        5550.,  5850.,  6150.,  6450.,  6750.,  7050.,  7350.,  7650.,  7950.,
+        8250.,  8550.,  8850.,  9150.,  9450.,  9750., 10050., 10350., 10650.,
+       10950., 11250., 11550., 11850., 12150., 12450., 12750., 13050., 13350.,
+       13650., 13950., 14250., 14550., 14850., 15150., 15450., 15750., 16050.,
+       16350., 16650., 16950., 17250., 17550., 17850., 18150., 18450., 18750.,
+       19050., 19350., 19650., 19950., 20250., 20550., 20850., 21150., 21450.,
+       21750., 22050., 22350., 22650., 22950., 23250., 23550., 23850., 24150.,
+       24450., 24750., 25050., 25350., 25650., 25950., 26250., 26550., 26850.,
+       27150., 27450., 27750., 28050., 28350., 28650., 28950., 29250., 29550.,
+       29850., 30150., 30450., 30750., 31050., 31350., 31650., 31950., 32250.,
+       32550., 32850., 33150., 33450., 33750., 34050., 34350., 34650., 34950.,
+       35250., 35550., 35850., 36150., 36450., 36750., 37050., 37350., 37650.,
+       37950., 38250., 38550., 38850., 39150., 39450., 39750., 40050., 40350.,
+       40650., 40950., 41250., 41550., 41850., 42150., 42450., 42750., 43050.,
+       43350., 43650., 43950., 44250., 44550., 44850., 45150., 45450., 45750.,
+       46050., 46350., 46650., 46950.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(18, 90, 79), meta=np.ndarray&gt;</div><input id='attrs-964b9a4d-e1c5-4880-9a42-04c7b7e29ba9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-964b9a4d-e1c5-4880-9a42-04c7b7e29ba9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7aa5a2e2-28c0-4661-84bd-73f277d321dd' class='xr-var-data-in' type='checkbox'><label for='data-7aa5a2e2-28c0-4661-84bd-73f277d321dd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>times are relative to the volume start_time</dd><dt><span>long_name :</span></dt><dd>time in seconds since volume start</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 0.98 MiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (18, 90, 79) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 32 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> datetime64[ns] numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="30" x2="34" y2="54" />
+  <line x1="10" y1="60" x2="34" y2="84" />
+  <line x1="10" y1="90" x2="34" y2="114" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="22" y1="12" x2="74" y2="12" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="36" y1="0" x2="61" y2="24" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="54" x2="87" y2="54" />
+  <line x1="34" y1="84" x2="87" y2="84" />
+  <line x1="34" y1="114" x2="87" y2="114" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="61" y1="24" x2="61" y2="144" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>volume_time</span></div><div class='xr-var-dims'>(volume_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2024-05-22T13:03:09.983000 ... 2...</div><input id='attrs-f2c4d4ae-9d26-4490-978b-1aa151620dbe' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f2c4d4ae-9d26-4490-978b-1aa151620dbe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-df5622cb-04e3-4c94-a449-02e558299882' class='xr-var-data-in' type='checkbox'><label for='data-df5622cb-04e3-4c94-a449-02e558299882' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;2024-05-22T13:03:09.983000000&#x27;, &#x27;2024-05-22T13:08:10.591000000&#x27;,
+       &#x27;2024-05-22T13:13:11.117000000&#x27;, &#x27;2024-05-22T13:18:09.518000000&#x27;,
+       &#x27;2024-05-22T13:23:10.944000000&#x27;, &#x27;2024-05-22T13:28:10.779000000&#x27;,
+       &#x27;2024-05-22T13:33:10.554000000&#x27;, &#x27;2024-05-22T13:38:10.427000000&#x27;,
+       &#x27;2024-05-22T13:43:09.924000000&#x27;, &#x27;2024-05-22T13:48:11.792000000&#x27;,
+       &#x27;2024-05-22T13:53:10.660000000&#x27;, &#x27;2024-05-22T13:58:11.433000000&#x27;,
+       &#x27;2024-05-22T14:03:10.901000000&#x27;, &#x27;2024-05-22T14:08:11.371000000&#x27;,
+       &#x27;2024-05-22T14:13:10.564000000&#x27;, &#x27;2024-05-22T14:18:10.953000000&#x27;,
+       &#x27;2024-05-22T14:23:11.401000000&#x27;, &#x27;2024-05-22T14:28:10.146000000&#x27;,
+       &#x27;2024-05-22T14:33:10.513000000&#x27;, &#x27;2024-05-22T14:38:10.719000000&#x27;,
+       &#x27;2024-05-22T14:43:10.529000000&#x27;, &#x27;2024-05-22T14:48:10.656000000&#x27;,
+       &#x27;2024-05-22T14:53:10.421000000&#x27;, &#x27;2024-05-22T14:58:10.462000000&#x27;,
+       &#x27;2024-05-22T15:03:11.174000000&#x27;, &#x27;2024-05-22T15:08:09.818000000&#x27;,
+       &#x27;2024-05-22T15:13:10.806000000&#x27;, &#x27;2024-05-22T15:18:10.864000000&#x27;,
+       &#x27;2024-05-22T15:23:11.275000000&#x27;, &#x27;2024-05-22T15:28:11.142000000&#x27;,
+       &#x27;2024-05-22T15:33:10.983000000&#x27;, &#x27;2024-05-22T15:38:10.625000000&#x27;,
+       &#x27;2024-05-22T15:43:11.607000000&#x27;, &#x27;2024-05-22T15:48:10.453000000&#x27;,
+       &#x27;2024-05-22T15:53:10.593000000&#x27;, &#x27;2024-05-22T15:58:10.586000000&#x27;,
+       &#x27;2024-05-22T16:03:10.650000000&#x27;, &#x27;2024-05-22T16:08:11.264000000&#x27;,
+       &#x27;2024-05-22T16:13:10.376000000&#x27;, &#x27;2024-05-22T16:18:09.669000000&#x27;,
+       &#x27;2024-05-22T16:23:09.757000000&#x27;, &#x27;2024-05-22T16:28:11.557000000&#x27;,
+       &#x27;2024-05-22T16:33:10.492000000&#x27;, &#x27;2024-05-22T16:38:10.737000000&#x27;,
+       &#x27;2024-05-22T16:43:10.391000000&#x27;, &#x27;2024-05-22T16:48:10.422000000&#x27;,
+       &#x27;2024-05-22T16:53:10.806000000&#x27;, &#x27;2024-05-22T16:58:10.601000000&#x27;,
+       &#x27;2024-05-22T17:03:10.385000000&#x27;, &#x27;2024-05-22T17:08:10.465000000&#x27;,
+       &#x27;2024-05-22T17:13:10.764000000&#x27;, &#x27;2024-05-22T17:18:11.595000000&#x27;,
+       &#x27;2024-05-22T17:23:11.203000000&#x27;, &#x27;2024-05-22T17:28:10.140000000&#x27;,
+       &#x27;2024-05-22T17:33:10.535000000&#x27;, &#x27;2024-05-22T17:38:10.501000000&#x27;,
+       &#x27;2024-05-22T17:43:11.240000000&#x27;, &#x27;2024-05-22T17:48:10.543000000&#x27;,
+       &#x27;2024-05-22T17:53:11.625000000&#x27;, &#x27;2024-05-22T17:58:10.708000000&#x27;,
+       &#x27;2024-05-22T18:03:10.707000000&#x27;, &#x27;2024-05-22T18:08:11.868000000&#x27;,
+       &#x27;2024-05-22T18:13:10.484000000&#x27;, &#x27;2024-05-22T18:18:10.179000000&#x27;,
+       &#x27;2024-05-22T18:23:10.220000000&#x27;, &#x27;2024-05-22T18:28:10.184000000&#x27;,
+       &#x27;2024-05-22T18:33:10.573000000&#x27;, &#x27;2024-05-22T18:38:10.927000000&#x27;,
+       &#x27;2024-05-22T18:43:11.237000000&#x27;, &#x27;2024-05-22T18:48:11.264000000&#x27;,
+       &#x27;2024-05-22T18:53:10.772000000&#x27;, &#x27;2024-05-22T18:58:11.074000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(azimuth, range, volume_time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(90, 40, 36), meta=np.ndarray&gt;</div><input id='attrs-c27236b3-7f7b-468c-bde6-46503fde42c6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c27236b3-7f7b-468c-bde6-46503fde42c6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ac02a8a3-5703-4d10-934f-41ff91b3d62f' class='xr-var-data-in' type='checkbox'><label for='data-ac02a8a3-5703-4d10-934f-41ff91b3d62f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>east_west_distance_from_radar</dd><dt><span>units :</span></dt><dd>meters</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 15.52 MiB </td>
+                        <td> 506.25 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (360, 157, 72) </td>
+                        <td> (90, 40, 36) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 32 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="172" height="172" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="10" y1="13" x2="80" y2="83" />
+  <line x1="10" y1="26" x2="80" y2="97" />
+  <line x1="10" y1="40" x2="80" y2="110" />
+  <line x1="10" y1="52" x2="80" y2="122" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="52" style="stroke-width:2" />
+  <line x1="27" y1="17" x2="27" y2="69" />
+  <line x1="45" y1="35" x2="45" y2="87" />
+  <line x1="62" y1="52" x2="62" y2="105" />
+  <line x1="80" y1="70" x2="80" y2="122" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 80.58823529411765,70.58823529411765 80.58823529411765,122.921568627451 10.0,52.333333333333336" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="52" y2="0" style="stroke-width:2" />
+  <line x1="27" y1="17" x2="69" y2="17" />
+  <line x1="45" y1="35" x2="87" y2="35" />
+  <line x1="62" y1="52" x2="104" y2="52" />
+  <line x1="80" y1="70" x2="122" y2="70" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="31" y1="0" x2="101" y2="70" />
+  <line x1="52" y1="0" x2="122" y2="70" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 52.00989029700999,0.0 122.59812559112764,70.58823529411765 80.58823529411765,70.58823529411765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="80" y1="70" x2="122" y2="70" style="stroke-width:2" />
+  <line x1="80" y1="83" x2="122" y2="83" />
+  <line x1="80" y1="97" x2="122" y2="97" />
+  <line x1="80" y1="110" x2="122" y2="110" />
+  <line x1="80" y1="122" x2="122" y2="122" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="80" y1="70" x2="80" y2="122" style="stroke-width:2" />
+  <line x1="101" y1="70" x2="101" y2="122" />
+  <line x1="122" y1="70" x2="122" y2="122" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="80.58823529411765,70.58823529411765 122.59812559112764,70.58823529411765 122.59812559112764,122.921568627451 80.58823529411765,122.921568627451" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="101.593180" y="142.921569" font-size="1.0rem" font-weight="100" text-anchor="middle" >72</text>
+  <text x="142.598126" y="96.754902" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,142.598126,96.754902)">157</text>
+  <text x="35.294118" y="107.627451" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,35.294118,107.627451)">360</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>y</span></div><div class='xr-var-dims'>(azimuth, range, volume_time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(90, 40, 36), meta=np.ndarray&gt;</div><input id='attrs-c3e592b2-b0ba-4747-9eb9-53d79bf18919' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c3e592b2-b0ba-4747-9eb9-53d79bf18919' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-df423ba7-55e3-4d9b-aefb-3aa933be8b92' class='xr-var-data-in' type='checkbox'><label for='data-df423ba7-55e3-4d9b-aefb-3aa933be8b92' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>north_south_distance_from_radar</dd><dt><span>units :</span></dt><dd>meters</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 15.52 MiB </td>
+                        <td> 506.25 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (360, 157, 72) </td>
+                        <td> (90, 40, 36) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 32 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="172" height="172" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="10" y1="13" x2="80" y2="83" />
+  <line x1="10" y1="26" x2="80" y2="97" />
+  <line x1="10" y1="40" x2="80" y2="110" />
+  <line x1="10" y1="52" x2="80" y2="122" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="52" style="stroke-width:2" />
+  <line x1="27" y1="17" x2="27" y2="69" />
+  <line x1="45" y1="35" x2="45" y2="87" />
+  <line x1="62" y1="52" x2="62" y2="105" />
+  <line x1="80" y1="70" x2="80" y2="122" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 80.58823529411765,70.58823529411765 80.58823529411765,122.921568627451 10.0,52.333333333333336" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="52" y2="0" style="stroke-width:2" />
+  <line x1="27" y1="17" x2="69" y2="17" />
+  <line x1="45" y1="35" x2="87" y2="35" />
+  <line x1="62" y1="52" x2="104" y2="52" />
+  <line x1="80" y1="70" x2="122" y2="70" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="80" y2="70" style="stroke-width:2" />
+  <line x1="31" y1="0" x2="101" y2="70" />
+  <line x1="52" y1="0" x2="122" y2="70" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 52.00989029700999,0.0 122.59812559112764,70.58823529411765 80.58823529411765,70.58823529411765" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="80" y1="70" x2="122" y2="70" style="stroke-width:2" />
+  <line x1="80" y1="83" x2="122" y2="83" />
+  <line x1="80" y1="97" x2="122" y2="97" />
+  <line x1="80" y1="110" x2="122" y2="110" />
+  <line x1="80" y1="122" x2="122" y2="122" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="80" y1="70" x2="80" y2="122" style="stroke-width:2" />
+  <line x1="101" y1="70" x2="101" y2="122" />
+  <line x1="122" y1="70" x2="122" y2="122" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="80.58823529411765,70.58823529411765 122.59812559112764,70.58823529411765 122.59812559112764,122.921568627451 80.58823529411765,122.921568627451" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="101.593180" y="142.921569" font-size="1.0rem" font-weight="100" text-anchor="middle" >72</text>
+  <text x="142.598126" y="96.754902" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,142.598126,96.754902)">157</text>
+  <text x="35.294118" y="107.627451" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,35.294118,107.627451)">360</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>z</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(18, 90, 79), meta=np.ndarray&gt;</div><input id='attrs-9a52722a-633e-422b-b8a3-791b63c11b61' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9a52722a-633e-422b-b8a3-791b63c11b61' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-68a80fc4-b79b-4663-8e04-77a428ac6be4' class='xr-var-data-in' type='checkbox'><label for='data-68a80fc4-b79b-4663-8e04-77a428ac6be4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>height_above_ground</dd><dt><span>units :</span></dt><dd>meters</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 15.52 MiB </td>
+                        <td> 499.92 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (18, 90, 79) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 32 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="30" x2="34" y2="54" />
+  <line x1="10" y1="60" x2="34" y2="84" />
+  <line x1="10" y1="90" x2="34" y2="114" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="22" y1="12" x2="74" y2="12" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="36" y1="0" x2="61" y2="24" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="54" x2="87" y2="54" />
+  <line x1="34" y1="84" x2="87" y2="84" />
+  <line x1="34" y1="114" x2="87" y2="114" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="61" y1="24" x2="61" y2="144" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-7c93e7c2-4dd0-4936-b730-1cbf8cae489a' class='xr-section-summary-in' type='checkbox'  ><label for='section-7c93e7c2-4dd0-4936-b730-1cbf8cae489a' class='xr-section-summary' >Data variables: <span>(30)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>DBZ</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-a9ef13a5-7d0c-4fab-82d8-3af7e0fe50b6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a9ef13a5-7d0c-4fab-82d8-3af7e0fe50b6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6147b6fb-5629-4789-a8c1-9accea43d19a' class='xr-var-data-in' type='checkbox'><label for='data-6147b6fb-5629-4789-a8c1-9accea43d19a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>maxDBZInRaw :</span></dt><dd>{&#x27;dbz99&#x27;: &#x27;39.6&#x27;, &#x27;dbzMax&#x27;: &#x27;59.6&#x27;}</dd><dt><span>sampling_ratio :</span></dt><dd>1.0</dd><dt><span>units :</span></dt><dd>dBZ</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 441.56 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DBZ_TOT</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-3928f26c-b8cf-46e8-bc0d-43653eb48478' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3928f26c-b8cf-46e8-bc0d-43653eb48478' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-94e52d4d-7f01-43aa-953a-3e40b7b83595' class='xr-var-data-in' type='checkbox'><label for='data-94e52d4d-7f01-43aa-953a-3e40b7b83595' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>sampling_ratio :</span></dt><dd>1.0</dd><dt><span>units :</span></dt><dd>dBZ</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 441.56 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>HCLASS</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-e93c66b7-807a-481e-9e05-356e71fb405c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e93c66b7-807a-481e-9e05-356e71fb405c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a91fbe66-bd43-4c57-8a00-6fad65ab7208' class='xr-var-data-in' type='checkbox'><label for='data-a91fbe66-bd43-4c57-8a00-6fad65ab7208' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>sampling_ratio :</span></dt><dd>1.0</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 441.56 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>KDP</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-8304f000-d83b-4405-a4c2-4a8f5fe55753' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8304f000-d83b-4405-a4c2-4a8f5fe55753' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4c4fe80c-d102-4c03-bc5e-507d7cc01809' class='xr-var-data-in' type='checkbox'><label for='data-4c4fe80c-d102-4c03-bc5e-507d7cc01809' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>sampling_ratio :</span></dt><dd>1.0</dd><dt><span>units :</span></dt><dd>deg/km</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 441.56 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MCSSX</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-b562ce61-55e8-4bfa-8953-1611433487fc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b562ce61-55e8-4bfa-8953-1611433487fc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c04782fd-aafc-4a44-adc4-cc9fa72c4a71' class='xr-var-data-in' type='checkbox'><label for='data-c04782fd-aafc-4a44-adc4-cc9fa72c4a71' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>countInRaw :</span></dt><dd>{&#x27;NoData&#x27;: 747333, &#x27;NoMetClttr&#x27;: 14711, &#x27;NoMetBioExtd&#x27;: 126679, &#x27;MetRain&#x27;: 17619, &#x27;MetWetSnow&#x27;: 13618, &#x27;MetSnow&#x27;: 102587, &#x27;MetGraupel&#x27;: 12766, &#x27;MetHail&#x27;: 407, &#x27;PercentValidData&#x27;: &#x27;27.84&#x27;}</dd><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>legend :</span></dt><dd>{0: &#x27;NoMetClttr&#x27;, 1: &#x27;NoMetBioExtd&#x27;, 2: &#x27;MetRain&#x27;, 3: &#x27;MetWetSnow&#x27;, 4: &#x27;MetSnow&#x27;, 5: &#x27;MetGraupel&#x27;, 6: &#x27;MetHail&#x27;}</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 15.52 MiB </td>
+                        <td> 220.78 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>PHIDP</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-67988d27-75ca-4934-ac8c-352772c2590f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-67988d27-75ca-4934-ac8c-352772c2590f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-395f3348-743e-457c-9b17-9aee434935f1' class='xr-var-data-in' type='checkbox'><label for='data-395f3348-743e-457c-9b17-9aee434935f1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>sampling_ratio :</span></dt><dd>1.0</dd><dt><span>units :</span></dt><dd>deg</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 441.56 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RHOHV</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-1e2ce8f2-4c6a-435d-abbd-71fd6de80ddb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1e2ce8f2-4c6a-435d-abbd-71fd6de80ddb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c79b25ac-39c4-44d1-89a4-2192199bc9d7' class='xr-var-data-in' type='checkbox'><label for='data-c79b25ac-39c4-44d1-89a4-2192199bc9d7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>sampling_ratio :</span></dt><dd>1.0</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 441.56 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>VEL</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-387598a7-6155-4c03-83a5-6c4066c542f1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-387598a7-6155-4c03-83a5-6c4066c542f1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-13bd91ef-909f-45bf-877d-1e347e143ba4' class='xr-var-data-in' type='checkbox'><label for='data-13bd91ef-909f-45bf-877d-1e347e143ba4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>sampling_ratio :</span></dt><dd>1.0</dd><dt><span>units :</span></dt><dd>m/s</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 441.56 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>WIDTH</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-cfd97e58-b4ec-4e09-839c-81ab7a35f9d9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cfd97e58-b4ec-4e09-839c-81ab7a35f9d9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4617a59b-ef44-4433-9045-6727468d36d9' class='xr-var-data-in' type='checkbox'><label for='data-4617a59b-ef44-4433-9045-6727468d36d9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>sampling_ratio :</span></dt><dd>1.0</dd><dt><span>units :</span></dt><dd>m/s</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 441.56 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ZDR</span></div><div class='xr-var-dims'>(volume_time, azimuth, range)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360, 157), meta=np.ndarray&gt;</div><input id='attrs-237bbf18-9c6c-4e14-926e-444c8fd37f4c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-237bbf18-9c6c-4e14-926e-444c8fd37f4c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0448d93d-acfd-4518-a4aa-4bd87afa6f94' class='xr-var-data-in' type='checkbox'><label for='data-0448d93d-acfd-4518-a4aa-4bd87afa6f94' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>grid_mapping :</span></dt><dd>grid_mapping</dd><dt><span>sampling_ratio :</span></dt><dd>1.0</dd><dt><span>units :</span></dt><dd>dB</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 31.05 MiB </td>
+                        <td> 441.56 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360, 157) </td>
+                        <td> (1, 360, 157) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="137" height="194" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="10" y1="120" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="120" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="121" />
+  <line x1="12" y1="2" x2="12" y2="122" />
+  <line x1="13" y1="3" x2="13" y2="123" />
+  <line x1="15" y1="5" x2="15" y2="125" />
+  <line x1="16" y1="6" x2="16" y2="126" />
+  <line x1="17" y1="7" x2="17" y2="127" />
+  <line x1="18" y1="8" x2="18" y2="128" />
+  <line x1="20" y1="10" x2="20" y2="130" />
+  <line x1="21" y1="11" x2="21" y2="131" />
+  <line x1="22" y1="12" x2="22" y2="132" />
+  <line x1="24" y1="14" x2="24" y2="134" />
+  <line x1="25" y1="15" x2="25" y2="135" />
+  <line x1="26" y1="16" x2="26" y2="136" />
+  <line x1="28" y1="18" x2="28" y2="138" />
+  <line x1="29" y1="19" x2="29" y2="139" />
+  <line x1="30" y1="20" x2="30" y2="140" />
+  <line x1="31" y1="21" x2="31" y2="141" />
+  <line x1="33" y1="23" x2="33" y2="143" />
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 34.71170017471176,24.71170017471176 34.71170017471176,144.71170017471175 10.0,120.0" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="62" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="63" y2="1" />
+  <line x1="12" y1="2" x2="64" y2="2" />
+  <line x1="13" y1="3" x2="66" y2="3" />
+  <line x1="15" y1="5" x2="67" y2="5" />
+  <line x1="16" y1="6" x2="68" y2="6" />
+  <line x1="17" y1="7" x2="69" y2="7" />
+  <line x1="18" y1="8" x2="71" y2="8" />
+  <line x1="20" y1="10" x2="72" y2="10" />
+  <line x1="21" y1="11" x2="74" y2="11" />
+  <line x1="22" y1="12" x2="75" y2="12" />
+  <line x1="24" y1="14" x2="76" y2="14" />
+  <line x1="25" y1="15" x2="77" y2="15" />
+  <line x1="26" y1="16" x2="79" y2="16" />
+  <line x1="28" y1="18" x2="80" y2="18" />
+  <line x1="29" y1="19" x2="81" y2="19" />
+  <line x1="30" y1="20" x2="82" y2="20" />
+  <line x1="31" y1="21" x2="84" y2="21" />
+  <line x1="33" y1="23" x2="85" y2="23" />
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="34" y2="24" style="stroke-width:2" />
+  <line x1="62" y1="0" x2="87" y2="24" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 62.333333333333336,0.0 87.0450335080451,24.71170017471176 34.71170017471176,24.71170017471176" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="34" y1="24" x2="87" y2="24" style="stroke-width:2" />
+  <line x1="34" y1="144" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="34" y1="24" x2="34" y2="144" style="stroke-width:2" />
+  <line x1="87" y1="24" x2="87" y2="144" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="34.71170017471176,24.71170017471176 87.0450335080451,24.71170017471176 87.0450335080451,144.71170017471175 34.71170017471176,144.71170017471175" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.878367" y="164.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" >157</text>
+  <text x="107.045034" y="84.711700" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,107.045034,84.711700)">360</text>
+  <text x="12.355850" y="152.355850" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,12.355850,152.355850)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>antenna_transition</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-ca306dbd-5b0a-442e-8920-92b4b3547592' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ca306dbd-5b0a-442e-8920-92b4b3547592' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9c00c62c-2d55-4e03-9b2d-80c13adb7e17' class='xr-var-data-in' type='checkbox'><label for='data-9c00c62c-2d55-4e03-9b2d-80c13adb7e17' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>1 if antenna is in transition, 0 otherwise</dd><dt><span>long_name :</span></dt><dd>antenna_is_in_transition_between_sweeps</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 101.25 kiB </td>
+                        <td> 1.41 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>follow_mode</span></div><div class='xr-var-dims'>(volume_time)</div><div class='xr-var-dtype'>|S32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(72,), meta=np.ndarray&gt;</div><input id='attrs-10acef94-7964-43dd-b8e1-faa0abb1b863' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-10acef94-7964-43dd-b8e1-faa0abb1b863' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dd10b1eb-6b82-4746-a699-27721e538b0c' class='xr-var-data-in' type='checkbox'><label for='data-dd10b1eb-6b82-4746-a699-27721e538b0c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>follow_mode_for_scan_strategy</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd><dt><span>options :</span></dt><dd>none, sun, vehicle, aircraft, target, manual</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 2.25 kiB </td>
+                        <td> 2.25 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72,) </td>
+                        <td> (72,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> |S32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="77" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="27" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="27" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,27.054035963169408 0.0,27.054035963169408" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="47.054036" font-size="1.0rem" font-weight="100" text-anchor="middle" >72</text>
+  <text x="140.000000" y="13.527018" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,13.527018)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>measured_transmit_power_h</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-ac1a52e6-89f7-4569-8b6a-b3dd2e94b79d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ac1a52e6-89f7-4569-8b6a-b3dd2e94b79d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e74366e6-d134-42f0-90f4-b27186d80d7c' class='xr-var-data-in' type='checkbox'><label for='data-e74366e6-d134-42f0-90f4-b27186d80d7c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>measured_radar_transmit_power_h_channel</dd><dt><span>meta_group :</span></dt><dd>radar_parameters</dd><dt><span>units :</span></dt><dd>dBm</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 101.25 kiB </td>
+                        <td> 1.41 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>measured_transmit_power_v</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-bedba5f3-d8ec-42bd-9659-cc1d411255c3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bedba5f3-d8ec-42bd-9659-cc1d411255c3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8b54cb43-037a-4563-80c2-e5208830ca89' class='xr-var-data-in' type='checkbox'><label for='data-8b54cb43-037a-4563-80c2-e5208830ca89' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>measured_radar_transmit_power_v_channel</dd><dt><span>meta_group :</span></dt><dd>radar_parameters</dd><dt><span>units :</span></dt><dd>dBm</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 101.25 kiB </td>
+                        <td> 1.41 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>n_samples</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-66101651-32eb-4f30-9aea-a3a78d2aefac' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-66101651-32eb-4f30-9aea-a3a78d2aefac' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-26da1761-10d3-455f-94a0-0c3bf25eceea' class='xr-var-data-in' type='checkbox'><label for='data-26da1761-10d3-455f-94a0-0c3bf25eceea' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>number_of_samples_used_to_compute_moments</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 202.50 kiB </td>
+                        <td> 2.81 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nyquist_velocity</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-9b4cccfe-4a11-42bf-bac4-c7a79d8ef84c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9b4cccfe-4a11-42bf-bac4-c7a79d8ef84c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9e234321-1687-4be4-a892-1430198586fc' class='xr-var-data-in' type='checkbox'><label for='data-9e234321-1687-4be4-a892-1430198586fc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unambiguous_doppler_velocity</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd><dt><span>units :</span></dt><dd>meters per second</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 101.25 kiB </td>
+                        <td> 1.41 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>prt</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>timedelta64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-1477253d-9818-4370-b40a-31aadbf558da' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1477253d-9818-4370-b40a-31aadbf558da' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a84e716a-a01a-4402-b30f-64f82b88959d' class='xr-var-data-in' type='checkbox'><label for='data-a84e716a-a01a-4402-b30f-64f82b88959d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>pulse_repetition_time</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 202.50 kiB </td>
+                        <td> 2.81 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> timedelta64[ns] numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>prt_mode</span></div><div class='xr-var-dims'>(volume_time)</div><div class='xr-var-dtype'>|S32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(72,), meta=np.ndarray&gt;</div><input id='attrs-7c25aa5d-7af9-4c9a-9359-84b96a007f57' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7c25aa5d-7af9-4c9a-9359-84b96a007f57' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-186780a6-ddc7-40f0-b6b4-9ac94ae09e1a' class='xr-var-data-in' type='checkbox'><label for='data-186780a6-ddc7-40f0-b6b4-9ac94ae09e1a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>transmit_pulse_mode</dd><dt><span>meta_group :</span></dt><dd>radar_parameters</dd><dt><span>options :</span></dt><dd>fixed, staggered, dual</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 2.25 kiB </td>
+                        <td> 2.25 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72,) </td>
+                        <td> (72,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> |S32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="77" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="27" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="27" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,27.054035963169408 0.0,27.054035963169408" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="47.054036" font-size="1.0rem" font-weight="100" text-anchor="middle" >72</text>
+  <text x="140.000000" y="13.527018" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,13.527018)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>prt_ratio</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>timedelta64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-56d9eb06-63de-48ff-a763-450ef0e22db9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-56d9eb06-63de-48ff-a763-450ef0e22db9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bc76870d-78fe-42d1-b966-8e5820f28a35' class='xr-var-data-in' type='checkbox'><label for='data-bc76870d-78fe-42d1-b966-8e5820f28a35' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>pulse_repetition_frequency_ratio</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 202.50 kiB </td>
+                        <td> 2.81 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> timedelta64[ns] numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pulse_width</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>timedelta64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-6b028a4d-04aa-47a7-b265-2c76be166d02' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6b028a4d-04aa-47a7-b265-2c76be166d02' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-afdf8713-19cc-4d95-8a4f-a2227d17064d' class='xr-var-data-in' type='checkbox'><label for='data-afdf8713-19cc-4d95-8a4f-a2227d17064d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>transmitter_pulse_width</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 202.50 kiB </td>
+                        <td> 2.81 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> timedelta64[ns] numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>r_calib_index</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-df74b41e-ee69-4375-9f5c-335b1adc7245' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-df74b41e-ee69-4375-9f5c-335b1adc7245' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7df3f5d2-4b4a-40cf-a348-cbd1b93ad986' class='xr-var-data-in' type='checkbox'><label for='data-7df3f5d2-4b4a-40cf-a348-cbd1b93ad986' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>This is the index for the calibration which applies to this ray</dd><dt><span>long_name :</span></dt><dd>calibration_data_array_index_per_ray</dd><dt><span>meta_group :</span></dt><dd>radar_calibration</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 202.50 kiB </td>
+                        <td> 2.81 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ray_gate_spacing</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-a5d81fd8-4940-4872-a9e7-c7d664053ed4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a5d81fd8-4940-4872-a9e7-c7d664053ed4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b101a08a-8d38-4a3e-ba30-84252ff21257' class='xr-var-data-in' type='checkbox'><label for='data-b101a08a-8d38-4a3e-ba30-84252ff21257' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>gate_spacing_for_ray</dd><dt><span>units :</span></dt><dd>meters</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 101.25 kiB </td>
+                        <td> 1.41 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ray_n_gates</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-b10138f3-1789-4bea-8a31-eb51ea206762' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b10138f3-1789-4bea-8a31-eb51ea206762' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-00fe5528-577d-4432-938b-3a8743e513e7' class='xr-var-data-in' type='checkbox'><label for='data-00fe5528-577d-4432-938b-3a8743e513e7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>number_of_gates</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 202.50 kiB </td>
+                        <td> 2.81 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ray_start_index</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-3d88af99-7ff2-4107-8b8b-e37ae0cbe6ee' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3d88af99-7ff2-4107-8b8b-e37ae0cbe6ee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f58f0179-1647-463c-be18-59934fe5a71e' class='xr-var-data-in' type='checkbox'><label for='data-f58f0179-1647-463c-be18-59934fe5a71e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>array_index_to_start_of_ray</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 202.50 kiB </td>
+                        <td> 2.81 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ray_start_range</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-73a0a273-de8b-4014-9e7a-ae7d4a98b03a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-73a0a273-de8b-4014-9e7a-ae7d4a98b03a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fc9a3f57-7dd2-44b3-b070-3e994521d6eb' class='xr-var-data-in' type='checkbox'><label for='data-fc9a3f57-7dd2-44b3-b070-3e994521d6eb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>start_range_for_ray</dd><dt><span>units :</span></dt><dd>meters</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 101.25 kiB </td>
+                        <td> 1.41 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>scan_rate</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-c6bdd72e-218d-4584-8206-33a391ed7526' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c6bdd72e-218d-4584-8206-33a391ed7526' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c5e9aebf-0aed-473f-a58e-78024b2ab0b0' class='xr-var-data-in' type='checkbox'><label for='data-c5e9aebf-0aed-473f-a58e-78024b2ab0b0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>antenna_angle_scan_rate</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd><dt><span>units :</span></dt><dd>degrees per second</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 101.25 kiB </td>
+                        <td> 1.41 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sweep_fixed_angle</span></div><div class='xr-var-dims'>(volume_time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(72,), meta=np.ndarray&gt;</div><input id='attrs-9fbbce9e-7f1f-4688-9924-496d3ad3c57b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9fbbce9e-7f1f-4688-9924-496d3ad3c57b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c3104d63-37e3-4a9c-877d-2fd40cc3aa10' class='xr-var-data-in' type='checkbox'><label for='data-c3104d63-37e3-4a9c-877d-2fd40cc3aa10' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>ray_target_fixed_angle</dd><dt><span>units :</span></dt><dd>degrees</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 288 B </td>
+                        <td> 288 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72,) </td>
+                        <td> (72,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="77" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="27" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="27" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,27.054035963169408 0.0,27.054035963169408" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="47.054036" font-size="1.0rem" font-weight="100" text-anchor="middle" >72</text>
+  <text x="140.000000" y="13.527018" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,13.527018)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sweep_mode</span></div><div class='xr-var-dims'>(volume_time)</div><div class='xr-var-dtype'>&lt;U20</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(72,), meta=np.ndarray&gt;</div><input id='attrs-7415f54b-27cd-4d08-b5c3-7aa427cd01e1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7415f54b-27cd-4d08-b5c3-7aa427cd01e1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fb085330-9c83-452e-9e34-c1df06b90863' class='xr-var-data-in' type='checkbox'><label for='data-fb085330-9c83-452e-9e34-c1df06b90863' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 5.62 kiB </td>
+                        <td> 5.62 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72,) </td>
+                        <td> (72,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> <U20 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="77" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="27" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="27" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,27.054035963169408 0.0,27.054035963169408" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="47.054036" font-size="1.0rem" font-weight="100" text-anchor="middle" >72</text>
+  <text x="140.000000" y="13.527018" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,13.527018)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sweep_number</span></div><div class='xr-var-dims'>(volume_time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(72,), meta=np.ndarray&gt;</div><input id='attrs-75cd918a-8b81-4737-9f52-1e23a16defc0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-75cd918a-8b81-4737-9f52-1e23a16defc0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0be83c32-7ff0-4f56-a1dd-94ef6c983a36' class='xr-var-data-in' type='checkbox'><label for='data-0be83c32-7ff0-4f56-a1dd-94ef6c983a36' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>sweep_index_number_0_based</dd><dt><span>units :</span></dt><dd></dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 576 B </td>
+                        <td> 576 B </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72,) </td>
+                        <td> (72,) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 1 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float64 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="77" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="27" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="27" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="27" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,27.054035963169408 0.0,27.054035963169408" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="47.054036" font-size="1.0rem" font-weight="100" text-anchor="middle" >72</text>
+  <text x="140.000000" y="13.527018" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,13.527018)">1</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>unambiguous_range</span></div><div class='xr-var-dims'>(volume_time, azimuth)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 360), meta=np.ndarray&gt;</div><input id='attrs-53b7c5de-40d6-4c51-a17e-1447fac57d17' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-53b7c5de-40d6-4c51-a17e-1447fac57d17' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9e89d72e-6ea5-4c6e-a1f2-f8428990528a' class='xr-var-data-in' type='checkbox'><label for='data-9e89d72e-6ea5-4c6e-a1f2-f8428990528a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unambiguous_range</dd><dt><span>meta_group :</span></dt><dd>instrument_parameters</dd><dt><span>units :</span></dt><dd>meters</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table style="border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 101.25 kiB </td>
+                        <td> 1.41 kiB </td>
+                    </tr>
+                    
+                    <tr>
+                        <th> Shape </th>
+                        <td> (72, 360) </td>
+                        <td> (1, 360) </td>
+                    </tr>
+                    <tr>
+                        <th> Dask graph </th>
+                        <td colspan="2"> 72 chunks in 2 graph layers </td>
+                    </tr>
+                    <tr>
+                        <th> Data type </th>
+                        <td colspan="2"> float32 numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="170" height="92" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="0" y1="0" x2="120" y2="0" style="stroke-width:2" />
+  <line x1="0" y1="1" x2="120" y2="1" />
+  <line x1="0" y1="4" x2="120" y2="4" />
+  <line x1="0" y1="6" x2="120" y2="6" />
+  <line x1="0" y1="8" x2="120" y2="8" />
+  <line x1="0" y1="10" x2="120" y2="10" />
+  <line x1="0" y1="12" x2="120" y2="12" />
+  <line x1="0" y1="15" x2="120" y2="15" />
+  <line x1="0" y1="17" x2="120" y2="17" />
+  <line x1="0" y1="19" x2="120" y2="19" />
+  <line x1="0" y1="21" x2="120" y2="21" />
+  <line x1="0" y1="23" x2="120" y2="23" />
+  <line x1="0" y1="26" x2="120" y2="26" />
+  <line x1="0" y1="28" x2="120" y2="28" />
+  <line x1="0" y1="30" x2="120" y2="30" />
+  <line x1="0" y1="32" x2="120" y2="32" />
+  <line x1="0" y1="35" x2="120" y2="35" />
+  <line x1="0" y1="37" x2="120" y2="37" />
+  <line x1="0" y1="39" x2="120" y2="39" />
+  <line x1="0" y1="42" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="0" y1="0" x2="0" y2="42" style="stroke-width:2" />
+  <line x1="120" y1="0" x2="120" y2="42" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="0.0,0.0 120.0,0.0 120.0,42.00989029700999 0.0,42.00989029700999" style="fill:#8B4903A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="60.000000" y="62.009890" font-size="1.0rem" font-weight="100" text-anchor="middle" >360</text>
+  <text x="140.000000" y="21.004945" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,21.004945)">72</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-3a043864-e070-470f-b19f-88ff7393fa85' class='xr-section-summary-in' type='checkbox'  ><label for='section-3a043864-e070-470f-b19f-88ff7393fa85' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>azimuth</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7a96b3cf-a47a-4b29-ba74-f14258e6aff9' class='xr-index-data-in' type='checkbox'/><label for='index-7a96b3cf-a47a-4b29-ba74-f14258e6aff9' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
+       ...
+       350.5, 351.5, 352.5, 353.5, 354.5, 355.5, 356.5, 357.5, 358.5, 359.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;azimuth&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>range</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5c782979-858a-4ffc-8855-9f335ab7c5ae' class='xr-index-data-in' type='checkbox'/><label for='index-5c782979-858a-4ffc-8855-9f335ab7c5ae' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  150.0,   450.0,   750.0,  1050.0,  1350.0,  1650.0,  1950.0,  2250.0,
+        2550.0,  2850.0,
+       ...
+       44250.0, 44550.0, 44850.0, 45150.0, 45450.0, 45750.0, 46050.0, 46350.0,
+       46650.0, 46950.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;range&#x27;, length=157))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>volume_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d5501f63-cb83-4ff6-927a-ae8bd2681c66' class='xr-index-data-in' type='checkbox'/><label for='index-d5501f63-cb83-4ff6-927a-ae8bd2681c66' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2024-05-22 13:03:09.983000&#x27;, &#x27;2024-05-22 13:08:10.591000&#x27;,
+               &#x27;2024-05-22 13:13:11.117000&#x27;, &#x27;2024-05-22 13:18:09.518000&#x27;,
+               &#x27;2024-05-22 13:23:10.944000&#x27;, &#x27;2024-05-22 13:28:10.779000&#x27;,
+               &#x27;2024-05-22 13:33:10.554000&#x27;, &#x27;2024-05-22 13:38:10.427000&#x27;,
+               &#x27;2024-05-22 13:43:09.924000&#x27;, &#x27;2024-05-22 13:48:11.792000&#x27;,
+               &#x27;2024-05-22 13:53:10.660000&#x27;, &#x27;2024-05-22 13:58:11.433000&#x27;,
+               &#x27;2024-05-22 14:03:10.901000&#x27;, &#x27;2024-05-22 14:08:11.371000&#x27;,
+               &#x27;2024-05-22 14:13:10.564000&#x27;, &#x27;2024-05-22 14:18:10.953000&#x27;,
+               &#x27;2024-05-22 14:23:11.401000&#x27;, &#x27;2024-05-22 14:28:10.146000&#x27;,
+               &#x27;2024-05-22 14:33:10.513000&#x27;, &#x27;2024-05-22 14:38:10.719000&#x27;,
+               &#x27;2024-05-22 14:43:10.529000&#x27;, &#x27;2024-05-22 14:48:10.656000&#x27;,
+               &#x27;2024-05-22 14:53:10.421000&#x27;, &#x27;2024-05-22 14:58:10.462000&#x27;,
+               &#x27;2024-05-22 15:03:11.174000&#x27;, &#x27;2024-05-22 15:08:09.818000&#x27;,
+               &#x27;2024-05-22 15:13:10.806000&#x27;, &#x27;2024-05-22 15:18:10.864000&#x27;,
+               &#x27;2024-05-22 15:23:11.275000&#x27;, &#x27;2024-05-22 15:28:11.142000&#x27;,
+               &#x27;2024-05-22 15:33:10.983000&#x27;, &#x27;2024-05-22 15:38:10.625000&#x27;,
+               &#x27;2024-05-22 15:43:11.607000&#x27;, &#x27;2024-05-22 15:48:10.453000&#x27;,
+               &#x27;2024-05-22 15:53:10.593000&#x27;, &#x27;2024-05-22 15:58:10.586000&#x27;,
+               &#x27;2024-05-22 16:03:10.650000&#x27;, &#x27;2024-05-22 16:08:11.264000&#x27;,
+               &#x27;2024-05-22 16:13:10.376000&#x27;, &#x27;2024-05-22 16:18:09.669000&#x27;,
+               &#x27;2024-05-22 16:23:09.757000&#x27;, &#x27;2024-05-22 16:28:11.557000&#x27;,
+               &#x27;2024-05-22 16:33:10.492000&#x27;, &#x27;2024-05-22 16:38:10.737000&#x27;,
+               &#x27;2024-05-22 16:43:10.391000&#x27;, &#x27;2024-05-22 16:48:10.422000&#x27;,
+               &#x27;2024-05-22 16:53:10.806000&#x27;, &#x27;2024-05-22 16:58:10.601000&#x27;,
+               &#x27;2024-05-22 17:03:10.385000&#x27;, &#x27;2024-05-22 17:08:10.465000&#x27;,
+               &#x27;2024-05-22 17:13:10.764000&#x27;, &#x27;2024-05-22 17:18:11.595000&#x27;,
+               &#x27;2024-05-22 17:23:11.203000&#x27;, &#x27;2024-05-22 17:28:10.140000&#x27;,
+               &#x27;2024-05-22 17:33:10.535000&#x27;, &#x27;2024-05-22 17:38:10.501000&#x27;,
+               &#x27;2024-05-22 17:43:11.240000&#x27;, &#x27;2024-05-22 17:48:10.543000&#x27;,
+               &#x27;2024-05-22 17:53:11.625000&#x27;, &#x27;2024-05-22 17:58:10.708000&#x27;,
+               &#x27;2024-05-22 18:03:10.707000&#x27;, &#x27;2024-05-22 18:08:11.868000&#x27;,
+               &#x27;2024-05-22 18:13:10.484000&#x27;, &#x27;2024-05-22 18:18:10.179000&#x27;,
+               &#x27;2024-05-22 18:23:10.220000&#x27;, &#x27;2024-05-22 18:28:10.184000&#x27;,
+               &#x27;2024-05-22 18:33:10.573000&#x27;, &#x27;2024-05-22 18:38:10.927000&#x27;,
+               &#x27;2024-05-22 18:43:11.237000&#x27;, &#x27;2024-05-22 18:48:11.264000&#x27;,
+               &#x27;2024-05-22 18:53:10.772000&#x27;, &#x27;2024-05-22 18:58:11.074000&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;volume_time&#x27;, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d991cbf1-7ffd-41a3-bb42-5a18c806a4ef' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d991cbf1-7ffd-41a3-bb42-5a18c806a4ef' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div>
